@@ -13,6 +13,16 @@ public class Playermovement : MonoBehaviour
 
     private float rotation_y = -90f;
 
+    //health (UBAH AJA YAA, INI BUAT SEMENTARA AJA)
+    public int maxHP = 10;
+    int currentHP;
+
+    //health (UBAH AJA YAA, INI BUAT SEMENTARA AJA) MAAFF
+    public void Start()
+    {
+        currentHP = maxHP;
+    }
+
     void Awake()
     {
         myBody = GetComponent<Rigidbody>();
@@ -84,5 +94,12 @@ public class Playermovement : MonoBehaviour
         bool isWalking = horizontalInput != 0 || verticalInput != 0;
 
         player_Anim.Walk(isWalking);
+    }
+
+    //health (UBAH AJA YAA, INI BUAT SEMENTARA AJA)
+    public void TakeDamage(int damageAmount)
+    {
+        currentHP -= damageAmount;
+        Debug.Log(currentHP + "/" + maxHP);
     }
 }
