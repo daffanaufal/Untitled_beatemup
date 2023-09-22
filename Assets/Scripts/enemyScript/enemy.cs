@@ -9,6 +9,9 @@ public class enemy : MonoBehaviour
     public int maxHP = 10;
     int currentHP;
 
+    protected bool dead;
+	public event System.Action OnDeath;
+
     public Animator animator;
     public Slider healthBar;
     
@@ -22,12 +25,23 @@ public class enemy : MonoBehaviour
         currentHP -= damageAmount;
         if (currentHP <= 0)
         {
-            animator.SetTrigger("die");
-            GetComponent<Collider>().enabled=false;
+            Die();
         } 
         else
         {
             animator.SetTrigger("damage");
+            //AudioManager.instance.Play("enemyGetHit");
         }
     }
+    protected void Die() 
+    {
+		dead = true;
+		if (OnDeath != null) {
+			OnDeath();
+		}
+		GameObject.Destroy (gameObject,1f);
+        animator.SetTrigger("die");
+        GetComponent<Collider>().enabled=false;
+        //AudioManager.instance.Play("enemyDeath");
+	}
 }
