@@ -5,47 +5,66 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public Button buttonStage2;
-    public Button buttonStage3;
+    public GameObject previewStage1;
+    public GameObject previewStage2;
+    public GameObject previewStage3;
+
+    private bool isButtonStage2Selected = true;
+
+    // Tambahkan dua GameObject berikut untuk merepresentasikan tombol Stage 2 dan Stage 3
+    public GameObject buttonStage2;
+    public GameObject buttonStage3;
 
     void Start()
     {
-        ResetStage();
         CheckStage();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            isButtonStage2Selected = true;
+            buttonStage2.GetComponent<Button>().Select(); // Memilih tombol tahap 2
+            previewStage2.SetActive(true);
+            previewStage1.SetActive(false);
+            previewStage3.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            isButtonStage2Selected = false;
+            buttonStage3.GetComponent<Button>().Select(); // Memilih tombol tahap 3
+            previewStage3.SetActive(true);
+            previewStage1.SetActive(false);
+            previewStage2.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isButtonStage2Selected)
+            {
+                // Lakukan sesuatu saat tombol tahap 2 dipilih
+            }
+            else
+            {
+                // Lakukan sesuatu saat tombol tahap 3 dipilih
+            }
+        }
     }
 
     public void CheckStage()
     {
-        int statusStage2 = PlayerPrefs.GetInt("Stage2");     //int statusStage2 = PlayerPrefs.GetInt("Stage2", 0);
-        int statusStageBoss = PlayerPrefs.GetInt("StageBoss");     //int statusStage3 = PlayerPrefs.GetInt("StageBoss", 0);
+        int statusStage2 = PlayerPrefs.GetInt("Stage2");
+        int statusStageBoss = PlayerPrefs.GetInt("StageBoss");
 
         if (statusStage2 == 1)
-            buttonStage2.interactable = true;
+            buttonStage2.GetComponent<Button>().interactable = true;
         else
-            buttonStage2.interactable = false;
+            buttonStage2.GetComponent<Button>().interactable = false;
 
         if (statusStageBoss == 1)
-            buttonStage3.interactable = true;
+            buttonStage3.GetComponent<Button>().interactable = true;
         else
-            buttonStage3.interactable = false;
+            buttonStage3.GetComponent<Button>().interactable = false;
     }
-
-    public void ResetStage()
-    {
-        PlayerPrefs.DeleteKey("Stage2");
-        PlayerPrefs.DeleteKey("StageBoss");
-        PlayerPrefs.Save();
-    }
-
-    //public void ResetPlayerPrefs()
-    //{
-        //PlayerPrefs.DeleteAll();
-        //PlayerPrefs.Save(); 
-    //}
-
-
-    //Stage2 
-    //Stage3
-    //1 == Unlock
-    //0 == Lock
 }
