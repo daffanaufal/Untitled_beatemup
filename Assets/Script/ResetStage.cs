@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ResetStage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ResetPlayerPrefs()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerPrefs.DeleteAll(); // Ini akan menghapus semua data dalam PlayerPrefs
+        PlayerPrefs.Save(); // Simpan perubahan
     }
 }
