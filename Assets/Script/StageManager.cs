@@ -5,66 +5,59 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public GameObject previewStage1;
-    public GameObject previewStage2;
-    public GameObject previewStage3;
+    public Button buttonStage2;
+    public Button buttonStage3;
 
-    private bool isButtonStage2Selected = true;
-
-    // Tambahkan dua GameObject berikut untuk merepresentasikan tombol Stage 2 dan Stage 3
-    public GameObject buttonStage2;
-    public GameObject buttonStage3;
+    // Gunakan flag untuk menandai apakah stage sudah di-set sebagai terbuka
+    private bool stage2Unlocked = false;
+    private bool stageBossUnlocked = false;
 
     void Start()
     {
         CheckStage();
     }
 
-    void Update()
+    public void CheckStage()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // Periksa apakah stage sudah terbuka sebelumnya
+        if (!stage2Unlocked)
         {
-            isButtonStage2Selected = true;
-            buttonStage2.GetComponent<Button>().Select(); // Memilih tombol tahap 2
-            previewStage2.SetActive(true);
-            previewStage1.SetActive(false);
-            previewStage3.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            isButtonStage2Selected = false;
-            buttonStage3.GetComponent<Button>().Select(); // Memilih tombol tahap 3
-            previewStage3.SetActive(true);
-            previewStage1.SetActive(false);
-            previewStage2.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isButtonStage2Selected)
+            int statusStage2 = PlayerPrefs.GetInt("Stage2");
+            if (statusStage2 == 1)
             {
-                // Lakukan sesuatu saat tombol tahap 2 dipilih
+                buttonStage2.interactable = true;
+                stage2Unlocked = true; // Tandai bahwa stage sudah terbuka
             }
             else
             {
-                // Lakukan sesuatu saat tombol tahap 3 dipilih
+                buttonStage2.interactable = false;
+            }
+        }
+
+        // Periksa apakah stage Boss sudah terbuka sebelumnya
+        if (!stageBossUnlocked)
+        {
+            int statusStageBoss = PlayerPrefs.GetInt("StageBoss");
+            if (statusStageBoss == 1)
+            {
+                buttonStage3.interactable = true;
+                stageBossUnlocked = true; // Tandai bahwa stage Boss sudah terbuka
+            }
+            else
+            {
+                buttonStage3.interactable = false;
             }
         }
     }
 
-    public void CheckStage()
+    public void DeleteAll()
     {
-        int statusStage2 = PlayerPrefs.GetInt("Stage2");
-        int statusStageBoss = PlayerPrefs.GetInt("StageBoss");
-
-        if (statusStage2 == 1)
-            buttonStage2.GetComponent<Button>().interactable = true;
-        else
-            buttonStage2.GetComponent<Button>().interactable = false;
-
-        if (statusStageBoss == 1)
-            buttonStage3.GetComponent<Button>().interactable = true;
-        else
-            buttonStage3.GetComponent<Button>().interactable = false;
+        PlayerPrefs.DeleteAll();
     }
+
+
+    //Stage2
+    //StageBoss
+    //1 == Unlock
+    //0 == Lock
 }
