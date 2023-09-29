@@ -9,7 +9,7 @@ public class NextStage : MonoBehaviour
     public void nextStage (string key)
     {
         //Next Stage Unlocked
-        PlayerPrefs.GetInt(key, 1); //PlayerPrefs.SetInt(key, 1);
+        PlayerPrefs.SetInt(key, 1); //PlayerPrefs.SetInt(key, 1);
         scriptScene.PindahScene("StageSelection");
     }
 
