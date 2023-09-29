@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        //ResetStage();
         CheckStage();
     }
 
@@ -50,10 +51,13 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public void DeleteAll()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+    //public void ResetStage()
+    //{
+        //PlayerPrefs.DeleteKey("Stage2"); // Hapus data PlayerPrefs untuk Stage2
+        //PlayerPrefs.DeleteKey("StageBoss"); // Hapus data PlayerPrefs untuk StageBoss
+    //}
+
+
 
 
     //Stage2
