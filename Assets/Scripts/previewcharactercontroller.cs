@@ -21,6 +21,7 @@ public class previewcharactercontroller : MonoBehaviour
     {
         preview1.SetActive(true);
         previewability1.SetActive(true);
+   CharacterSelect
         preview4.SetActive(false);
         previewability4.SetActive(false);
     }
@@ -30,7 +31,6 @@ public class previewcharactercontroller : MonoBehaviour
         previewability2.SetActive(true);
         preview4.SetActive(false);
         previewability4.SetActive(false);
-
     }
 
     public void ShowPreview3()
@@ -39,7 +39,6 @@ public class previewcharactercontroller : MonoBehaviour
         previewability3.SetActive(true);
         preview4.SetActive(false);
         previewability4.SetActive(false);
-
     }
 
     public void HidePreviews()
@@ -52,6 +51,5 @@ public class previewcharactercontroller : MonoBehaviour
         previewability3.SetActive(false);
         preview4.SetActive(true);
         previewability4.SetActive(true);
-
     }
 }
