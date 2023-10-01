@@ -18,11 +18,30 @@ public class attackKick : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.LookAt(player);
-        /*float distance = Vector3.Distance(player.position, animator.transform.position);
+        float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > 2f)
-            animator.SetBool("isKick",false);*/
+            animator.SetBool("isKick",false);
         timer+=Time.deltaTime;
         if (timer>1)
-            {animator.SetBool("isWait",true);}    
+            {animator.SetBool("isKick",false);}    
+        //animator.GetComponent<enemy>().DoCoroutine();
     }
+
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateMove is called right after Animator.OnAnimatorMove()
+    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    // Implement code that processes and affects root motion
+    //}
+
+    // OnStateIK is called right after Animator.OnAnimatorIK()
+    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    // Implement code that sets up animation IK (inverse kinematics)
+    //}
 }
