@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 8988660962067436390}
   - component: {fileID: 2287606155385160207}
   - component: {fileID: 95259621755087314}
-  - component: {fileID: 2174501838003146266}
+  - component: {fileID: 2488790315563058734}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1575,11 +1575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426a866f834bcc47960f065ca9fd12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tangan: {fileID: 1742516537404808}
-  Kaki: {fileID: 1659012904460154}
   maxHP: 10
+  animator: {fileID: 0}
   healthBar: {fileID: 0}
-  animator: {fileID: 95259621755087314}
 --- !u!195 &2287606155385160207
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1623,7 +1621,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &2174501838003146266
+--- !u!54 &2488790315563058734
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1648,7 +1646,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1769269502818274
 GameObject:
