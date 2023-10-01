@@ -47,12 +47,10 @@ public class Playermovement : MonoBehaviour
             player_Anim.Kick();
         }
         if (Input.GetKeyDown(KeyCode.Space))
-    {
-    // Panggil metode untuk melakukan lompatan
-    player_Anim.Jump();
-    }
-
-        
+            {
+                // Panggil metode untuk melakukan lompatan
+                player_Anim.Jump();
+            }
     }
     void FixedUpdate()
         {
