@@ -10,7 +10,6 @@ public class Playermovement : MonoBehaviour
     public float walk_Speed = 3f;
     public float z_Speed = 1.5f;
     private float rotation_speed = 15f;
-
     private float rotation_y = -90f;
 
     void Awake()
@@ -23,11 +22,18 @@ public class Playermovement : MonoBehaviour
     {
         RotatePlayer();
         AnimatePlayerWalk();
-    }
-    void FixedUpdate()
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            DetectMovement();
+            Jump();
         }
+    }
+
+    void FixedUpdate()
+    {
+        DetectMovement();
+    }
+
     void DetectMovement()
     {
         float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS);
@@ -64,5 +70,10 @@ public class Playermovement : MonoBehaviour
         bool isWalking = horizontalInput != 0 || verticalInput != 0;
 
         player_Anim.Walk(isWalking);
+    }
+
+    void Jump()
+    {
+        player_Anim.Jump();
     }
 }
