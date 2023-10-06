@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void ComboAttacks()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (current_Combo_State == ComboState.Punch_3 ||
                 current_Combo_State == ComboState.Kick_3)
@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
                 player_anim.Punch();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.K))
         {
             if (current_Combo_State == ComboState.Punch_3 ||
                 current_Combo_State == ComboState.Kick_3)

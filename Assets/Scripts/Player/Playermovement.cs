@@ -8,9 +8,12 @@ public class Playermovement : MonoBehaviour
     private Rigidbody myBody;
 
     public float walk_Speed = 3f;
+    public float run_Speed = 6f; // Speed for running
     public float z_Speed = 1.5f;
     private float rotation_speed = 15f;
     private float rotation_y = -90f;
+
+    private bool isRunning = false; // Track whether the player is running
 
     void Awake()
     {
@@ -27,6 +30,16 @@ public class Playermovement : MonoBehaviour
         {
             Jump();
         }
+
+        // Check if Left Shift is held down to enable running
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+        }
     }
 
     void FixedUpdate()
@@ -41,8 +54,10 @@ public class Playermovement : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
+        float speed = isRunning ? run_Speed : walk_Speed; // Use run_Speed if running, else use walk_Speed
+
         myBody.velocity = new Vector3(
-            moveDirection.x * (-walk_Speed),
+            moveDirection.x * (-speed),
             myBody.velocity.y,
             moveDirection.z * (-z_Speed)
         );
@@ -77,3 +92,4 @@ public class Playermovement : MonoBehaviour
         player_Anim.Jump();
     }
 }
+
