@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class StageManager : MonoBehaviour
     {
        CheckStage();
        ResetStage();
+    }
+
+    public void SelectStage(int stageIndex)
+    {
+        // Ganti "YourGameplayScene" dengan nama scene permainan yang sesuai
+        SceneManager.LoadScene("CharacterSelection");
     }
 
     public void CheckStage()
