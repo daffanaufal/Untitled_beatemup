@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScriptScene : MonoBehaviour
+public class ScriptSceneCharac : MonoBehaviour
 {
     public KeyCode backButtonKey = KeyCode.Escape;
 
@@ -13,7 +13,7 @@ public class ScriptScene : MonoBehaviour
         if (Input.GetKeyDown(backButtonKey))
         {
             // Kembali ke scene sebelumnya
-            int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+            int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 4;
             if (previousSceneIndex >= 0)
             {
                 SceneManager.LoadScene(previousSceneIndex);
@@ -21,7 +21,7 @@ public class ScriptScene : MonoBehaviour
         }
     }
 
-    public void PindahScene (string namaScene)
+    public void PindahScene(string namaScene)
     {
         SceneManager.LoadScene(namaScene);
     }
@@ -29,6 +29,6 @@ public class ScriptScene : MonoBehaviour
     public void GoBack()
     {
         // Kembali ke scene sebelumnya
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
     }
 }
