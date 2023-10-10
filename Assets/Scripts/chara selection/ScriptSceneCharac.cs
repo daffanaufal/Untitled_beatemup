@@ -9,7 +9,7 @@ public class ScriptSceneCharac : MonoBehaviour
 
     void Update()
     {
-        // Periksa apakah tombol keyboard yang ditentukan ditekan
+
         if (Input.GetKeyDown(backButtonKey))
         {
             // Kembali ke scene sebelumnya
