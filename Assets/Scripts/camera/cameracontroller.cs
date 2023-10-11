@@ -10,7 +10,7 @@ public class cameracontroller : MonoBehaviour
 
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, 8.17f);
+        Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset,5f);
         transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
     }
 }
