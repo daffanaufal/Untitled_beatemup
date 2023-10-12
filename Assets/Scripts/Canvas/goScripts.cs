@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class goScripts : MonoBehaviour
 {
+    GameObject gameOverUI;
+
+    public void Start()
+    {
+        gameOverUI.SetActive(false);
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
