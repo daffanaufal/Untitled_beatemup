@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : MonoBehaviour 
+{
 	public Transform[] SpawnPoints;
 	public Wave[] waves;
 	public enemy Enemy;
