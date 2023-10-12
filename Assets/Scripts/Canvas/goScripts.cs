@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class goScripts : MonoBehaviour
 {
+<<<<<<< Updated upstream
     GameObject gameOverUI;
 
     public void Start()
+=======
+    public GameObject gameOverUI;
+
+    private void Start()
+>>>>>>> Stashed changes
     {
         gameOverUI.SetActive(false);
     }

@@ -13,9 +13,13 @@ public class Player_Health : MonoBehaviour
     public Image healthUI; //Fill amount nyawa
     public GameObject[] healthUIImg; //life count apabila health sudah 0, life akan deactive
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public GameObject gameOverCanvas;
 =======
     public GameObject gameOverUI;
+>>>>>>> Stashed changes
+=======
+    public GameObject gameOverCanvas;
 >>>>>>> Stashed changes
 
     private void FixedUpdate()
@@ -45,10 +49,15 @@ public class Player_Health : MonoBehaviour
             Debug.Log("dead");
             //Dead animation , Menu -> Active
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             gameOverCanvas.SetActive(true);
 
 =======
             gameOverUI.SetActive(true);
+>>>>>>> Stashed changes
+=======
+            gameOverCanvas.SetActive(true);
+
 >>>>>>> Stashed changes
             //stop any movement
             Time.timeScale = 0;
