@@ -6,6 +6,7 @@ public class attackKick : StateMachineBehaviour
 {
     float timer;
     Transform player;
+    public float DistanceATK;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,11 +19,17 @@ public class attackKick : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.LookAt(player);
-        /*float distance = Vector3.Distance(player.position, animator.transform.position);
-        if (distance > 2f)
-            animator.SetBool("isKick",false);*/
+        float distance = Vector3.Distance(player.position, animator.transform.position);
+        if (distance > DistanceATK)
+            animator.SetBool("isKick",false);
         timer+=Time.deltaTime;
         if (timer>1)
-            {animator.SetBool("isWait",true);}    
+            {animator.SetBool("isCooldown",true);}
     }
+
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 }
