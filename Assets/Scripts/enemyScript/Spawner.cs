@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
-
+public class Spawner : MonoBehaviour 
+{
+	public Transform[] SpawnPoints;
 	public Wave[] waves;
 	public enemy Enemy;
 
@@ -13,8 +14,14 @@ public class Spawner : MonoBehaviour {
 	int enemiesRemainingAlive;
 	float nextSpawnTime;
 
-	void Start() {
-		NextWave ();
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag=="Player")
+		{
+			NextWave();
+			//Destroy(gameObject,5f);
+			gameObject.GetComponent<BoxCollider>().enabled=false;
+		}
 	}
 
 	void Update() {
@@ -23,12 +30,9 @@ public class Spawner : MonoBehaviour {
 			enemiesRemainingToSpawn--;
 			nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
 			
-			//(0,0,0) position
-			//enemy spawnedEnemy = Instantiate(Enemy, Vector3.zero, Quaternion.identity) as enemy;
-
 			//Random Position Spawn
-			Vector3 randomSpawnPosition = new Vector3(Random.Range(-10.0F, 10.0F), 1, Random.Range(-10.0F, 10.0F));
-			enemy spawnedEnemy = Instantiate(Enemy, randomSpawnPosition, Quaternion.identity) as enemy;
+			int spawnIndex=Random.Range(0, SpawnPoints.Length);
+			enemy spawnedEnemy = Instantiate(Enemy, SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation) as enemy;
 			
 			spawnedEnemy.OnDeath += OnEnemyDeath;
 		}
