@@ -22,28 +22,34 @@ public class Player_Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        //Pengurangan health player apabila terkena serangan
+        // Pengurangan health player apabila terkena serangan
         health -= damage;
 
-        //Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
+        GetComponentInChildren<Characteranimation>().Hit1(true);
+
+        // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
         if (health <= 0 && life > 0)
         {
             healthUIImg[life].SetActive(false);
             life--;
             health += 10;
-
         }
 
-        //Kalau Player mati sementara dia reload Scene
+        // Kalau Player mati sementara dia reload Scene
         if (life == 0)
         {
             health = 0;
             Debug.Log("dead");
-            //Dead animation , Menu -> Active
+            GetComponentInChildren<Characteranimation>().Hit1(false);
+            // Memanggil metode Die pada Characteranimation
+            GetComponentInChildren<Characteranimation>().Die();
+
+            // Dead animation, Menu -> Active
             gameOverCanvas.SetActive(true);
 
-            //stop any movement
-            Time.timeScale = 0;
+            // Stop any movement
+            //Time.timeScale = 0;
         }
     }
+
 }

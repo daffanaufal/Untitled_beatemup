@@ -52,4 +52,18 @@ public class Characteranimation : MonoBehaviour
     {
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);
     }
+
+    public void Guard()
+    {
+        anim.SetTrigger(AnimationTags.GUARD_TRIGGER);
+    }
+
+    public void Hit1(bool hit1)
+    { anim.SetBool("gethit1", hit1);}
+
+    public void Die()
+    {
+        anim.SetTrigger(AnimationTags.DIE_TRIGGER);
+    }
+
 }
