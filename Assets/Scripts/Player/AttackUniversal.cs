@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackUniversal : MonoBehaviour
@@ -7,18 +5,37 @@ public class AttackUniversal : MonoBehaviour
     public LayerMask collisionLayer;
     public float radius = 1f;
     public float damage = 2f;
-
-    public bool is_Player, is_Enemy;
-
     public GameObject hit_FX;
-    void update()
+
+    // Tombol yang akan digunakan untuk menyerang
+    public KeyCode attackKey = KeyCode.Space;
+
+    void Update()
     {
-        DetectCollision();
+        // Cek apakah tombol serangan ditekan
+        if (Input.GetKey(attackKey))
+        {
+            DetectCollision();
+        }
     }
 
-    
     void DetectCollision()
     {
-        Collider[] hit = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+        foreach (Collider col in hitColliders)
+        {
+            if (col.CompareTag("Enemy"))
+            {
+                // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
+                enemy enemyComponent = col.GetComponent<enemy>();
+
+                if (enemyComponent != null)
+                {
+                    // Panggil metode TakeDamage pada komponen enemy
+                    enemyComponent.TakeDamage((int)damage);
+                }
+            }
+        }
     }
 }
