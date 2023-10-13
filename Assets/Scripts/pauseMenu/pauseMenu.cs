@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class pauseMenu : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public GameObject settingMenu;
     public static bool isPaused;
 
     void Start()
     {
         PauseMenu.SetActive(false);
+        settingMenu.SetActive(false);
     }
 
     void Update()
@@ -46,19 +48,21 @@ public class pauseMenu : MonoBehaviour
 
     public void GoToRestart()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StageSelection");
+        
     }
 
     public void GoToOption()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("SettingsMenu");
+        Time.timeScale = 0f;
+        settingMenu.SetActive(true);
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
