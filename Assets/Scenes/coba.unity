@@ -1979,6 +1979,7 @@ Transform:
   m_Children:
   - {fileID: 1363983557}
   - {fileID: 1139214183}
+  - {fileID: 1095867394}
   m_Father: {fileID: 1233512881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &847928982
@@ -2000,6 +2001,7 @@ MonoBehaviour:
   - enemyCount: 3
     timeBetweenSpawns: 6
   Enemy: {fileID: 8988660962067436390, guid: bdd91695cfcf4b643963af1fce587ef5, type: 3}
+  Floor: {fileID: 1095867393}
 --- !u!65 &847928983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2376,6 +2378,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.74414814, y: 1.3301852, z: 1.0574982e-14}
   m_Center: {x: -0.40278244, y: -0.47599998, z: 5.723883e-15}
+--- !u!1 &1095867393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1095867394}
+  - component: {fileID: 1095867395}
+  m_Layer: 0
+  m_Name: NextFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1095867394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095867393}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.001, y: 0, z: -2.161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 847928981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1095867395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095867393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.17223358, y: 2.0513315, z: 1.6244695}
+  m_Center: {x: -0.12419033, y: 1.000561, z: -0.12044203}
 --- !u!4 &1115264499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6439121501726484483, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
@@ -3930,6 +3985,10 @@ PrefabInstance:
     - target: {fileID: 2057599211022319555, guid: 72175653de605c0459b5b0b92c5c01ea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -329.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502585282045808309, guid: 72175653de605c0459b5b0b92c5c01ea, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427255170934836326, guid: 72175653de605c0459b5b0b92c5c01ea, type: 3}
       propertyPath: m_AnchoredPosition.x
