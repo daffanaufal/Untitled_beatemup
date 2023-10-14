@@ -13,6 +13,7 @@ public class Playermovement : MonoBehaviour
     private float rotation_speed = 15f;
     private float rotation_y = -90f;
 
+    private bool isGuarding = false;
     private bool isRunning = false; // Track whether the player is running
 
     void Awake()
@@ -31,7 +32,6 @@ public class Playermovement : MonoBehaviour
             Jump();
         }
 
-        // Check if Left Shift is held down to enable running
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isRunning = true;
@@ -39,6 +39,12 @@ public class Playermovement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             isRunning = false;
+        }
+
+        // Menggunakan Input.GetKeyDown untuk hanya mengatur isGuarding saat tombol ditekan
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            player_Anim.Guard(); // Memanggil metode Guard dengan nilai isGuarding saat tombol ditekan.
         }
     }
 

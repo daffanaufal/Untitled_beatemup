@@ -5,6 +5,7 @@ using UnityEngine;
 public class hand : MonoBehaviour
 {
     public float damage;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") //&& enemy status == "attack"
