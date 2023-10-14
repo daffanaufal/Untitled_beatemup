@@ -24,6 +24,7 @@ public class Player_Health : MonoBehaviour
     {
         // Pengurangan health player apabila terkena serangan
         health -= damage;
+        Debug.Log(health);
 
         GetComponentInChildren<Characteranimation>().Hit1(true);
 

@@ -39,7 +39,7 @@ public class enemy : MonoBehaviour
 		if (OnDeath != null) {
 			OnDeath();
 		}
-		GameObject.Destroy (gameObject,1f);
+		GameObject.Destroy (gameObject,2.5f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled=false;
         //AudioManager.instance.Play("enemyDeath");
