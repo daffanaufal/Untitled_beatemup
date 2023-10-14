@@ -13,6 +13,9 @@ public class Spawner : MonoBehaviour
 	int enemiesRemainingToSpawn;
 	int enemiesRemainingAlive;
 	float nextSpawnTime;
+	
+//------------GameObject------------
+    public GameObject Floor;
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -43,8 +46,16 @@ public class Spawner : MonoBehaviour
 
 		if (enemiesRemainingAlive == 0) {
 			NextWave();
+			NextFloor();
 		}
 	}
+
+	void NextFloor()
+	{
+		Floor.GetComponent<Collider>().enabled=false;
+		print ("Next Floor");
+	}
+
 
 	void NextWave() {
 		currentWaveNumber ++;
