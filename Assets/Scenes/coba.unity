@@ -577,9 +577,7 @@ MonoBehaviour:
   - {fileID: 1139214183}
   waves:
   - enemyCount: 2
-    timeBetweenSpawns: 6
-  - enemyCount: 10
-    timeBetweenSpawns: 4
+    timeBetweenSpawns: 10
   Enemy: {fileID: 8988660962067436390, guid: bdd91695cfcf4b643963af1fce587ef5, type: 3}
 --- !u!65 &847928983
 BoxCollider:
