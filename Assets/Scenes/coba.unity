@@ -1999,8 +1999,10 @@ MonoBehaviour:
   - {fileID: 1363983557}
   - {fileID: 1139214183}
   waves:
-  - enemyCount: 3
-    timeBetweenSpawns: 6
+  - enemyCount: 1
+    timeBetweenSpawns: 10
+  - enemyCount: 2
+    timeBetweenSpawns: 10
   Enemy: {fileID: 8988660962067436390, guid: bdd91695cfcf4b643963af1fce587ef5, type: 3}
   nextFloor: {fileID: 1095867393}
   gateFloor: {fileID: 1958801479}
@@ -2348,8 +2350,10 @@ MonoBehaviour:
   - {fileID: 1157862359}
   - {fileID: 1979086691}
   waves:
-  - enemyCount: 3
+  - enemyCount: 1
     timeBetweenSpawns: 10
+  - enemyCount: 2
+    timeBetweenSpawns: 14
   Enemy: {fileID: 732875283337820397, guid: 0910753e4d0462649b92a6144f72c86b, type: 3}
   nextFloor: {fileID: 1953631320}
   gateFloor: {fileID: 1586633901}
