@@ -15,7 +15,13 @@ public class Spawner : MonoBehaviour
 	float nextSpawnTime;
 	
 //------------GameObject------------
-    public GameObject Floor;
+    public GameObject nextFloor;
+	public GameObject gateFloor;
+
+	void start()
+	{
+		gateFloor.GetComponent<Collider>().enabled=false;
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -24,6 +30,7 @@ public class Spawner : MonoBehaviour
 			NextWave();
 			//Destroy(gameObject,5f);
 			gameObject.GetComponent<BoxCollider>().enabled=false;
+			gateFloor.GetComponent<Collider>().enabled=true;
 		}
 	}
 
@@ -52,7 +59,7 @@ public class Spawner : MonoBehaviour
 
 	void NextFloor()
 	{
-		Floor.GetComponent<Collider>().enabled=false;
+		nextFloor.GetComponent<Collider>().enabled=false;
 		print ("Next Floor");
 	}
 
