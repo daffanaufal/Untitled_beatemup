@@ -6,14 +6,21 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    //------------GameObject------------
+    public float damage;
+    public GameObject Tangan;
+    public GameObject Kaki;
+
+    //------------Health------------
     public int maxHP = 10;
     int currentHP;
 
+    //------------Death------------
     protected bool dead;
 	public event System.Action OnDeath;
 
+    //------------Animation------------
     public Animator animator;
-    public Slider healthBar;
     
     public void Start()
     {
@@ -44,4 +51,28 @@ public class enemy : MonoBehaviour
         GetComponent<Collider>().enabled=false;
         //AudioManager.instance.Play("enemyDeath");
 	}
+    public void ULose()
+    {
+        animator.SetTrigger("die");
+        Debug.Log("Player DEATHH");
+    }
+
+    //------------TRIGER Damage------------
+    public void OnTriggerEnter(Collider other)
+    {
+        if (Kaki.GetComponent<Collider>()||Tangan.GetComponent<Collider>())
+        {
+            if (other.tag =="Player")
+            {
+                other.GetComponent<Player_Health>().TakeDamage(damage, this);
+            }
+        }
+        if (other.tag=="Enemy")
+        {
+            Kaki.GetComponent<Collider>().enabled=false;
+            Tangan.GetComponent<Collider>().enabled=false;
+        }
+    }
+
+    //------------Animation Detect Collide------------
 }

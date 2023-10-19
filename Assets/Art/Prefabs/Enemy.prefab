@@ -1129,10 +1129,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4662707086780468}
-  - component: {fileID: 9148913309960576967}
   - component: {fileID: 6761021263391733653}
   m_Layer: 7
-  m_Name: foot_R
+  m_Name: KAKI_hitbx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,19 +1153,6 @@ Transform:
   - {fileID: 4548002655528838}
   m_Father: {fileID: 4680884913231736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9148913309960576967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659012904460154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0173ab6866eec1418a0740608114efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
 --- !u!135 &6761021263391733653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1369,10 +1355,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4637039826892012}
-  - component: {fileID: 3976831493918539271}
   - component: {fileID: 8126585183271240364}
   m_Layer: 7
-  m_Name: hand_R
+  m_Name: TANGAN_hitbx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1398,19 +1383,6 @@ Transform:
   - {fileID: 4123056991017314}
   m_Father: {fileID: 4742583170974362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3976831493918539271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742516537404808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0173ab6866eec1418a0740608114efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
 --- !u!135 &8126585183271240364
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1578,9 +1550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426a866f834bcc47960f065ca9fd12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  Tangan: {fileID: 1742516537404808}
+  Kaki: {fileID: 1659012904460154}
   maxHP: 500
   animator: {fileID: 95259621755087314}
-  healthBar: {fileID: 0}
 --- !u!195 &2287606155385160207
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1670,7 +1644,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.7, z: 0.81}
+  m_Size: {x: 0.4, y: 1.7, z: 0.8}
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &1769269502818274
 GameObject:
