@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class hand : MonoBehaviour
 {
-    public float damage;
+    /*public float damage;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,5 +14,5 @@ public class hand : MonoBehaviour
             //Debug.Log("Hit");
         }
 
-    }
+    }*/
 }

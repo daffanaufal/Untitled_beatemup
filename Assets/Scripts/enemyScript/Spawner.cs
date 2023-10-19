@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
 {
 	public Transform[] SpawnPoints;
 	public Wave[] waves;
-	public enemy Enemy;
+	public GameObject[] Enemy;
 
 	Wave currentWave;
 	int currentWaveNumber;
@@ -42,7 +42,10 @@ public class Spawner : MonoBehaviour
 			
 			//Random Position Spawn
 			int spawnIndex=Random.Range(0, SpawnPoints.Length);
-			enemy spawnedEnemy = Instantiate(Enemy, SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation) as enemy;
+			int objIndex=Random.Range(0, Enemy.Length);
+			
+            GameObject enemyObject = Instantiate(Enemy[objIndex], SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation);
+            enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 			
 			spawnedEnemy.OnDeath += OnEnemyDeath;
 		}
