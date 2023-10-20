@@ -1355,7 +1355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4637039826892012}
-  - component: {fileID: 8126585183271240364}
+  - component: {fileID: 8397579900499002672}
   m_Layer: 7
   m_Name: TANGAN_hitbx
   m_TagString: Untagged
@@ -1383,8 +1383,8 @@ Transform:
   - {fileID: 4123056991017314}
   m_Father: {fileID: 4742583170974362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8126585183271240364
-SphereCollider:
+--- !u!65 &8397579900499002672
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1402,8 +1402,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0.04, z: 0}
+  m_Size: {x: 0.15965196, y: 0.72969, z: 0.2410038}
+  m_Center: {x: 0.0048390604, y: -0.10484461, z: 0.077541195}
 --- !u!1 &1745581230859940
 GameObject:
   m_ObjectHideFlags: 0
