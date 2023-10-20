@@ -53,8 +53,9 @@ public class enemy : MonoBehaviour
 	}
     public void ULose()
     {
-        animator.SetTrigger("die");
-        Debug.Log("Player DEATHH");
+        animator.SetTrigger("celebrated");
+        Debug.Log("Enemy Celebrated");
+        GetComponent<Collider>().enabled=false;
     }
 
     //------------TRIGER Damage------------
