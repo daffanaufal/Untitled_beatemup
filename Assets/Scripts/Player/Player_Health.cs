@@ -52,7 +52,7 @@ public class Player_Health : MonoBehaviour
         health = 0;
         GetComponentInChildren<Characteranimation>().Hit1(false);
         // Memanggil metode Die pada Characteranimation
-        //GetComponentInChildren<Characteranimation>().Die();
+        GetComponentInChildren<Characteranimation>().Die();
 
         // Dead animation, Menu -> Active
         gameOverCanvas.SetActive(true);
