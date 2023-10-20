@@ -25,6 +25,7 @@ public class enemy : MonoBehaviour
     public void Start()
     {
         currentHP = maxHP;
+        deActiveATK();
     }
 
     public void TakeDamage(int damageAmount)
@@ -55,7 +56,7 @@ public class enemy : MonoBehaviour
     {
         animator.SetTrigger("celebrated");
         Debug.Log("Enemy Celebrated");
-        GetComponent<Collider>().enabled=false;
+        deActiveATK();
     }
 
     //------------TRIGER Damage------------
@@ -70,10 +71,31 @@ public class enemy : MonoBehaviour
         }
         if (other.tag=="Enemy")
         {
-            Kaki.GetComponent<Collider>().enabled=false;
-            Tangan.GetComponent<Collider>().enabled=false;
+            deActiveATK();
+            GetComponent<Collider>().enabled=false;
         }
     }
 
     //------------Animation Detect Collide------------
+    public void ActiveATK()
+    {
+        Kaki.GetComponent<Collider>().enabled=true;
+        Tangan.GetComponent<Collider>().enabled=true;
+    }
+    public void deActiveATK()
+    {
+        Kaki.GetComponent<Collider>().enabled=false;
+        Tangan.GetComponent<Collider>().enabled=false;
+    }
+    //------------Animation Attack Detect Collide------------
+    public void Punch()
+    {
+        Kaki.GetComponent<Collider>().enabled=false;
+        Tangan.GetComponent<Collider>().enabled=true;
+    }
+    public void Kick()
+    {
+        Kaki.GetComponent<Collider>().enabled=true;
+        Tangan.GetComponent<Collider>().enabled=false;
+    }
 }

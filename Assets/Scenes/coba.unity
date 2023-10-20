@@ -1999,7 +1999,7 @@ MonoBehaviour:
   - {fileID: 1363983557}
   - {fileID: 1139214183}
   waves:
-  - enemyCount: 2
+  - enemyCount: 3
     timeBetweenSpawns: 10
   - enemyCount: 3
     timeBetweenSpawns: 10
@@ -3024,11 +3024,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2529348680396898863, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Radius
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2529348680396898863, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529348680396898863, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2728897141968707902, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Layer
