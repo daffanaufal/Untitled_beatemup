@@ -24,7 +24,7 @@ public class attack : StateMachineBehaviour
         if (distance > DistanceChase)
             animator.SetBool("isAttacking",false);
         timer+=Time.deltaTime;
-        if (timer>1)
+        if (timer>2)
             {animator.SetBool("isKick",true);}
     }
 

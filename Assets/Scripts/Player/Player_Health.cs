@@ -42,6 +42,11 @@ public class Player_Health : MonoBehaviour
         {
             Die();
             Celebrate.ULose();
+            // Dead animation, Menu -> Active
+            gameOverCanvas.SetActive(true);
+
+            // Stop any movement
+            //Time.timeScale = 0
         }
     }
 
@@ -53,11 +58,5 @@ public class Player_Health : MonoBehaviour
         GetComponentInChildren<Characteranimation>().Hit1(false);
         // Memanggil metode Die pada Characteranimation
         GetComponentInChildren<Characteranimation>().Die();
-
-        // Dead animation, Menu -> Active
-        gameOverCanvas.SetActive(true);
-
-        // Stop any movement
-        //Time.timeScale = 0;
     }
 }
