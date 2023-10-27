@@ -12,7 +12,6 @@ public enum ComboState
     Kick_2,
     Kick_3
 }
-
 public class PlayerAttack : MonoBehaviour
 {
     private Characteranimation player_anim;
@@ -24,63 +23,84 @@ public class PlayerAttack : MonoBehaviour
 
     private ComboState current_Combo_State;
 
-    private bool isUsingController = false; // Menyimpan apakah pengguna menggunakan controller
-
     void Awake()
     {
-        player_anim = GetComponentInChildren<Characteranimation>();
+            player_anim = GetComponentInChildren<Characteranimation>();   
     }
-
     void Start()
     {
         current_Combo_Timer = default_Combo_Timer;
         current_Combo_State = ComboState.None;
-
-        // Mengecek apakah ada controller terhubung
-        string[] joystickNames = Input.GetJoystickNames();
-        foreach (string joystickName in joystickNames)
-        {
-            if (!string.IsNullOrEmpty(joystickName))
-            {
-                isUsingController = true;
-                break;
-            }
-        }
     }
 
-   
-
+    // Update is called once per frame
     void Update()
     {
         ComboAttacks();
         ResetComboState();
     }
-
     void ComboAttacks()
     {
-        if (isUsingController)
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            if (Input.GetButtonDown("XButton"))
+            if (current_Combo_State == ComboState.Punch_3 ||
+                current_Combo_State == ComboState.Kick_3)
             {
-                // Implementasikan combo attacks untuk controller di sini
+                ResetComboState();
             }
-            else if (Input.GetButtonDown("BButton"))
+            else if (current_Combo_State == ComboState.Punch_2)
             {
-                // Implementasikan combo attacks untuk controller di sini
+                current_Combo_State = ComboState.Punch_3;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Punch_3();
+            }
+            else if (current_Combo_State == ComboState.Punch)
+            {
+                current_Combo_State = ComboState.Punch_2;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Punch_2();
+            }
+            else
+            {
+                current_Combo_State = ComboState.Punch;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Punch();
             }
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.K))
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (current_Combo_State == ComboState.Punch_3 ||
+                current_Combo_State == ComboState.Kick_3)
             {
-                // Implementasikan combo attacks untuk keyboard dan mouse di sini
+                ResetComboState();
             }
-            else if (Input.GetKeyDown(KeyCode.K))
+            else if (current_Combo_State == ComboState.Kick_2)
             {
-                // Implementasikan combo attacks untuk keyboard dan mouse di sini
+                current_Combo_State = ComboState.Kick_3;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Kick_3();
+            }
+            else if (current_Combo_State == ComboState.Kick)
+            {
+                current_Combo_State = ComboState.Kick_2;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Kick_2();
+            }
+            else
+            {
+                current_Combo_State = ComboState.Kick;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Kick();
             }
         }
     }
+
 
     void ResetComboState()
     {
@@ -88,11 +108,11 @@ public class PlayerAttack : MonoBehaviour
         {
             current_Combo_Timer -= Time.deltaTime;
 
-            if (current_Combo_Timer <= 0f)
+            if(current_Combo_Timer <= 0f)
             {
                 current_Combo_State = ComboState.None;
 
-                activateTimerToReset = false;
+                activateTimerToReset=false;
                 current_Combo_Timer = default_Combo_Timer;
             }
         }
