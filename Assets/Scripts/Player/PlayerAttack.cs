@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void ComboAttacks()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetButton("XboxPunch"))
         {
             if (current_Combo_State == ComboState.Punch_3 ||
                 current_Combo_State == ComboState.Kick_3)
@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
                 player_anim.Punch();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.K) || Input.GetButton("XboxKick"))
         {
             if (current_Combo_State == ComboState.Punch_3 ||
                 current_Combo_State == ComboState.Kick_3)
