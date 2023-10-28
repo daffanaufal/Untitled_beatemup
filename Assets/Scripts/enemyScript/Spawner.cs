@@ -17,10 +17,11 @@ public class Spawner : MonoBehaviour
 //------------GameObject------------
     public GameObject nextFloor;
 	public GameObject gateFloor;
+	public GameObject WinUI;
 
-	void start()
+	void Start()
 	{
-		gateFloor.GetComponent<Collider>().enabled=false;
+		gateFloor.GetComponent<Collider>().enabled = false;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -51,10 +52,18 @@ public class Spawner : MonoBehaviour
 		}
 	}
 
-	void OnEnemyDeath() {
-		enemiesRemainingAlive --;
+	void OnEnemyDeath()
+	{
+		enemiesRemainingAlive--;
 
-		if (enemiesRemainingAlive == 0) {
+		if (enemiesRemainingAlive == 0 && currentWaveNumber == waves.Length)
+		{
+			// Semua musuh telah dikalahkan dan wave telah habis, tampilkan UI WinCanvas
+				WinUI.SetActive(true);
+		}
+		else if (enemiesRemainingAlive == 0)
+		{
+			// Jika semua musuh telah dikalahkan dalam wave saat ini, lanjutkan ke wave berikutnya
 			NextWave();
 			NextFloor();
 		}
