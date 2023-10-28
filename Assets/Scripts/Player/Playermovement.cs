@@ -98,4 +98,3 @@ public class Playermovement : MonoBehaviour
         player_Anim.Jump();
     }
 }
-

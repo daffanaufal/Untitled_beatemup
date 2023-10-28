@@ -10,8 +10,10 @@ public enum ComboState
     Punch_3,
     Kick,
     Kick_2,
-    Kick_3
+    Kick_3,
+    StrongPunch // Tambahkan StrongPunch ke enum ComboState
 }
+
 public class PlayerAttack : MonoBehaviour
 {
     private Characteranimation player_anim;
@@ -25,26 +27,36 @@ public class PlayerAttack : MonoBehaviour
 
     void Awake()
     {
-            player_anim = GetComponentInChildren<Characteranimation>();   
+        player_anim = GetComponentInChildren<Characteranimation>();
     }
+
     void Start()
     {
         current_Combo_Timer = default_Combo_Timer;
         current_Combo_State = ComboState.None;
     }
 
-    // Update is called once per frame
     void Update()
     {
         ComboAttacks();
         ResetComboState();
     }
+
     void ComboAttacks()
     {
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetButton("XboxPunch"))
+        if ((Input.GetKeyDown(KeyCode.J) && Input.GetKey(KeyCode.LeftShift)) || Input.GetButton("XboxStrongPunch"))
         {
-            if (current_Combo_State == ComboState.Punch_3 ||
-                current_Combo_State == ComboState.Kick_3)
+            if (current_Combo_State != ComboState.StrongPunch)
+            {
+                current_Combo_State = ComboState.StrongPunch;
+                activateTimerToReset = true;
+                current_Combo_Timer = default_Combo_Timer;
+                player_anim.Punch(); // Implementasi StrongPunch sesuai kebutuhan Anda
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.J) || Input.GetButton("XboxPunch"))
+        {
+            if (current_Combo_State == ComboState.Punch_3 || current_Combo_State == ComboState.Kick_3)
             {
                 ResetComboState();
             }
@@ -72,8 +84,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.K) || Input.GetButton("XboxKick"))
         {
-            if (current_Combo_State == ComboState.Punch_3 ||
-                current_Combo_State == ComboState.Kick_3)
+            if (current_Combo_State == ComboState.Punch_3 || current_Combo_State == ComboState.Kick_3)
             {
                 ResetComboState();
             }
@@ -101,18 +112,16 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-
     void ResetComboState()
     {
         if (activateTimerToReset)
         {
             current_Combo_Timer -= Time.deltaTime;
 
-            if(current_Combo_Timer <= 0f)
+            if (current_Combo_Timer <= 0f)
             {
                 current_Combo_State = ComboState.None;
-
-                activateTimerToReset=false;
+                activateTimerToReset = false;
                 current_Combo_Timer = default_Combo_Timer;
             }
         }
