@@ -38,7 +38,6 @@ public class enemy : MonoBehaviour
         else
         {
             animator.SetTrigger("damage");
-            //AudioManager.instance.Play("enemyGetHit");
         }
     }
     protected void Die() 
@@ -50,7 +49,6 @@ public class enemy : MonoBehaviour
 		GameObject.Destroy (gameObject,2.5f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled=false;
-        //AudioManager.instance.Play("enemyDeath");
 	}
     public void ULose()
     {
