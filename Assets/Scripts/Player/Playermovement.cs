@@ -12,9 +12,13 @@ public class Playermovement : MonoBehaviour
     public float z_Speed = 1.5f;
     private float rotation_speed = 15f;
     private float rotation_y = -90f;
+    public float lompatan;
 
     private bool isGuarding = false;
     private bool isRunning = false; // Track whether the player is running
+
+    public LayerMask collisionLayer;
+    public float radius = 1f;
 
     void Awake()
     {
@@ -34,7 +38,16 @@ public class Playermovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            isRunning = true;
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("ground"))
+                {
+                   isRunning = true;
+                }
+            }
+            
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -44,7 +57,16 @@ public class Playermovement : MonoBehaviour
         // Menggunakan Input.GetKeyDown untuk hanya mengatur isGuarding saat tombol ditekan
         if (Input.GetKeyDown(KeyCode.G))
         {
-            player_Anim.Guard(); // Memanggil metode Guard dengan nilai isGuarding saat tombol ditekan.
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("ground"))
+                {
+                    player_Anim.Guard(); // Memanggil metode Guard dengan nilai isGuarding saat tombol ditekan.
+                }
+            }
+            
         }
     }
 
@@ -95,7 +117,17 @@ public class Playermovement : MonoBehaviour
 
     void Jump()
     {
-        player_Anim.Jump();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+        foreach (Collider col in hitColliders)
+        {
+            if (col.CompareTag("ground"))
+            {
+                player_Anim.Jump();
+                myBody.AddForce(Vector3.up * lompatan);   
+            }
+        }
+        
     }
 }
 

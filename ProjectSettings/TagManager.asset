@@ -7,6 +7,7 @@ TagManager:
   - WayPoints
   - Enemy
   - WinUI
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - player
   - enemy
   - WinUI
-  - 
+  - ground
   - 
   - 
   - 
