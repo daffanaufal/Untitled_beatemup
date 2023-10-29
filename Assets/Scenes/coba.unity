@@ -3459,6 +3459,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     - target: {fileID: -208595431880416365, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4011,6 +4019,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6573705796053768380, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573705796053768380, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: collisionLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6590402011307267599, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -4042,6 +4058,18 @@ PrefabInstance:
     - target: {fileID: 7091613788997443998, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109656973872913753, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109656973872913753, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: lompatan
+      value: 3300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109656973872913753, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
+      propertyPath: collisionLayer.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 7113019883297321730, guid: a3ae44fd02edcdd40b4faea82c24992b, type: 3}
       propertyPath: m_Layer
@@ -5980,8 +6008,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 412240142}
   - {fileID: 1510930656}
+  - {fileID: 412240142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958801479

@@ -23,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
 
     private ComboState current_Combo_State;
 
+    public LayerMask collisionLayer;
+    public float radius = 0.1f;
     void Awake()
     {
             player_anim = GetComponentInChildren<Characteranimation>();   
@@ -43,60 +45,76 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (current_Combo_State == ComboState.Punch_3 ||
-                current_Combo_State == ComboState.Kick_3)
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
             {
-                ResetComboState();
-            }
-            else if (current_Combo_State == ComboState.Punch_2)
-            {
-                current_Combo_State = ComboState.Punch_3;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Punch_3();
-            }
-            else if (current_Combo_State == ComboState.Punch)
-            {
-                current_Combo_State = ComboState.Punch_2;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Punch_2();
-            }
-            else
-            {
-                current_Combo_State = ComboState.Punch;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Punch();
+                if (col.CompareTag("ground"))
+                {
+                    if (current_Combo_State == ComboState.Punch_3 ||
+                        current_Combo_State == ComboState.Kick_3)
+                    {
+                        ResetComboState();
+                    }
+                    else if (current_Combo_State == ComboState.Punch_2)
+                    {
+                        current_Combo_State = ComboState.Punch_3;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Punch_3();
+                    }
+                    else if (current_Combo_State == ComboState.Punch)
+                    {
+                        current_Combo_State = ComboState.Punch_2;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Punch_2();
+                    }
+                    else
+                    {
+                        current_Combo_State = ComboState.Punch;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Punch();
+                    }
+                }
             }
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {
-            if (current_Combo_State == ComboState.Punch_3 ||
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("ground"))
+                {
+                    if (current_Combo_State == ComboState.Punch_3 ||
                 current_Combo_State == ComboState.Kick_3)
-            {
-                ResetComboState();
-            }
-            else if (current_Combo_State == ComboState.Kick_2)
-            {
-                current_Combo_State = ComboState.Kick_3;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Kick_3();
-            }
-            else if (current_Combo_State == ComboState.Kick)
-            {
-                current_Combo_State = ComboState.Kick_2;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Kick_2();
-            }
-            else
-            {
-                current_Combo_State = ComboState.Kick;
-                activateTimerToReset = true;
-                current_Combo_Timer = default_Combo_Timer;
-                player_anim.Kick();
+                    {
+                        ResetComboState();
+                    }
+                    else if (current_Combo_State == ComboState.Kick_2)
+                    {
+                        current_Combo_State = ComboState.Kick_3;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick_3();
+                    }
+                    else if (current_Combo_State == ComboState.Kick)
+                    {
+                        current_Combo_State = ComboState.Kick_2;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick_2();
+                    }
+                    else
+                    {
+                        current_Combo_State = ComboState.Kick;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick();
+                    }
+                }
             }
         }
     }
