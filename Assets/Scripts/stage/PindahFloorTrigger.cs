@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PindahFloorTrigger : MonoBehaviour
 {
+
+    public float targetX; // Variable untuk posisi X target
+    public float targetY; // Variable untuk posisi Y target
+    public float targetZ; // Variable untuk posisi Z target
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -12,7 +16,7 @@ public class PindahFloorTrigger : MonoBehaviour
             GameObject player = other.gameObject;
 
             // Pindahkan pemain ke posisi yang ditentukan
-            player.transform.position = new Vector3(-33.01f, 0.05f, -1.04f);
+            player.transform.position = new Vector3(targetX, targetY, targetZ);
         }
     }
 }
