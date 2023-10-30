@@ -1,9 +1,10 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Spawner : MonoBehaviour 
+public class SpawnerFloor2 : MonoBehaviour
 {
-	public Transform[] SpawnPoints;
+    public Transform[] SpawnPoints;
 	public Wave[] waves;
 	public GameObject[] Enemy;
 
