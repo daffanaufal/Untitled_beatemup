@@ -31,12 +31,12 @@ public class Playermovement : MonoBehaviour
         RotatePlayer();
         AnimatePlayerWalk();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("XboxJump"))
         {
             Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButton("XboxRun"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
 
@@ -49,13 +49,13 @@ public class Playermovement : MonoBehaviour
             }
             
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetButton("XboxRun"))
         {
             isRunning = false;
         }
 
         // Menggunakan Input.GetKeyDown untuk hanya mengatur isGuarding saat tombol ditekan
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) || Input.GetButton("XboxGuard"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
 
@@ -77,8 +77,8 @@ public class Playermovement : MonoBehaviour
 
     void DetectMovement()
     {
-        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS);
-        float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS);
+        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
+        float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
@@ -93,7 +93,7 @@ public class Playermovement : MonoBehaviour
 
     void RotatePlayer()
     {
-        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS);
+        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
 
         if (horizontalInput > 0)
         {
@@ -107,8 +107,8 @@ public class Playermovement : MonoBehaviour
 
     void AnimatePlayerWalk()
     {
-        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS);
-        float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS);
+        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
+        float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
 
         bool isWalking = horizontalInput != 0 || verticalInput != 0;
 
