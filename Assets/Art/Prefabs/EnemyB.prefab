@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426a866f834bcc47960f065ca9fd12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   Tangan: {fileID: 3075632684187827976}
   Kaki: {fileID: 3075632684187827986}
   maxHP: 200
@@ -482,5 +482,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 1.7, z: 0.8}
+  m_Size: {x: 0.4, y: 1.7, z: 0.3}
   m_Center: {x: 0, y: 0.9, z: 0}
