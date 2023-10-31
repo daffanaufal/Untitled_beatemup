@@ -361,49 +361,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isChasing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attackindex
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isCooldown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: damage
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: celebrated
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110889e107f66004b9f8b6eb3c0c2a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeIdle: 2
+  timeIdle: 5
 --- !u!114 &2726050216108852033
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,11 +571,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d950cd583886404d82dc644732035f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCHASE: 4
+  distanceCHASE: 1
   parameterName: Attackindex
   minValue: 0
-  maxValue: 3
-  attackCooldown: 5
+  maxValue: 1
+  attackCooldown: 4
 --- !u!114 &3125468947047773685
 MonoBehaviour:
   m_ObjectHideFlags: 1
