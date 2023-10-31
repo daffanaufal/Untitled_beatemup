@@ -50,7 +50,7 @@ public class SBMRandomInt : StateMachineBehaviour
             animator.SetInteger(parameterName,value);
 
             playCount++;
-            if(playCount>=3)
+            if(playCount>=2)
             {
                 isCooldown=true;
                 playCount=0;
