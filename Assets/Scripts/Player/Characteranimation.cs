@@ -5,17 +5,24 @@ using UnityEngine;
 public class Characteranimation : MonoBehaviour
 {
     private Animator anim;
-    private AttackUniversal attackUniversal;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
-        attackUniversal = GetComponent<AttackUniversal>();
     }
 
     public void Walk(bool move)
     {
         anim.SetBool("Movement", move);
+    }
+
+    public void Run(bool lari)
+    {
+        anim.SetBool("Running", lari);
+    }
+    public void Guard(bool defend)
+    {
+        anim.SetBool("guard", defend);
     }
 
     public void Punch()
@@ -53,10 +60,6 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);
     }
 
-    public void Guard()
-    {
-        anim.SetTrigger(AnimationTags.GUARD_TRIGGER);
-    }
 
     public void Hit1(bool hit1)
     { anim.SetBool("gethit1", hit1);}

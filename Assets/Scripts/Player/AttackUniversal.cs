@@ -7,33 +7,102 @@ public class AttackUniversal : MonoBehaviour
     public float damage = 2f;
     public GameObject hit_FX;
 
-    // Tombol yang akan digunakan untuk menyerang
-    public KeyCode attackKey = KeyCode.Space;
-
-    void Update()
+    public GameObject TanganKanan;
+    public GameObject TanganKiri;
+    public GameObject KakiKanan;
+    public GameObject KakiKiri;
+    public void DetectCollision_1()
     {
-        // Cek apakah tombol serangan ditekan
-        if (Input.GetKey(attackKey))
+        Collider tangankananCollider = TanganKanan.GetComponent<Collider>();
+
+        if (tangankananCollider != null)
         {
-            DetectCollision();
+            Collider[] hitColliders = Physics.OverlapSphere(tangankananCollider.transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("Enemy"))
+                {
+                    // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
+                    enemy enemyComponent = col.GetComponent<enemy>();
+
+                    if (enemyComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen enemy
+                        enemyComponent.TakeDamage((int)damage);
+                    }
+                }
+            }
         }
     }
-
-    void DetectCollision()
+    public void DetectCollision_2()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+        Collider tangankiriCollider = TanganKiri.GetComponent<Collider>();
 
-        foreach (Collider col in hitColliders)
+        if (tangankiriCollider != null)
         {
-            if (col.CompareTag("Enemy"))
-            {
-                // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
-                enemy enemyComponent = col.GetComponent<enemy>();
+            Collider[] hitColliders = Physics.OverlapSphere(tangankiriCollider.transform.position, radius, collisionLayer);
 
-                if (enemyComponent != null)
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("Enemy"))
                 {
-                    // Panggil metode TakeDamage pada komponen enemy
-                    enemyComponent.TakeDamage((int)damage);
+                    // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
+                    enemy enemyComponent = col.GetComponent<enemy>();
+
+                    if (enemyComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen enemy
+                        enemyComponent.TakeDamage((int)damage);
+                    }
+                }
+            }
+        }
+    }
+    public void DetectCollision_3()
+    {
+        Collider kakikananCollider = KakiKanan.GetComponent<Collider>();
+
+        if (kakikananCollider != null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(kakikananCollider.transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("Enemy"))
+                {
+                    // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
+                    enemy enemyComponent = col.GetComponent<enemy>();
+
+                    if (enemyComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen enemy
+                        enemyComponent.TakeDamage((int)damage);
+                    }
+                }
+            }
+        }
+    }
+    public void DetectCollision_4()
+    {
+        Collider kakikiriCollider = KakiKiri.GetComponent<Collider>();
+
+        if (kakikiriCollider != null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(kakikiriCollider.transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("Enemy"))
+                {
+                    // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
+                    enemy enemyComponent = col.GetComponent<enemy>();
+
+                    if (enemyComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen enemy
+                        enemyComponent.TakeDamage((int)damage);
+                    }
                 }
             }
         }
