@@ -25,6 +25,8 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask collisionLayer;
     public float radius = 0.1f;
 
+    //public bool canMove = true;
+
     void Awake()
     {
         player_anim = GetComponentInChildren<Characteranimation>();
@@ -150,4 +152,15 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+    //public void DisableMovement()
+    //{
+    //    canMove = false;
+   // }
+
+    // Fungsi untuk mengaktifkan pergerakan karakter
+    //public void EnableMovement()
+    //{
+    //    canMove = true;
+    //}
 }
