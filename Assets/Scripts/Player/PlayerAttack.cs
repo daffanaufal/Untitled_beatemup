@@ -59,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
                         current_Combo_State = ComboState.StrongPunch;
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
-                        player_anim.Punch(); // Implementasi StrongPunch sesuai kebutuhan Anda
+                        player_anim.Punch(); // belum ada animasi
                     }
                 }
             }
@@ -118,6 +118,42 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Kick_3();
+                    }
+                    else if (current_Combo_State == ComboState.Kick)
+                    {
+                        current_Combo_State = ComboState.Kick_2;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick_2();
+                    }
+                    else
+                    {
+                        current_Combo_State = ComboState.Kick;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick();
+                    }
+                }
+            }
+        }
+        else if ((Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.LeftShift)) || (Input.GetButton("XboxKick") && Input.GetButton("XboxStrongPunch")))
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+
+            foreach (Collider col in hitColliders)
+            {
+                if (col.CompareTag("ground"))
+                {
+                    if (current_Combo_State == ComboState.Punch_3 || current_Combo_State == ComboState.Kick_3)
+                    {
+                        ResetComboState();
+                    }
+                    else if (current_Combo_State == ComboState.Kick_2)
+                    {
+                        current_Combo_State = ComboState.Kick_3;
+                        activateTimerToReset = true;
+                        current_Combo_Timer = default_Combo_Timer;
+                        player_anim.Kick(); //belum ada animasi
                     }
                     else if (current_Combo_State == ComboState.Kick)
                     {

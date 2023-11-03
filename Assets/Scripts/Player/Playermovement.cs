@@ -94,14 +94,18 @@ public class Playermovement : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
         float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
 
+        // Koreksi arah pergerakan sesuai keinginan
+        horizontalInput = -horizontalInput;
+        verticalInput = -verticalInput;
+
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
         float speed = isRunning ? run_Speed : walk_Speed;
 
         myBody.velocity = new Vector3(
-            moveDirection.x * (-speed),
+            moveDirection.x * speed, //koreksi arah pergerakan
             myBody.velocity.y,
-            moveDirection.z * (-z_Speed)
+            moveDirection.z * z_Speed //koreksi arah pergerakan
         );
     }
 
