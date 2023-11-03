@@ -10,7 +10,7 @@ public class NextButton : MonoBehaviour
     void Update()
     {
         // Cek jika tombol "Tab" ditekan
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetButton("XboxNext"))
         {
             // Panggil fungsi nextStage dengan kunci yang sesuai
             nextStage("Stage2");
