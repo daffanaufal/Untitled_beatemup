@@ -3408,7 +3408,7 @@ MonoBehaviour:
     timeBetweenSpawns: 2
   Enemy:
   - {fileID: 1765116360898588, guid: bdd91695cfcf4b643963af1fce587ef5, type: 3}
-  - {fileID: 3075632684187828006, guid: 0910753e4d0462649b92a6144f72c86b, type: 3}
+  - {fileID: 1765116360898588, guid: 7e8b288dd4bd7e04793a82c22ddff2f7, type: 3}
   nextFloor: {fileID: 1095867393}
   gateFloor: {fileID: 298169788}
   WinUI: {fileID: 1464625331}
@@ -4061,7 +4061,7 @@ MonoBehaviour:
   - enemyCount: 5
     timeBetweenSpawns: 5
   Enemy:
-  - {fileID: 3075632684187828006, guid: 0910753e4d0462649b92a6144f72c86b, type: 3}
+  - {fileID: 1765116360898588, guid: 7e8b288dd4bd7e04793a82c22ddff2f7, type: 3}
   nextFloor: {fileID: 1589363161}
   gateFloor: {fileID: 966959841}
   Nextstage: {fileID: 1182505826}
