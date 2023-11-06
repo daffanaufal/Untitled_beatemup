@@ -327,7 +327,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cooldown
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1732694364485257521}
@@ -341,7 +341,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2855ed82acb91c64ea75815e7d417cd5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7dde436633220684a924ad996b0a78d1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110889e107f66004b9f8b6eb3c0c2a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeIdle: 2
+  timeIdle: 1
 --- !u!114 &2726050216108852033
 MonoBehaviour:
   m_ObjectHideFlags: 1
