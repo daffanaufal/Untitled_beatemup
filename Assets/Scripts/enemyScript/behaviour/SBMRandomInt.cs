@@ -65,7 +65,7 @@ public class SBMRandomInt : StateMachineBehaviour
     {
         Vector3 playerPosition = new Vector3(player.position.x, animator.transform.position.y, player.position.z);
         animator.transform.LookAt(playerPosition);
-        
+
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > distanceCHASE)
             animator.SetBool("isAttacking",false);
