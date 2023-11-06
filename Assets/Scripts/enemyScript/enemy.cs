@@ -46,7 +46,7 @@ public class enemy : MonoBehaviour
 		if (OnDeath != null) {
 			OnDeath();
 		}
-		GameObject.Destroy (gameObject,2.5f);
+		GameObject.Destroy (gameObject,2f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled=false;
 	}
