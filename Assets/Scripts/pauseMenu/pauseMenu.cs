@@ -19,7 +19,7 @@ public class pauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetButton("XboxPauseMenu"))
         {
             if (isPaused)
             {
