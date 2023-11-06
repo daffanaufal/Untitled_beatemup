@@ -29,7 +29,7 @@ public class Playermovement : MonoBehaviour
 
     void Update()
     {
-
+        
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("XboxJump"))
         {
             if (canMove)
@@ -67,10 +67,10 @@ public class Playermovement : MonoBehaviour
 
             foreach (Collider col in hitColliders)
                 if (col.CompareTag("ground") && !isGuarding && canMove) // Hanya menjalankan Guard jika karakter dapat bergerak
-                {
-                    isGuarding = true;
-                    player_Anim.Guard(true); // Aktifkan animasi Guard
-                }
+            {
+                isGuarding = true;
+                player_Anim.Guard(true); // Aktifkan animasi Guard
+            }
         }
         else if (Input.GetKeyUp(KeyCode.G) || Input.GetButton("XboxGuard"))
         {
@@ -93,9 +93,6 @@ public class Playermovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
         float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
-
-        // Balik nilai input dari sumbu horizontal
-        horizontalInput = -horizontalInput;
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
