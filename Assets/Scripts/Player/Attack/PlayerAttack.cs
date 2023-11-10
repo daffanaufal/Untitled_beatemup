@@ -11,7 +11,8 @@ public enum ComboState
     Kick,
     Kick_2,
     Kick_3,
-    StrongPunch
+    StrongPunch,
+    SpecialKick
 }
 
 public class PlayerAttack : MonoBehaviour
@@ -42,6 +43,8 @@ public class PlayerAttack : MonoBehaviour
     {
         ComboAttacks();
         ResetComboState();
+        specialattackpunch();
+        specialattackkick();
     }
 
     void ComboAttacks()
@@ -153,10 +156,26 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    void specialattackpunch()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            player_anim.Strongpunch();
+        }
+    }
+
+    void specialattackkick()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            player_anim.Specialkick();
+        }
+    }
+
     //public void DisableMovement()
     //{
     //    canMove = false;
-   // }
+    // }
 
     // Fungsi untuk mengaktifkan pergerakan karakter
     //public void EnableMovement()
