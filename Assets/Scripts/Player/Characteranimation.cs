@@ -55,6 +55,16 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.KICK3_TRIGGER);
     }
 
+    public void Strongpunch()
+    {
+        anim.SetTrigger(AnimationTags.STRONGPUNCH_TRIGGER);
+    }
+
+    public void Specialkick()
+    {
+        anim.SetTrigger(AnimationTags.SPECIALKICK_TRIGGER);
+    }
+
     public void Jump()
     {
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);
