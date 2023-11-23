@@ -21,7 +21,11 @@ public class enemy : MonoBehaviour
 
     //------------Animation------------
     public Animator animator;
-    
+
+    //------------VFX-----------
+    public VFXManager VFXManager;
+
+
     public void Start()
     {
         currentHP = maxHP;
@@ -38,6 +42,7 @@ public class enemy : MonoBehaviour
         else
         {
             animator.SetTrigger("damage");
+
         }
     }
     protected void Die() 
@@ -95,5 +100,16 @@ public class enemy : MonoBehaviour
     {
         Kaki.GetComponent<Collider>().enabled=true;
         Tangan.GetComponent<Collider>().enabled=false;
+    }
+    //------------VFX--------------
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider == enemy)
+        {
+        
+
+		// kita jalankan VFX saat tabrakan dengan bola pada posisi tabrakannya
+		VFXManager.PlayVFX(collision.transform.position);
+        }
     }
 }
