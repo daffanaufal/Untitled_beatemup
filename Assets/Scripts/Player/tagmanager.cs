@@ -18,8 +18,6 @@ public class AnimationTags
 
     public const string STRONGPUNCH_TRIGGER = "Strong_punch";
     public const string SPECIALKICK_TRIGGER = "Special_kick";
-    public const string SPECIALKICKNEW_TRIGGER = "Special_kick_new";
-
 
     public const string IDLE_ANIMATION = "idle";
     public const string JUMP_TRIGGER = "Jump";
