@@ -47,6 +47,7 @@ public class enemy : MonoBehaviour
         currentHP -= damageAmount;
         if (currentHP <= 0)
         {
+            ScoreManager.singleton.GetPoint(500f);
             Die();
         }
         else
