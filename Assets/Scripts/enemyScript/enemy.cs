@@ -17,7 +17,7 @@ public class enemy : MonoBehaviour
 
     //------------Death------------
     protected bool dead;
-	public event System.Action OnDeath;
+    public event System.Action OnDeath;
 
     //------------Animation------------
     public Animator animator;
@@ -38,23 +38,24 @@ public class enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
-        } 
+        }
         else
         {
             animator.SetTrigger("damage");
 
         }
     }
-    protected void Die() 
+    protected void Die()
     {
-		dead = true;
-		if (OnDeath != null) {
-			OnDeath();
-		}
-		GameObject.Destroy (gameObject,2f);
+        dead = true;
+        if (OnDeath != null)
+        {
+            OnDeath();
+        }
+        GameObject.Destroy(gameObject, 2f);
         animator.SetTrigger("die");
-        GetComponent<Collider>().enabled=false;
-	}
+        GetComponent<Collider>().enabled = false;
+    }
     public void ULose()
     {
         animator.SetTrigger("celebrated");
@@ -65,51 +66,40 @@ public class enemy : MonoBehaviour
     //------------TRIGER Damage------------
     public void OnTriggerEnter(Collider other)
     {
-        if (Kaki.GetComponent<Collider>()||Tangan.GetComponent<Collider>())
+        if (Kaki.GetComponent<Collider>() || Tangan.GetComponent<Collider>())
         {
-            if (other.tag =="Player")
+            if (other.tag == "Player")
             {
                 other.GetComponent<Player_Health>().TakeDamage(damage, this);
             }
         }
-        if (other.tag=="Enemy")
+        if (other.tag == "Enemy")
         {
             deActiveATK();
-            GetComponent<Collider>().enabled=false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 
     //------------Animation Detect Collide------------
     public void ActiveATK()
     {
-        Kaki.GetComponent<Collider>().enabled=true;
-        Tangan.GetComponent<Collider>().enabled=true;
+        Kaki.GetComponent<Collider>().enabled = true;
+        Tangan.GetComponent<Collider>().enabled = true;
     }
     public void deActiveATK()
     {
-        Kaki.GetComponent<Collider>().enabled=false;
-        Tangan.GetComponent<Collider>().enabled=false;
+        Kaki.GetComponent<Collider>().enabled = false;
+        Tangan.GetComponent<Collider>().enabled = false;
     }
     //------------Animation Attack Detect Collide------------
     public void Punch()
     {
-        Kaki.GetComponent<Collider>().enabled=false;
-        Tangan.GetComponent<Collider>().enabled=true;
+        Kaki.GetComponent<Collider>().enabled = false;
+        Tangan.GetComponent<Collider>().enabled = true;
     }
     public void Kick()
     {
-        Kaki.GetComponent<Collider>().enabled=true;
-        Tangan.GetComponent<Collider>().enabled=false;
+        Kaki.GetComponent<Collider>().enabled = true;
+        Tangan.GetComponent<Collider>().enabled = false;
     }
-    //------------VFX--------------
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider == enemy)
-        {
-        
-
-		// kita jalankan VFX saat tabrakan dengan bola pada posisi tabrakannya
-		VFXManager.PlayVFX(collision.transform.position);
-        }
-    }
-}
+}        
