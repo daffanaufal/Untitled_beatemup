@@ -87,6 +87,7 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.DIE_TRIGGER);
     }
 
+    //---------SFX-------------
     public void Attack_FX_Sound()
     {
         audioSource.volume = 0.2f;

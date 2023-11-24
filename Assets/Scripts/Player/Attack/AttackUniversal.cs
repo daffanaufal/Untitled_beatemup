@@ -5,12 +5,14 @@ public class AttackUniversal : MonoBehaviour
     public LayerMask collisionLayer;
     public float radius = 1f;
     public float damage = 2f;
-    public GameObject hit_FX;
 
+
+  
     public GameObject TanganKanan;
     public GameObject TanganKiri;
     public GameObject KakiKanan;
     public GameObject KakiKiri;
+    
     public void DetectCollision_1()
     {
         Collider tangankananCollider = TanganKanan.GetComponent<Collider>();
