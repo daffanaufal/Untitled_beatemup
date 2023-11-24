@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class settingScripts : MonoBehaviour
 {
-    public GameObject settingUI, graphicMenu, AATMenu, controlMenu;
-    bool isOpenGraph, isOpenAAT, isOpenControll;
+    public GameObject settingUI, graphicMenu, volumeMenu, controlMenu, languageMenu;
+    bool isOpenGraph, isOpenVol, isOpenControll, isOpenLang;
 
     // Start is called before the first frame update
     void Start()
     {
-        AATMenu.SetActive(false);
-        isOpenAAT = false; 
+        languageMenu.SetActive(false);
+        isOpenLang = false; 
         controlMenu.SetActive(false);
         isOpenControll = false;
     }
@@ -23,44 +23,65 @@ public class settingScripts : MonoBehaviour
 
     public void openGraphicSetting()
     {
-        if (isOpenAAT || isOpenControll)
+        if (isOpenVol || isOpenControll || isOpenLang)
         {
-            AATMenu.SetActive(false);
-            isOpenAAT = false;
+            volumeMenu.SetActive(false);
+            isOpenVol = false;
             controlMenu.SetActive(false);
             isOpenControll = false;
+            languageMenu.SetActive(false);
+            isOpenLang = false;
         }
 
         graphicMenu.SetActive(true);
         isOpenGraph = true;
     }
 
-    public void openAATSetting()
+    public void openVolSetting()
     {
-        if (isOpenGraph || isOpenControll)
+        if (isOpenGraph || isOpenControll || isOpenLang)
         {
             graphicMenu.SetActive(false);
             isOpenGraph = false;
             controlMenu.SetActive(false);
             isOpenControll = false;
+            languageMenu.SetActive(false);
+            isOpenLang = false;
         }
 
-        AATMenu.SetActive(true);
-        isOpenAAT = true;
+        volumeMenu.SetActive(true);
+        isOpenVol = true;
     }
 
     public void openControllSetting()
     {
-        if (isOpenAAT || isOpenGraph)
+        if (isOpenVol || isOpenGraph || isOpenLang)
         {
             graphicMenu.SetActive(false);
             isOpenGraph = false;
-            AATMenu.SetActive(false);
-            isOpenAAT = false;
+            volumeMenu.SetActive(false);
+            isOpenVol = false;
+            languageMenu.SetActive(false);
+            isOpenLang = false;
         }
 
         controlMenu.SetActive(true);
         isOpenControll = true;
     }
 
+    public void openLanguageSetting()
+    {
+        if (isOpenVol || isOpenGraph || isOpenControll)
+        {
+            graphicMenu.SetActive(false);
+            isOpenGraph = false;
+            volumeMenu.SetActive(false);
+            isOpenVol = false;
+            controlMenu.SetActive(false);
+            isOpenControll = false;
+        }
+
+        languageMenu.SetActive(true);
+        isOpenLang = true;
+    }
 }

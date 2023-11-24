@@ -12,7 +12,8 @@ public enum ComboState
     Kick_2,
     Kick_3,
     StrongPunch,
-    SpecialKick
+    SpecialKick,
+    SpecialKickNew
 }
 
 public class PlayerAttack : MonoBehaviour
@@ -44,7 +45,8 @@ public class PlayerAttack : MonoBehaviour
         ComboAttacks();
         ResetComboState();
         specialattackpunch();
-        specialattackkick();
+        //specialattackkick();
+        specialattackkicknew();
     }
 
     void ComboAttacks()
@@ -164,11 +166,21 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    /*
     void specialattackkick()
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
             player_anim.Specialkick();
+        }
+    }
+    */
+
+    void specialattackkicknew()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            player_anim.Specialkick_new();
         }
     }
 

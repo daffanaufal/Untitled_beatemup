@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Player_Health : MonoBehaviour
 {
     
-    public float health; //Nyawa yang ditampilkan
-    public int life; // banyak "life"
-    public float maxHealth; //Bar hitam pada health bar, agar terlihat seperti terisi
+    //public float health; //Nyawa yang ditampilkan
+    public int life, point; // banyak "life"
+    public GameObject[] maxHealth;
     public Image healthUI; //Fill amount nyawa
     public GameObject[] healthUIImg; //life count apabila health sudah 0, life akan deactive
     public GameObject gameOverCanvas;
@@ -17,24 +17,36 @@ public class Player_Health : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Health Bar fill agar terlihat terisi
-        healthUI.fillAmount = health / maxHealth;
+
     }
 
     public void TakeDamage(float damage, enemy Celebrate)
     {
         // Pengurangan health player apabila terkena serangan
-        health -= damage;
-        Debug.Log(health);
+        //health -= damage;
+        //Debug.Log(health);
 
         GetComponentInChildren<Characteranimation>().Hit1(true);
 
+        if(damage >= 4)
+        {
+            float multipleMinus = damage / 4f;
+            for (int i = 0; i <= 25; i++)
+            {
+                maxHealth[point].SetActive(false);
+                point--;
+            }
+        }
+
         // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
-        if (health <= 0 && life > 0)
+        if (point <= 0 && life > 0)
         {
             healthUIImg[life].SetActive(false);
             life--;
-            health += maxHealth;
+            for(int i = 0; i <= 25; i++)
+            {
+                maxHealth[i].SetActive(true);
+            }
         }
 
         // Kalau Player mati sementara dia reload Scene
@@ -54,7 +66,7 @@ public class Player_Health : MonoBehaviour
     {
         OnPlayerDeath=true;
         Debug.Log("dead");
-        health = 0;
+        //health = 0;
         GetComponentInChildren<Characteranimation>().Hit1(false);
         // Memanggil metode Die pada Characteranimation
         GetComponentInChildren<Characteranimation>().Die();
