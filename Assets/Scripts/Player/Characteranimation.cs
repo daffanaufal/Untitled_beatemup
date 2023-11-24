@@ -6,9 +6,17 @@ public class Characteranimation : MonoBehaviour
 {
     private Animator anim;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip whoosh_sound, fall_sound, ground_hit_sound, dead_sound,Kick_Sound,get_hit;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     public void Walk(bool move)
@@ -83,5 +91,47 @@ public class Characteranimation : MonoBehaviour
     {
         anim.SetTrigger(AnimationTags.DIE_TRIGGER);
     }
+
+    //---------SFX-------------
+    public void Attack_FX_Sound()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = whoosh_sound;
+        audioSource.Play();
+    }
+
+    void Strong_Punch_Sound()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = ground_hit_sound;
+        audioSource.Play();
+    }
+    void Get_Hit_Sound()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = get_hit;
+        audioSource.Play();
+    }
+
+    void Strong_Kick_Sound()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = Kick_Sound;
+        audioSource.Play();
+    }
+
+    void CharacterDiedSound()
+    {
+        audioSource.volume = 1f;
+        audioSource.clip = dead_sound;
+        audioSource.Play();
+    }
+
+    void Enemy_KnockedDown()
+    {
+        audioSource.clip = fall_sound;
+        audioSource.Play();
+    }
+
 
 }
