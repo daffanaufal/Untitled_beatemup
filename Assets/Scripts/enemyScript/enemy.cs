@@ -25,6 +25,16 @@ public class enemy : MonoBehaviour
     //------------VFX-----------
     public VFXManager VFXManager;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip enemy_dead_sound;
+    void Awake()
+    {
+
+        audioSource = GetComponent<AudioSource>();
+
+    }
 
     public void Start()
     {
@@ -101,5 +111,12 @@ public class enemy : MonoBehaviour
     {
         Kaki.GetComponent<Collider>().enabled = true;
         Tangan.GetComponent<Collider>().enabled = false;
+    }
+
+    public void enemy_sound_dead()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = enemy_dead_sound;
+        audioSource.Play();
     }
 }        

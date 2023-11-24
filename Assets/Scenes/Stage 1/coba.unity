@@ -3189,6 +3189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737340881}
   - component: {fileID: 737340880}
+  - component: {fileID: 737340882}
   m_Layer: 6
   m_Name: Left foot attack point
   m_TagString: Untagged
@@ -3232,6 +3233,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 521143815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737340882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737340879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee17aec7e874c2940b65cb97166602cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  radius: 1
+  damage: 2
+  TanganKanan: {fileID: 0}
+  TanganKiri: {fileID: 0}
+  KakiKanan: {fileID: 0}
+  KakiKiri: {fileID: 0}
 --- !u!1 &763023405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6529,7 +6551,6 @@ MonoBehaviour:
     m_Bits: 128
   radius: 0.3
   damage: 250
-  hit_FX: {fileID: 0}
   TanganKanan: {fileID: 1701829245}
   TanganKiri: {fileID: 1798101331}
   KakiKanan: {fileID: 1358278281}
@@ -11750,7 +11771,6 @@ MonoBehaviour:
     m_Bits: 128
   radius: 0.3
   damage: 50
-  hit_FX: {fileID: 0}
   TanganKanan: {fileID: 1728762441}
   TanganKiri: {fileID: 104153781}
   KakiKanan: {fileID: 414413912}
