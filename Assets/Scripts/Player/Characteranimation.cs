@@ -73,11 +73,6 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.SPECIALKICK_TRIGGER);
     }
 
-    public void Specialkick_new()
-    {
-        anim.SetTrigger(AnimationTags.SPECIALKICKNEW_TRIGGER);
-    }
-
     public void Jump()
     {
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);

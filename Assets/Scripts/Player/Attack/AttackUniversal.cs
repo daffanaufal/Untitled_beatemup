@@ -32,7 +32,6 @@ public class AttackUniversal : MonoBehaviour
                     {
                         // Panggil metode TakeDamage pada komponen enemy
                         enemyComponent.TakeDamage((int)damage);
-
                     }
                 }
             }
