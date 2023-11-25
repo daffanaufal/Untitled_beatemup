@@ -55,7 +55,6 @@ public class pauseMenu : MonoBehaviour
 
     public void GoToOption()
     {
-        Time.timeScale = 0f;
         settingMenu.SetActive(true);
     }
 

@@ -48,6 +48,7 @@ public class enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
+            ScoreController.singleton.GetPoints(500f);
         }
         else
         {
@@ -62,6 +63,7 @@ public class enemy : MonoBehaviour
         {
             OnDeath();
         }
+
         GameObject.Destroy(gameObject, 2f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
