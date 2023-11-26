@@ -51,11 +51,16 @@ public class ScriptScene : MonoBehaviour
 
     public void ShowTime()
     {
-        TimeController.instance.TimeStage -= Time.deltaTime;
-        float minute = Mathf.FloorToInt(TimeController.instance.TimeStage / 60);
-        float second = Mathf.FloorToInt(TimeController.instance.TimeStage % 60);
+        float TimeNow = TimeController.instance.TimeStage;
+        float minute = Mathf.FloorToInt(TimeNow / 60);
+        float second = Mathf.FloorToInt(TimeNow % 60);
 
         FinalTime.text = string.Format("{0,00}:{1,00}", minute, second);
+
+        if(minute == 0)
+        {
+            FinalTime.text = second + " Detik";
+        }
     }
 
     public void Finish()
