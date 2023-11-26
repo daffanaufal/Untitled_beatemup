@@ -49,8 +49,6 @@ public class pauseMenu : MonoBehaviour
     public void GoToRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
-        
     }
 
     public void GoToOption()
@@ -61,7 +59,7 @@ public class pauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("StageSelection");
     }
 
 }
