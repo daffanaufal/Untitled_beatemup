@@ -7,6 +7,7 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
     //------------GameObject------------
+    private Player_Health player;
     public float damage;
     public GameObject Tangan;
     public GameObject Kaki;
@@ -38,6 +39,8 @@ public class enemy : MonoBehaviour
 
     public void Start()
     {
+        player=GameObject.Find("Player").GetComponent<Player_Health>();
+
         currentHP = maxHP;
         deActiveATK();
     }
@@ -68,13 +71,16 @@ public class enemy : MonoBehaviour
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
     }
-    public void ULose()
+    
+    void Update()
     {
-        animator.SetTrigger("celebrated");
-        Debug.Log("Enemy Celebrated");
-        deActiveATK();
+        if (player.OnPlayerDeath==true)         //if player death, enemy is celebrating
+        {
+            animator.SetTrigger("celebrated");
+            deActiveATK();
+        }
     }
-
+    
     //------------TRIGER Damage------------
     public void OnTriggerEnter(Collider other)
     {
@@ -82,7 +88,7 @@ public class enemy : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                other.GetComponent<Player_Health>().TakeDamage(damage, this);
+                other.GetComponent<Player_Health>().TakeDamage(damage);
             }
         }
         if (other.tag == "Enemy")

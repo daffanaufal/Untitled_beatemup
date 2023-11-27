@@ -13,7 +13,8 @@ public class Player_Health : MonoBehaviour
     public Image healthUI; //Fill amount nyawa
     public GameObject[] healthUIImg; //life count apabila health sudah 0, life akan deactive
     public GameObject gameOverCanvas;
-    protected bool OnPlayerDeath; //ADD BOOLEAN
+    //protected bool OnPlayerDeath; //ADD BOOLEAN
+    public bool OnPlayerDeath=true;
 
     private void FixedUpdate()
     {
@@ -21,7 +22,7 @@ public class Player_Health : MonoBehaviour
         healthUI.fillAmount = health / maxHealth;
     }
 
-    public void TakeDamage(float damage, enemy Celebrate)
+    public void TakeDamage(float damage)
     {
         // Pengurangan health player apabila terkena serangan
         health -= damage;
@@ -41,7 +42,8 @@ public class Player_Health : MonoBehaviour
         if (life == 0)
         {
             Die();
-            Celebrate.ULose();
+
+            OnPlayerDeath=true;     //Player Die
             // Dead animation, Menu -> Active
             gameOverCanvas.SetActive(true);
 
@@ -50,9 +52,8 @@ public class Player_Health : MonoBehaviour
         }
     }
 
-    protected void Die()
+    void Die()
     {
-        OnPlayerDeath=true;
         Debug.Log("dead");
         health = 0;
         GetComponentInChildren<Characteranimation>().Hit1(false);

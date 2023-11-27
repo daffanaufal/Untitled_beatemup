@@ -73,7 +73,7 @@ public class SBMRandomInt : StateMachineBehaviour
 
     private IEnumerator PerformRandomAttack(Animator animator)
     {
-        Debug.Log("isCooldown");
+        //Debug.Log("isCooldown");
                 
         yield return new WaitForSeconds(attackCooldown);
         animator.SetBool("isCooldown", true);
