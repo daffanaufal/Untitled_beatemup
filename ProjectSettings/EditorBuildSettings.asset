@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StageSelection.unity
     guid: a939a2a7471dd4849817bba83d9220c5
   - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 5427e5da2457be5469ac8e135982cc9b
+  - enabled: 1
+    path: Assets/Scenes/Stage 1/coba.unity
+    guid: 0c0e270655e35ba419d53c9530631124
+  - enabled: 1
     path: Assets/Scenes/tester/Stage1.unity
     guid: 87f0168ec9f74b6489e742373db73a0f
   - enabled: 1
@@ -23,12 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tester/StageBoss.unity
     guid: 8d016eef2b371524098cdb7e181fa1fb
-  - enabled: 1
-    path: Assets/Scenes/CharacterSelection.unity
-    guid: 5427e5da2457be5469ac8e135982cc9b
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/coba.unity
-    guid: 0c0e270655e35ba419d53c9530631124
   - enabled: 1
     path: Assets/Scenes/pauseMenu.unity
     guid: 4654a4d13d5bd874ea5742fb0e7edde6
