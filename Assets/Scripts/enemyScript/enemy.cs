@@ -18,11 +18,25 @@ public class enemy : MonoBehaviour
 
     //------------Death------------
     protected bool dead;
-	public event System.Action OnDeath;
+    public event System.Action OnDeath;
 
     //------------Animation------------
     public Animator animator;
-    
+
+    //------------VFX-----------
+    public VFXManager VFXManager;
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip enemy_dead_sound;
+    void Awake()
+    {
+
+        audioSource = GetComponent<AudioSource>();
+
+    }
+
     public void Start()
     {
         player=GameObject.Find("Player").GetComponent<Player_Health>();
@@ -37,22 +51,27 @@ public class enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
-        } 
+            ScoreController.singleton.GetPoints(500f);
+        }
         else
         {
             animator.SetTrigger("damage");
+
         }
     }
-    protected void Die() 
+    protected void Die()
     {
-		dead = true;
-		if (OnDeath != null) {
-			OnDeath();
-		}
-		GameObject.Destroy (gameObject,2f);
+        dead = true;
+        if (OnDeath != null)
+        {
+            OnDeath();
+        }
+
+        GameObject.Destroy(gameObject, 2f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
     }
+    
     void Update()
     {
         if (player.OnPlayerDeath==true)         //if player death, enemy is celebrating
@@ -65,40 +84,47 @@ public class enemy : MonoBehaviour
     //------------TRIGER Damage------------
     public void OnTriggerEnter(Collider other)
     {
-        if (Kaki.GetComponent<Collider>()||Tangan.GetComponent<Collider>())
+        if (Kaki.GetComponent<Collider>() || Tangan.GetComponent<Collider>())
         {
-            if (other.tag =="Player")
+            if (other.tag == "Player")
             {
                 other.GetComponent<Player_Health>().TakeDamage(damage);
             }
         }
-        if (other.tag=="Enemy")
+        if (other.tag == "Enemy")
         {
             deActiveATK();
-            GetComponent<Collider>().enabled=false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 
     //------------Animation Detect Collide------------
     public void ActiveATK()
     {
-        Kaki.GetComponent<Collider>().enabled=true;
-        Tangan.GetComponent<Collider>().enabled=true;
+        Kaki.GetComponent<Collider>().enabled = true;
+        Tangan.GetComponent<Collider>().enabled = true;
     }
     public void deActiveATK()
     {
-        Kaki.GetComponent<Collider>().enabled=false;
-        Tangan.GetComponent<Collider>().enabled=false;
+        Kaki.GetComponent<Collider>().enabled = false;
+        Tangan.GetComponent<Collider>().enabled = false;
     }
     //------------Animation Attack Detect Collide------------
     public void Punch()
     {
-        Kaki.GetComponent<Collider>().enabled=false;
-        Tangan.GetComponent<Collider>().enabled=true;
+        Kaki.GetComponent<Collider>().enabled = false;
+        Tangan.GetComponent<Collider>().enabled = true;
     }
     public void Kick()
     {
-        Kaki.GetComponent<Collider>().enabled=true;
-        Tangan.GetComponent<Collider>().enabled=false;
+        Kaki.GetComponent<Collider>().enabled = true;
+        Tangan.GetComponent<Collider>().enabled = false;
     }
-}
+
+    public void enemy_sound_dead()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = enemy_dead_sound;
+        audioSource.Play();
+    }
+}        

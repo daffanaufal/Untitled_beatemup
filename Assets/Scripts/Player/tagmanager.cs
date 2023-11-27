@@ -16,6 +16,9 @@ public class AnimationTags
     public const string KICK2_TRIGGER = "Kick_2";
     public const string KICK3_TRIGGER = "Kick_3";
 
+    public const string STRONGPUNCH_TRIGGER = "Strong_punch";
+    public const string SPECIALKICK_TRIGGER = "Special_kick";
+
     public const string IDLE_ANIMATION = "idle";
     public const string JUMP_TRIGGER = "Jump";
     public const string GUARD = "guard";

@@ -35,7 +35,7 @@ public class Player_Health : MonoBehaviour
         {
             healthUIImg[life].SetActive(false);
             life--;
-            health += 10;
+            health += maxHealth;
         }
 
         // Kalau Player mati sementara dia reload Scene
