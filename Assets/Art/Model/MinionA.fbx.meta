@@ -3,7 +3,12 @@ guid: a7cc3dbae83e336458cec3aae16f9878
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Minion Skin
+    second: {fileID: 2100000, guid: 90b193925ef285343b06e6ab6bb2eed3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
