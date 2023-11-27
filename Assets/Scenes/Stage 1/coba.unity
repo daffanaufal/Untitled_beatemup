@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6978,6 +6978,8 @@ MonoBehaviour:
     m_Bits: 0
   radius: 1
   damage: 2
+  hitCount: 0
+  isEnemyBlock: 1
   TanganKanan: {fileID: 0}
   TanganKiri: {fileID: 0}
   KakiKanan: {fileID: 0}
@@ -11837,6 +11839,8 @@ MonoBehaviour:
     m_Bits: 128
   radius: 0.3
   damage: 250
+  hitCount: 1
+  isEnemyBlock: 0
   TanganKanan: {fileID: 1701829245}
   TanganKiri: {fileID: 1798101331}
   KakiKanan: {fileID: 1358278281}
@@ -11863,6 +11867,7 @@ MonoBehaviour:
   - {fileID: 418319304}
   - {fileID: 173174563}
   gameOverCanvas: {fileID: 947219142}
+  OnPlayerDeath: 0
 --- !u!114 &1117823357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20402,6 +20407,8 @@ MonoBehaviour:
     m_Bits: 128
   radius: 0.3
   damage: 50
+  hitCount: 0
+  isEnemyBlock: 1
   TanganKanan: {fileID: 1728762441}
   TanganKiri: {fileID: 104153781}
   KakiKanan: {fileID: 414413912}

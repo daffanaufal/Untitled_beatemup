@@ -8,6 +8,7 @@ public class enemy : MonoBehaviour
 {
     //------------GameObject------------
     private Player_Health player;
+    private AttackUniversal enemyBlock;
     public float damage;
     public GameObject Tangan;
     public GameObject Kaki;
@@ -25,11 +26,11 @@ public class enemy : MonoBehaviour
 
     //------------VFX-----------
     public VFXManager VFXManager;
-
+    //------------SFX-----------
     private AudioSource audioSource;
-
     [SerializeField]
     private AudioClip enemy_dead_sound;
+
     void Awake()
     {
 
@@ -40,6 +41,7 @@ public class enemy : MonoBehaviour
     public void Start()
     {
         player=GameObject.Find("Player").GetComponent<Player_Health>();
+        enemyBlock=GameObject.Find("Player").GetComponent<AttackUniversal>();
 
         currentHP = maxHP;
         deActiveATK();
@@ -77,6 +79,11 @@ public class enemy : MonoBehaviour
         if (player.OnPlayerDeath==true)         //if player death, enemy is celebrating
         {
             animator.SetTrigger("celebrated");
+            deActiveATK();
+        }
+        if (enemyBlock.isEnemyBlock==true)         //if player death, enemy is celebrating
+        {
+            animator.SetTrigger("isBlock");
             deActiveATK();
         }
     }

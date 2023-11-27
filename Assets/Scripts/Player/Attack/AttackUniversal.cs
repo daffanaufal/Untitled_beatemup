@@ -6,7 +6,9 @@ public class AttackUniversal : MonoBehaviour
     public float radius = 1f;
     public float damage = 2f;
 
-
+    private int numHit=0;
+    public int hitCount;
+    public bool isEnemyBlock=true;
   
     public GameObject TanganKanan;
     public GameObject TanganKiri;
@@ -32,6 +34,11 @@ public class AttackUniversal : MonoBehaviour
                     {
                         // Panggil metode TakeDamage pada komponen enemy
                         enemyComponent.TakeDamage((int)damage);
+                        numHit++;
+                        if(numHit >= hitCount)
+                        {
+                            isEnemyBlock=true;
+                        } else {isEnemyBlock=false;}
                     }
                 }
             }
@@ -56,6 +63,11 @@ public class AttackUniversal : MonoBehaviour
                     {
                         // Panggil metode TakeDamage pada komponen enemy
                         enemyComponent.TakeDamage((int)damage);
+                        numHit++;
+                        if(numHit >= hitCount)
+                        {
+                            isEnemyBlock=true;
+                        } else {isEnemyBlock=false;}
                     }
                 }
             }
@@ -80,6 +92,11 @@ public class AttackUniversal : MonoBehaviour
                     {
                         // Panggil metode TakeDamage pada komponen enemy
                         enemyComponent.TakeDamage((int)damage);
+                        numHit++;
+                        if(numHit >= hitCount)
+                        {
+                            isEnemyBlock=true;
+                        } else {isEnemyBlock=false;}
                     }
                 }
             }
@@ -104,6 +121,11 @@ public class AttackUniversal : MonoBehaviour
                     {
                         // Panggil metode TakeDamage pada komponen enemy
                         enemyComponent.TakeDamage((int)damage);
+                        numHit++;
+                        if(numHit >= hitCount)
+                        {
+                            isEnemyBlock=true;
+                        } else {isEnemyBlock=false;}
                     }
                 }
             }
