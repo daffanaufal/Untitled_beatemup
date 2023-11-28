@@ -47,9 +47,20 @@ public class SpawnerF3 : MonoBehaviour
 			int objIndex=Random.Range(0, Enemy.Length);
 			
             GameObject enemyObject = Instantiate(Enemy[objIndex], SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation);
-            enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 			
-			spawnedEnemy.OnDeath += OnEnemyDeath;
+            enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
+			// Check if the spawned enemy has the MiniBoss tag
+			if (enemyObject.CompareTag("MiniBoss"))
+			{
+				MB_health spawnedMiniBoss = enemyObject.GetComponent<MB_health>();
+				if (spawnedMiniBoss != null)
+				{
+					spawnedMiniBoss.OnDeath += OnEnemyDeath;
+				}
+			} else
+        	{
+				spawnedEnemy.OnDeath += OnEnemyDeath;
+			}
 		}
 	}
 
