@@ -34,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
     void Awake()
     {
         player_anim = GetComponentInChildren<Characteranimation>();
+        playerAttackUniversal=GameObject.Find("Player").GetComponent<AttackUniversal>();
     }
 
     void Start()
