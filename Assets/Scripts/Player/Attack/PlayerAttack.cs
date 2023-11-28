@@ -26,6 +26,9 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask collisionLayer;
     public float radius = 0.1f;
 
+    private AttackUniversal playerAttackUniversal;
+    public DValue DamageValue;                      //Call Class DValue Name
+
     //public bool canMove = true;
 
     void Awake()
@@ -63,6 +66,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Punch(); // Implementasi StrongPunch sesuai kebutuhan Anda
+                        playerAttackUniversal.SetDamage(DamageValue.StrongPunch1Value); //EDIT AJA YAKK ^^
                     }
                 }
             }
@@ -85,6 +89,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Punch_3();
+                        playerAttackUniversal.SetDamage(DamageValue.punch3Value); //EDIT AJA YAKK ^^
                     }
                     else if (current_Combo_State == ComboState.Punch)
                     {
@@ -92,6 +97,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Punch_2();
+                        playerAttackUniversal.SetDamage(DamageValue.punch2Value); //EDIT AJA YAKK ^^
                     }
                     else
                     {
@@ -99,6 +105,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Punch();
+                        playerAttackUniversal.SetDamage(DamageValue.punch1Value); //EDIT AJA YAKK ^^
                     }
                 }
             }
@@ -121,6 +128,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Kick_3();
+                        playerAttackUniversal.SetDamage(DamageValue.kick3Value);  //EDIT AJA YAKK ^^
                     }
                     else if (current_Combo_State == ComboState.Kick)
                     {
@@ -128,6 +136,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Kick_2();
+                        playerAttackUniversal.SetDamage(DamageValue.kick2Value);  //EDIT AJA YAKK ^^
                     }
                     else
                     {
@@ -135,6 +144,7 @@ public class PlayerAttack : MonoBehaviour
                         activateTimerToReset = true;
                         current_Combo_Timer = default_Combo_Timer;
                         player_anim.Kick();
+                        playerAttackUniversal.SetDamage(DamageValue.kick1Value); //EDIT AJA YAKK ^^
                     }
                 }
             }
@@ -161,6 +171,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             player_anim.Strongpunch();
+            playerAttackUniversal.SetDamage(DamageValue.SpPunchValue); //EDIT AJA YAKK ^^
         }
     }
 
@@ -170,6 +181,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             player_anim.Specialkick();
+            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^ 
         }
     }
 
@@ -183,4 +195,18 @@ public class PlayerAttack : MonoBehaviour
     //{
     //    canMove = true;
     //}
+
+    [System.Serializable]               //different damage value for each attack type 
+    public class DValue
+    {
+        public int StrongPunch1Value;   //Strong Punch attack value 
+        public int punch1Value;         //Punch attack value 
+        public int punch2Value;
+        public int punch3Value;
+        public int kick1Value;          //Kick attack value
+        public int kick2Value;
+        public int kick3Value;
+        public int SpPunchValue;        //Special Attack value
+        public int SpKickValue;
+    }
 }

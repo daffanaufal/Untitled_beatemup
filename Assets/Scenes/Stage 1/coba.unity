@@ -11884,6 +11884,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   radius: 0.2
+  DamageValue:
+    StrongPunch1Value: 350
+    punch1Value: 250
+    punch2Value: 200
+    punch3Value: 150
+    kick1Value: 250
+    kick2Value: 200
+    kick3Value: 150
+    SpPunchValue: 280
+    SpKickValue: 300
 --- !u!114 &1117823358
 MonoBehaviour:
   m_ObjectHideFlags: 0
