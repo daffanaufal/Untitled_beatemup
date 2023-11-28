@@ -15,6 +15,11 @@ public class AttackUniversal : MonoBehaviour
     public GameObject KakiKanan;
     public GameObject KakiKiri;
     
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+    
     public void DetectCollision_1()
     {
         Collider tangankananCollider = TanganKanan.GetComponent<Collider>();

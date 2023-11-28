@@ -49,16 +49,27 @@ public class enemy : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        currentHP -= damageAmount;
+        if (enemyBlock.isEnemyBlock==true)                  
+        {
+            //jika enemy melakukan block maka value damage berkurang setengahNya
+            damageAmount = Mathf.Max(1, damageAmount / 2);      
+        }
+        
+        currentHP -= damageAmount;                  //Hp dikurang value damage
+        
         if (currentHP <= 0)
         {
             Die();
             ScoreController.singleton.GetPoints(500f);
-        }
-        else
+        } else
         {
-            animator.SetTrigger("damage");
-
+            if(enemyBlock.isEnemyBlock==true)       //animasi enemy melakukan blocking
+            {
+                animator.SetTrigger("isBlock");
+            } else                                  //effect getting Hit
+            {
+                animator.SetTrigger("damage");
+            }
         }
     }
     protected void Die()
@@ -79,11 +90,6 @@ public class enemy : MonoBehaviour
         if (player.OnPlayerDeath==true)         //if player death, enemy is celebrating
         {
             animator.SetTrigger("celebrated");
-            deActiveATK();
-        }
-        if (enemyBlock.isEnemyBlock==true)         //if player death, enemy is celebrating
-        {
-            animator.SetTrigger("isBlock");
             deActiveATK();
         }
     }
