@@ -11,6 +11,7 @@ public class MB_health : MonoBehaviour
     private Player_Health player;
     public GameObject TanganL;
     public GameObject TanganR;
+    public GameObject effectATK;
 
     //public hand Spawnn;
 
@@ -93,7 +94,11 @@ public class MB_health : MonoBehaviour
             } else if (TanganR.GetComponent<Collider>())
             {
                 other.GetComponent<Player_Health>().TakeDamage(damageR);
-            }
+            } /*else if(effectATK.GetComponent<Collider>())
+            {
+                //Debug.Log("HELP");
+                //timeSlow.DoSlowmotion();
+            }*/
         }
         if (other.tag == "Enemy")
         {
@@ -123,5 +128,18 @@ public class MB_health : MonoBehaviour
     {
         TanganR.GetComponent<Collider>().enabled = true;
         TanganL.GetComponent<Collider>().enabled = false;
+    }
+
+    //------------VFX ACTIVATION------------
+    public void activeVFX()
+    {
+        effectATK.GetComponent<ParticleSystem>().Play();
+        effectATK.GetComponent<Collider>().enabled=true;
+        Debug.Log("HELP");
+    }
+    public void deactiveVFX()
+    {   
+        effectATK.GetComponent<ParticleSystem>().Stop();
+        effectATK.GetComponent<Collider>().enabled=false;
     }
 }
