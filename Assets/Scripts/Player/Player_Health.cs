@@ -15,8 +15,9 @@ public class Player_Health : MonoBehaviour
     public GameObject gameOverCanvas;
     //protected bool OnPlayerDeath; //ADD BOOLEAN
     public bool OnPlayerDeath=true;
+    [SerializeField] private LayerMask medkitLayer;
 
-    private void FixedUpdate()
+    private void Update()
     {
         //Health Bar fill agar terlihat terisi
         healthUI.fillAmount = health / maxHealth;
@@ -26,12 +27,12 @@ public class Player_Health : MonoBehaviour
     {
         // Pengurangan health player apabila terkena serangan
         health -= damage;
-        Debug.Log(health);
+        //Debug.Log(health);
 
         GetComponentInChildren<Characteranimation>().Hit1(true);
 
         // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
-        if (health <= 0 && life > 0)
+        if (health <= 0 && life >= 0)
         {
             healthUIImg[life].SetActive(false);
             life--;
@@ -43,7 +44,7 @@ public class Player_Health : MonoBehaviour
         {
             Die();
 
-            OnPlayerDeath=true;     //Player Die
+            OnPlayerDeath = true;     //Player Die
             // Dead animation, Menu -> Active
             gameOverCanvas.SetActive(true);
 
@@ -59,5 +60,36 @@ public class Player_Health : MonoBehaviour
         GetComponentInChildren<Characteranimation>().Hit1(false);
         // Memanggil metode Die pada Characteranimation
         GetComponentInChildren<Characteranimation>().Die();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Cek apakah objek yang bersentuhan memiliki layer "Medkit"
+        if (other.gameObject.layer == LayerMask.NameToLayer("Medkit"))
+        {
+            // Ambil komponen script dari objek yang bersentuhan
+            Medkit medkit = other.GetComponent<Medkit>();
+
+            // Cek apakah komponen Medkit ada
+            if (medkit != null)
+            {
+                // Tambahkan health dan maxHealth dari Medkit
+                health += medkit.healthBonus;
+                maxHealth += medkit.maxHealthBonus;
+
+                // Batasi health dan maxHealth agar tidak lebih dari 100
+                health = Mathf.Min(health, 100f);
+                maxHealth = Mathf.Min(maxHealth, 100f);
+
+                // Aktifkan kembali life UI jika health lebih besar dari 0
+                if (health > 0 && life < healthUIImg.Length)
+                {
+                    healthUIImg[life].SetActive(true);
+                }
+
+                // Nonaktifkan objek Medkit setelah digunakan
+                other.gameObject.SetActive(false);
+            }
+        }
     }
 }

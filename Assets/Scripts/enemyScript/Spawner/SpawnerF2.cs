@@ -20,6 +20,7 @@ public class SpawnerF2 : MonoBehaviour
 	public GameObject gateFloor;
 	public GameObject Nextstage;
 	public GameObject pintu;
+	public GameObject Medkit;
 
 	void Start()
 	{
@@ -75,6 +76,8 @@ public class SpawnerF2 : MonoBehaviour
 			// Semua musuh telah dikalahkan dan wave telah habis, tampilkan UI WinCanvas
 			Nextstage.SetActive(true);
 				pintu.SetActive(false);
+			Medkit.SetActive(true);
+
 		}
 		else if (enemiesRemainingAlive == 0)
 		{

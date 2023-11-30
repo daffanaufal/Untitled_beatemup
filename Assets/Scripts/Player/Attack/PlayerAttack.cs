@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public enum ComboState
 {
@@ -28,6 +30,25 @@ public class PlayerAttack : MonoBehaviour
 
     private AttackUniversal playerAttackUniversal;
     public DValue DamageValue;                      //Call Class DValue Name
+
+    //Cooldown Special Skill
+    [SerializeField] Cooldown cooldown;
+
+    //Countdown
+    [SerializeField]
+    private GameObject cooldown_layer;
+
+    [SerializeField]
+    private Transform skill_posisiton;
+
+    //punch
+    [SerializeField] Cooldown cooldown_punch;
+
+    [SerializeField]
+    private GameObject cooldown_layer_punch;
+
+    [SerializeField]
+    private Transform skill_posisiton_punch;
 
     //public bool canMove = true;
 
@@ -169,21 +190,30 @@ public class PlayerAttack : MonoBehaviour
 
     void specialattackpunch()
     {
+        if (cooldown.isCoolingDown) return;
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            Instantiate(cooldown_layer_punch, skill_posisiton_punch);
             player_anim.Strongpunch();
             playerAttackUniversal.SetDamage(DamageValue.SpPunchValue); //EDIT AJA YAKK ^^
+            cooldown.StartCooldown();
         }
     }
 
 
     void specialattackkick()
     {
+        if (cooldown_punch.isCoolingDown) return;
+
         if (Input.GetKeyDown(KeyCode.U))
         {
+            Instantiate(cooldown_layer, skill_posisiton);
             player_anim.Specialkick();
-            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^ 
+            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^   
+            cooldown_punch.StartCooldown();
         }
+        
     }
 
     //public void DisableMovement()
