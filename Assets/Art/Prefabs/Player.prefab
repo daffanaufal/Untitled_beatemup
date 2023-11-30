@@ -862,15 +862,15 @@ MonoBehaviour:
     m_Bits: 512
   radius: 0.2
   DamageValue:
-    StrongPunch1Value: 5
-    punch1Value: 2
-    punch2Value: 2
-    punch3Value: 2
-    kick1Value: 2
-    kick2Value: 2
-    kick3Value: 2
-    SpPunchValue: 10
-    SpKickValue: 10
+    StrongPunch1Value: 100
+    punch1Value: 25
+    punch2Value: 25
+    punch3Value: 25
+    kick1Value: 25
+    kick2Value: 25
+    kick3Value: 25
+    SpPunchValue: 50
+    SpKickValue: 25
   cooldown:
     cooldownTime: 5
   cooldown_layer: {fileID: 5835881793022783388, guid: a47ed783d987a234bb0372ae77bb8122, type: 3}
