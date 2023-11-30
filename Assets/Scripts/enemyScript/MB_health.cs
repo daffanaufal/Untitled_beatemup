@@ -9,13 +9,14 @@ public class MB_health : MonoBehaviour
 {
     //------------GameObject------------
     private Player_Health player;
-    public GameObject Tangan;
-    public GameObject Kaki;
+    public GameObject TanganL;
+    public GameObject TanganR;
 
     //public hand Spawnn;
 
     //------------Damage------------
-    public float damageAmount;
+    public float damageL;
+    public float damageR;
 
     //------------Death------------
     protected bool dead=true;
@@ -26,9 +27,9 @@ public class MB_health : MonoBehaviour
 
     //------------Health------------
     //public Slider healthBar;
-    public int maxHP = 1500;
-    public int HPStageTwo = 1000;
-    public int HPStageThree = 500;
+    public int maxHP;
+    public int HPStageTwo;
+    public int HPStageThree;
     int currentHP;
     
     //------------Start------------
@@ -42,6 +43,7 @@ public class MB_health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
+        Debug.Log("HP Enemy ="+currentHP);
         
         if (currentHP <= HPStageThree)              //-----Enemy Stage Three
         { animator.SetTrigger("stageThree"); } 
@@ -50,7 +52,7 @@ public class MB_health : MonoBehaviour
         {  
             animator.SetTrigger("stageTwo");
             //Spawnn.NextWave();                    //summoning minions
-        } 
+        }
 
         if (currentHP <= 0 && !dead)                //-----Enemy is Dead
         {
@@ -59,10 +61,8 @@ public class MB_health : MonoBehaviour
         else                                        //-----Enemy is Hit
         {
             animator.SetTrigger("damage");
-            //AudioManager.instance.Play("enemyGetHit");
         }
     }
-    
     protected void Die() 
     {
 		dead = true;
@@ -74,35 +74,54 @@ public class MB_health : MonoBehaviour
         GetComponent<Collider>().enabled=false;
 	}
 
-    void Update()
+    /*void Update()
     {
         if (player.OnPlayerDeath==true)
         {
             animator.SetTrigger("celeb");
         }
-    }
+    }*/
 
     //------------Detect Trigger------------
     public void OnTriggerEnter(Collider other)
     {
-        if (Kaki.GetComponent<Collider>()||Tangan.GetComponent<Collider>())
+        if (other.tag == "Player")
         {
-            if (other.tag =="Player")
+            if (TanganL.GetComponent<Collider>())
             {
-                other.GetComponent<Player_Health>().TakeDamage(damageAmount);
+                other.GetComponent<Player_Health>().TakeDamage(damageL);
+            } else if (TanganR.GetComponent<Collider>())
+            {
+                other.GetComponent<Player_Health>().TakeDamage(damageR);
             }
+        }
+        if (other.tag == "Enemy")
+        {
+            deActiveATK();
+            GetComponent<Collider>().enabled = false;
         }
     }
 
     //------------Animation Detect Collide------------
-    public void activeAttack()
+    public void ActiveATK()
     {
-        Tangan.GetComponent<Collider>().enabled=true;
-        Kaki.GetComponent<Collider>().enabled=true;
+        TanganR.GetComponent<Collider>().enabled = true;
+        TanganL.GetComponent<Collider>().enabled = true;
     }
-    public void deactiveAttack()
+    public void deActiveATK()
     {
-        Tangan.GetComponent<Collider>().enabled=false;
-        Kaki.GetComponent<Collider>().enabled=false;
+        TanganL.GetComponent<Collider>().enabled = false;
+        TanganR.GetComponent<Collider>().enabled = false;
+    }
+    //------------Animation Attack Detect Collide------------
+    public void LightATK()
+    {
+        TanganR.GetComponent<Collider>().enabled = false;
+        TanganL.GetComponent<Collider>().enabled = true;
+    }
+    public void HeavyATK()
+    {
+        TanganR.GetComponent<Collider>().enabled = true;
+        TanganL.GetComponent<Collider>().enabled = false;
     }
 }

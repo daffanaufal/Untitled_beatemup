@@ -34,7 +34,6 @@ public class AttackUniversal : MonoBehaviour
                 {
                     // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
                     enemy enemyComponent = col.GetComponent<enemy>();
-
                     if (enemyComponent != null)
                     {
                         // Panggil metode TakeDamage pada komponen enemy
@@ -44,6 +43,15 @@ public class AttackUniversal : MonoBehaviour
                         {
                             isEnemyBlock=true;
                         } else {isEnemyBlock=false;}
+                    }
+                } else if (col.CompareTag("MiniBoss"))
+                {
+                    // Ambil komponen 'MB_health' dari objek musuh yang terkena pukulan
+                    MB_health enemyBossComponent = col.GetComponent<MB_health>();
+                    if (enemyBossComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen MiniBoss
+                        enemyBossComponent.TakeDamage((int)damage);
                     }
                 }
             }
@@ -63,7 +71,6 @@ public class AttackUniversal : MonoBehaviour
                 {
                     // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
                     enemy enemyComponent = col.GetComponent<enemy>();
-
                     if (enemyComponent != null)
                     {
                         // Panggil metode TakeDamage pada komponen enemy
@@ -73,6 +80,15 @@ public class AttackUniversal : MonoBehaviour
                         {
                             isEnemyBlock=true;
                         } else {isEnemyBlock=false;}
+                    }
+                } else if (col.CompareTag("MiniBoss"))
+                {
+                    // Ambil komponen 'MB_health' dari objek musuh yang terkena pukulan
+                    MB_health enemyBossComponent = col.GetComponent<MB_health>();
+                    if (enemyBossComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen MiniBoss
+                        enemyBossComponent.TakeDamage((int)damage);
                     }
                 }
             }
@@ -92,7 +108,6 @@ public class AttackUniversal : MonoBehaviour
                 {
                     // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
                     enemy enemyComponent = col.GetComponent<enemy>();
-
                     if (enemyComponent != null)
                     {
                         // Panggil metode TakeDamage pada komponen enemy
@@ -102,6 +117,15 @@ public class AttackUniversal : MonoBehaviour
                         {
                             isEnemyBlock=true;
                         } else {isEnemyBlock=false;}
+                    }
+                } else if (col.CompareTag("MiniBoss"))
+                {
+                    // Ambil komponen 'MB_health' dari objek musuh yang terkena pukulan
+                    MB_health enemyBossComponent = col.GetComponent<MB_health>();
+                    if (enemyBossComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen MiniBoss
+                        enemyBossComponent.TakeDamage((int)damage);
                     }
                 }
             }
@@ -121,7 +145,6 @@ public class AttackUniversal : MonoBehaviour
                 {
                     // Ambil komponen 'enemy' dari objek musuh yang terkena pukulan
                     enemy enemyComponent = col.GetComponent<enemy>();
-
                     if (enemyComponent != null)
                     {
                         // Panggil metode TakeDamage pada komponen enemy
@@ -131,6 +154,15 @@ public class AttackUniversal : MonoBehaviour
                         {
                             isEnemyBlock=true;
                         } else {isEnemyBlock=false;}
+                    }
+                } else if (col.CompareTag("MiniBoss"))
+                {
+                    // Ambil komponen 'MB_health' dari objek musuh yang terkena pukulan
+                    MB_health enemyBossComponent = col.GetComponent<MB_health>();
+                    if (enemyBossComponent != null)
+                    {
+                        // Panggil metode TakeDamage pada komponen MiniBoss
+                        enemyBossComponent.TakeDamage((int)damage);
                     }
                 }
             }

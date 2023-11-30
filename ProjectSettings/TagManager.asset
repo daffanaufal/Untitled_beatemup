@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WinUI
   - ground
+  - MiniBoss
   layers:
   - Default
   - TransparentFX

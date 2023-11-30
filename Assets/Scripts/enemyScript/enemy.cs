@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    //------------GameObject------------
+    //------------GameObject Call Script------------
     private Player_Health player;
     private AttackUniversal enemyBlock;
-    public float damage;
+    //------------GameObject------------
+    public float damageTangan;
+    public float damageKaki;
     public GameObject Tangan;
     public GameObject Kaki;
 
@@ -97,11 +99,14 @@ public class enemy : MonoBehaviour
     //------------TRIGER Damage------------
     public void OnTriggerEnter(Collider other)
     {
-        if (Kaki.GetComponent<Collider>() || Tangan.GetComponent<Collider>())
+        if (other.tag == "Player")
         {
-            if (other.tag == "Player")
+            if (Kaki.GetComponent<Collider>())
             {
-                other.GetComponent<Player_Health>().TakeDamage(damage);
+                other.GetComponent<Player_Health>().TakeDamage(damageKaki);
+            } else if (Tangan.GetComponent<Collider>())
+            {
+                other.GetComponent<Player_Health>().TakeDamage(damageTangan);
             }
         }
         if (other.tag == "Enemy")
