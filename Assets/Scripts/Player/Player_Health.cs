@@ -20,7 +20,7 @@ public class Player_Health : MonoBehaviour
     private void Update()
     {
         //Health Bar fill agar terlihat terisi
-        healthUI.fillAmount = health / maxHealth;
+       // healthUI.fillAmount = health / maxHealth;
     }
 
     public void TakeDamage(float damage)

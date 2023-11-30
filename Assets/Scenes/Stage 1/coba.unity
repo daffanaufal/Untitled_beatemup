@@ -12135,6 +12135,10 @@ PrefabInstance:
       propertyPath: damage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2006180999245108909, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: isEnemyBlock
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2367286642965991185, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
       propertyPath: m_Name
       value: Player
@@ -12178,6 +12182,10 @@ PrefabInstance:
     - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
       propertyPath: DamageValue.StrongPunch1Value
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483587723884166443, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: OnPlayerDeath
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8483587723884166443, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
       propertyPath: medkitLayer.m_Bits
