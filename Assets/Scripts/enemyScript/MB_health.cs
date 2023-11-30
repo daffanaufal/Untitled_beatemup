@@ -45,15 +45,6 @@ public class MB_health : MonoBehaviour
     {
         currentHP -= damageAmount;
         Debug.Log("HP Enemy ="+currentHP);
-        
-        if (currentHP <= HPStageThree)              //-----Enemy Stage Three
-        { animator.SetTrigger("stageThree"); } 
-        
-        if (currentHP <= HPStageTwo)                //-----Enemy Stage Two
-        {  
-            animator.SetTrigger("stageTwo");
-            //Spawnn.NextWave();                    //summoning minions
-        }
 
         if (currentHP <= 0 && !dead)                //-----Enemy is Dead
         {
@@ -77,9 +68,15 @@ public class MB_health : MonoBehaviour
 
     /*void Update()
     {
-        if (player.OnPlayerDeath==true)
-        {
-            animator.SetTrigger("celeb");
+        if (currentHP <= HPStageThree)              //-----Enemy Stage Three
+        { animator.SetTrigger("stageThree"); 
+        Debug.Log("State 3");} 
+        
+        if (currentHP <= HPStageTwo)                //-----Enemy Stage Two
+        {  
+            animator.SetTrigger("stageTwo");
+            Debug.Log("State 2");
+            //Spawnn.NextWave();                    //summoning minions
         }
     }*/
 
