@@ -50,11 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426a866f834bcc47960f065ca9fd12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTangan: 0
-  damageKaki: 0
+  damageTangan: 7
+  damageKaki: 8
   Tangan: {fileID: 999412414344239383}
   Kaki: {fileID: 4084269238022704597}
-  maxHP: 1000
+  maxHP: 100
   animator: {fileID: 95259621755087314}
   VFXManager: {fileID: 0}
   enemy_dead_sound: {fileID: 8300000, guid: 1d0da2cc182c13843ae15759b5a03f60, type: 3}
