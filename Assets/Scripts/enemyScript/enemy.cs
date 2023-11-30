@@ -89,7 +89,7 @@ public class enemy : MonoBehaviour
     
     void Update()
     {
-        if (player.OnPlayerDeath==true)         //if player death, enemy is celebrating
+        if (player.OnPlayerDeath == true)         //if player death, enemy is celebrating
         {
             animator.SetTrigger("celebrated");
             deActiveATK();

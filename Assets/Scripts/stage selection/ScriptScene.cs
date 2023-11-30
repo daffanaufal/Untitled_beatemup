@@ -9,17 +9,19 @@ public class ScriptScene : MonoBehaviour
     public KeyCode backButtonKey = KeyCode.Space;
     public TextMeshProUGUI FinalScore, FinalTime;
     public GameObject WinUI;
+    public bool isFinished;
 
     private void Start()
     {
         WinUI.SetActive(false);
+        isFinished = false;
         
     }
 
     void Update()
     {
         // Periksa apakah tombol keyboard yang ditentukan ditekan
-        if (Input.GetKeyDown(backButtonKey))
+        if (Input.GetKeyDown(backButtonKey) && isFinished)
         {
             // Kembali ke scene sebelumnya
             int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
@@ -69,6 +71,7 @@ public class ScriptScene : MonoBehaviour
         {
             Time.timeScale = 0;
             WinUI.SetActive(true);
+            isFinished = true;
         }
     }
 }
