@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 358431785}
   - component: {fileID: 358431784}
   m_Layer: 5
-  m_Name: gembok5
+  m_Name: gembok (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 365888597}
   - component: {fileID: 365888596}
   m_Layer: 5
-  m_Name: gembok3
+  m_Name: gembok (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 496564393}
   - component: {fileID: 496564392}
   m_Layer: 5
-  m_Name: gembok4
+  m_Name: gembok (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2065,7 +2065,7 @@ GameObject:
   - component: {fileID: 1321166431}
   - component: {fileID: 1321166430}
   m_Layer: 5
-  m_Name: Stage4
+  m_Name: Stage3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2612,7 +2612,7 @@ GameObject:
   - component: {fileID: 1423166836}
   - component: {fileID: 1423166835}
   m_Layer: 5
-  m_Name: Stage5
+  m_Name: Stage3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3041,11 +3041,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb2e882556cfde4c8723a9001914646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButtonKey: 27
   FinalScore: {fileID: 0}
   FinalTime: {fileID: 0}
   WinUI: {fileID: 0}
-  locks: []
-  isFinished: 0
 --- !u!4 &1449484677
 Transform:
   m_ObjectHideFlags: 0
@@ -3591,7 +3590,7 @@ GameObject:
   - component: {fileID: 1943490882}
   - component: {fileID: 1943490881}
   m_Layer: 5
-  m_Name: gembok2
+  m_Name: gembok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
