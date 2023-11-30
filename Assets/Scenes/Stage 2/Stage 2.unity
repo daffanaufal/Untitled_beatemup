@@ -1654,7 +1654,7 @@ MonoBehaviour:
   - enemyCount: 1
     timeBetweenSpawns: 0
   Enemy:
-  - {fileID: 1765116360898588, guid: ac2951229bc4f6d4a91ed26250740617, type: 3}
+  - {fileID: 1765116360898588, guid: e2c473e6597a8d44686f781e3122e1da, type: 3}
   nextFloor: {fileID: 0}
   gateFloor: {fileID: 680706254}
   WinUI: {fileID: 0}
@@ -2231,4 +2231,4 @@ SceneRoots:
   - {fileID: 1468110153}
   - {fileID: 1052635017}
   - {fileID: 129060524}
-  - {fileID: 1654746073}
+  - {fileID: 5484636954729815022}
