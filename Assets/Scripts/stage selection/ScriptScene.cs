@@ -101,14 +101,14 @@ public class ScriptScene : MonoBehaviour
         {
             for (int i = 0; i < locks.Length; i++)
             {
-                string stageKey = "Stage" + (i + 2);
+                string stageKey = "Stage" + (i + 2); 
 
                 // Jika PlayerPrefs menyatakan bahwa stage telah terbuka, gembok dihilangkan
                 if (PlayerPrefs.GetInt(stageKey, 0) == 1)
                 {
-                    if (locks[i] != null) 
+                    if (locks[i] != null) // Periksa jika locks[i] sudah diinisialisasi sebelum digunakan
                     {
-                        locks[i].SetActive(false);
+                        locks[i].SetActive(false); 
                     }
                 }
             }
