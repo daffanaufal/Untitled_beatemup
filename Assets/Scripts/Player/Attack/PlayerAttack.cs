@@ -41,6 +41,15 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform skill_posisiton;
 
+    //punch
+    [SerializeField] Cooldown cooldown_punch;
+
+    [SerializeField]
+    private GameObject cooldown_layer_punch;
+
+    [SerializeField]
+    private Transform skill_posisiton_punch;
+
     //public bool canMove = true;
 
     void Awake()
@@ -181,24 +190,28 @@ public class PlayerAttack : MonoBehaviour
 
     void specialattackpunch()
     {
+        if (cooldown.isCoolingDown) return;
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            Instantiate(cooldown_layer_punch, skill_posisiton_punch);
             player_anim.Strongpunch();
             playerAttackUniversal.SetDamage(DamageValue.SpPunchValue); //EDIT AJA YAKK ^^
+            cooldown.StartCooldown();
         }
     }
 
 
     void specialattackkick()
     {
-        if (cooldown.isCoolingDown) return;
+        if (cooldown_punch.isCoolingDown) return;
 
         if (Input.GetKeyDown(KeyCode.U))
         {
             Instantiate(cooldown_layer, skill_posisiton);
             player_anim.Specialkick();
             playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^   
-            cooldown.StartCooldown();
+            cooldown_punch.StartCooldown();
         }
         
     }
