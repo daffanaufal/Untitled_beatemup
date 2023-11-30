@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public enum ComboState
 {
@@ -28,6 +30,16 @@ public class PlayerAttack : MonoBehaviour
 
     private AttackUniversal playerAttackUniversal;
     public DValue DamageValue;                      //Call Class DValue Name
+
+    //Cooldown Special Skill
+    [SerializeField] Cooldown cooldown;
+
+    //Countdown
+    [SerializeField]
+    private GameObject cooldown_layer;
+
+    [SerializeField]
+    private Transform skill_posisiton;
 
     //public bool canMove = true;
 
@@ -179,11 +191,16 @@ public class PlayerAttack : MonoBehaviour
 
     void specialattackkick()
     {
+        if (cooldown.isCoolingDown) return;
+
         if (Input.GetKeyDown(KeyCode.U))
         {
+            Instantiate(cooldown_layer, skill_posisiton);
             player_anim.Specialkick();
-            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^ 
+            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^   
+            cooldown.StartCooldown();
         }
+        
     }
 
     //public void DisableMovement()

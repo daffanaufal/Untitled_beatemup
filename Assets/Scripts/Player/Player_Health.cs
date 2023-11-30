@@ -16,7 +16,7 @@ public class Player_Health : MonoBehaviour
     //protected bool OnPlayerDeath; //ADD BOOLEAN
     public bool OnPlayerDeath=true;
 
-    private void FixedUpdate()
+    private void Update()
     {
         //Health Bar fill agar terlihat terisi
         healthUI.fillAmount = health / maxHealth;
@@ -26,12 +26,12 @@ public class Player_Health : MonoBehaviour
     {
         // Pengurangan health player apabila terkena serangan
         health -= damage;
-        Debug.Log(health);
+        //Debug.Log(health);
 
         GetComponentInChildren<Characteranimation>().Hit1(true);
 
         // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
-        if (health <= 0 && life > 0)
+        if (health <= 0 && life >= 0)
         {
             healthUIImg[life].SetActive(false);
             life--;
