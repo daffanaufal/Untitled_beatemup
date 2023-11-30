@@ -8,15 +8,17 @@ public class ScriptScene : MonoBehaviour
 {
     public TextMeshProUGUI FinalScore, FinalTime;
     public GameObject WinUI;
-    public GameObject[] locks; 
+    public GameObject[] locks;
     public bool isFinished;
 
     private void Start()
     {
-        WinUI.SetActive(false);
+        if (WinUI != null) // Pastikan WinUI sudah diinisialisasi sebelum digunakan
+        {
+            WinUI.SetActive(false);
+        }
         isFinished = false;
 
-        
         CheckAndSetLocks();
     }
 
@@ -30,8 +32,13 @@ public class ScriptScene : MonoBehaviour
             Continue("Stage5");
         }
 
-        ShowScore();
-        ShowTime();
+        // Periksa apakah FinalScore dan FinalTime sudah diinisialisasi sebelum dipakai
+        if (FinalScore != null && FinalTime != null)
+        {
+            ShowScore();
+            ShowTime();
+        }
+
         Finish();
     }
 
@@ -42,20 +49,26 @@ public class ScriptScene : MonoBehaviour
 
     public void ShowScore()
     {
-        FinalScore.text = ScoreController.singleton.GetTotalPoint().ToString();
+        if (ScoreController.singleton != null) // Periksa jika singleton sudah terinisialisasi
+        {
+            FinalScore.text = ScoreController.singleton.GetTotalPoint().ToString();
+        }
     }
 
     public void ShowTime()
     {
-        float TimeNow = TimeController.instance.TimeStage;
-        float minute = Mathf.FloorToInt(TimeNow / 60);
-        float second = Mathf.FloorToInt(TimeNow % 60);
-
-        FinalTime.text = string.Format("{0,00}:{1,00}", minute, second);
-
-        if (minute == 0)
+        if (TimeController.instance != null) // Periksa jika instance sudah terinisialisasi
         {
-            FinalTime.text = second + " Detik";
+            float TimeNow = TimeController.instance.TimeStage;
+            float minute = Mathf.FloorToInt(TimeNow / 60);
+            float second = Mathf.FloorToInt(TimeNow % 60);
+
+            FinalTime.text = string.Format("{0,00}:{1,00}", minute, second);
+
+            if (minute == 0)
+            {
+                FinalTime.text = second + " Detik";
+            }
         }
     }
 
@@ -64,7 +77,10 @@ public class ScriptScene : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Time.timeScale = 0;
-            WinUI.SetActive(true);
+            if (WinUI != null) // Periksa jika WinUI sudah diinisialisasi sebelum digunakan
+            {
+                WinUI.SetActive(true);
+            }
             isFinished = true;
         }
     }
@@ -75,23 +91,27 @@ public class ScriptScene : MonoBehaviour
         PlayerPrefs.SetInt(key, 1);
         SceneManager.LoadScene("StageSelection");
 
-       
         CheckAndSetLocks();
     }
 
     // Metode untuk memeriksa dan mengatur status gembok
     void CheckAndSetLocks()
     {
-        for (int i = 0; i < locks.Length; i++)
+        if (locks != null) // Periksa jika locks sudah diinisialisasi sebelum digunakan
         {
-            string stageKey = "Stage" + (i + 2); 
-
-            // Jika PlayerPrefs menyatakan bahwa stage telah terbuka, gembok dihilangkan
-            if (PlayerPrefs.GetInt(stageKey, 0) == 1)
+            for (int i = 0; i < locks.Length; i++)
             {
-                locks[i].SetActive(false); 
+                string stageKey = "Stage" + (i + 2);
+
+                // Jika PlayerPrefs menyatakan bahwa stage telah terbuka, gembok dihilangkan
+                if (PlayerPrefs.GetInt(stageKey, 0) == 1)
+                {
+                    if (locks[i] != null) 
+                    {
+                        locks[i].SetActive(false);
+                    }
+                }
             }
-            
         }
     }
 }
