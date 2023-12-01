@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5508050976704098190}
   - component: {fileID: 3504332049149418781}
   - component: {fileID: 6670096401758960085}
-  - component: {fileID: 5436159927101344608}
   m_Layer: 0
   m_Name: SlashParticle
   m_TagString: Untagged
@@ -4887,29 +4886,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!136 &5436159927101344608
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3419937467077387483}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.7
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7466294312893175686
 GameObject:
   m_ObjectHideFlags: 0

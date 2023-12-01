@@ -35,20 +35,24 @@ public class MB_health : MonoBehaviour
     int currentHP;
     
     //------------Start------------
+    void Awake()
+    {
+        deActiveATK();
+        deactiveVFX();
+    }
+
     public void Start()
     {
         player=GameObject.Find("Player").GetComponent<Player_Health>();
         currentHP = maxHP;
         //healthBar.value= currentHP;
-        deActiveATK();
-        deactiveVFX();
     }
 
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
-        //Debug.Log("HP Enemy ="+currentHP);
-        if (currentHP<=HPStageThree)
+        Debug.Log("HP Enemy ="+currentHP);
+        /*if (currentHP<=HPStageThree)
         {
             Debug.Log("STATE3");
             //Spawnn.NextWave();
@@ -56,14 +60,14 @@ public class MB_health : MonoBehaviour
         if (currentHP<=HPStageTwo)
         {
             Debug.Log("STATE2");
+            GetComponent<Animator>().SetBool("stageTwo", true);
             //Spawn.NextWave();
-        }
+        }*/
 
-        if (currentHP <= 0 && !dead)                //-----Enemy is Dead
+        if (currentHP <= 0)                         //-----Enemy is Dead
         {
             Die();
-        }
-        else                                        //-----Enemy is Hit
+        } else                                      //-----Enemy is Hit
         {
             animator.SetTrigger("damage");
         }
@@ -74,20 +78,20 @@ public class MB_health : MonoBehaviour
 		if (OnDeath != null) {
 			OnDeath();
 		}
-		GameObject.Destroy (gameObject);
         Debug.Log("BOss Death");
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled=false;
+        effectATK.GetComponent<Collider>().enabled=false;
 	}
 
-    void Update()
+    /*void Update()
     {
         if (player.OnPlayerDeath == true)         //if player death, enemy is celebrating
         {
             animator.SetTrigger("celeb");
             deActiveATK();
         }
-    }
+    }*/
 
     //------------Detect Trigger------------
     public void OnTriggerEnter(Collider other)
@@ -96,13 +100,15 @@ public class MB_health : MonoBehaviour
         {
             if (TanganL.GetComponent<Collider>())
             {
+                Debug.Log("LEFT HAND");
                 other.GetComponent<Player_Health>().TakeDamage(damageL);
             } else if (TanganR.GetComponent<Collider>())
             {
+                Debug.Log("RIGHT HAND");
                 other.GetComponent<Player_Health>().TakeDamage(damageR);
             } else if(effectATK.GetComponent<Collider>())
             {
-                //Debug.Log("HELP");
+                Debug.Log("HELP");
                 //timeSlow.DoSlowmotion();
             }
         }
