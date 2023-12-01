@@ -20,7 +20,7 @@ public class Player_Health : MonoBehaviour
     private void Update()
     {
         //Health Bar fill agar terlihat terisi
-       //healthUI.fillAmount = health / maxHealth;
+       healthUI.fillAmount = health / maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -34,7 +34,7 @@ public class Player_Health : MonoBehaviour
         // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
         if (health <= 0 && life >= 0)
         {
-            //healthUIImg[life].SetActive(false);
+            healthUIImg[life].SetActive(false);
             life--;
             health += maxHealth;
         }
@@ -46,7 +46,7 @@ public class Player_Health : MonoBehaviour
 
             OnPlayerDeath = true;     //Player Die
             // Dead animation, Menu -> Active
-            //gameOverCanvas.SetActive(true);
+            gameOverCanvas.SetActive(true);
 
             // Stop any movement
             //Time.timeScale = 0

@@ -28,11 +28,11 @@ public class attackMB : StateMachineBehaviour
         
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > distanceChase)
-            animator.SetBool("Attack",false);
+            animator.SetBool("isAttacking",false);
         
         if (timer <= 0)
         {
-            animator.SetBool("Attack",false);
+            animator.SetBool("isAttacking",false);
         }
         else 
         {
