@@ -13,7 +13,8 @@ public class MB_health : MonoBehaviour
     public GameObject TanganR;
     public GameObject effectATK;
 
-    //public hand Spawnn;
+    public callMinion Spawnn;
+    public callMinion Spawn;
 
     //------------Damage------------
     public float damageL;
@@ -39,17 +40,29 @@ public class MB_health : MonoBehaviour
         player=GameObject.Find("Player").GetComponent<Player_Health>();
         currentHP = maxHP;
         //healthBar.value= currentHP;
+        deActiveATK();
+        deactiveVFX();
     }
 
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
-        Debug.Log("HP Enemy ="+currentHP);
+        //Debug.Log("HP Enemy ="+currentHP);
+        if (currentHP<=HPStageThree)
+        {
+            Debug.Log("STATE3");
+            //Spawnn.NextWave();
+        }
+        if (currentHP<=HPStageTwo)
+        {
+            Debug.Log("STATE2");
+            //Spawn.NextWave();
+        }
 
         if (currentHP <= 0 && !dead)                //-----Enemy is Dead
         {
             Die();
-        } 
+        }
         else                                        //-----Enemy is Hit
         {
             animator.SetTrigger("damage");
@@ -62,23 +75,19 @@ public class MB_health : MonoBehaviour
 			OnDeath();
 		}
 		GameObject.Destroy (gameObject);
+        Debug.Log("BOss Death");
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled=false;
 	}
 
-    /*void Update()
+    void Update()
     {
-        if (currentHP <= HPStageThree)              //-----Enemy Stage Three
-        { animator.SetTrigger("stageThree"); 
-        Debug.Log("State 3");} 
-        
-        if (currentHP <= HPStageTwo)                //-----Enemy Stage Two
-        {  
-            animator.SetTrigger("stageTwo");
-            Debug.Log("State 2");
-            //Spawnn.NextWave();                    //summoning minions
+        if (player.OnPlayerDeath == true)         //if player death, enemy is celebrating
+        {
+            animator.SetTrigger("celeb");
+            deActiveATK();
         }
-    }*/
+    }
 
     //------------Detect Trigger------------
     public void OnTriggerEnter(Collider other)
@@ -91,11 +100,11 @@ public class MB_health : MonoBehaviour
             } else if (TanganR.GetComponent<Collider>())
             {
                 other.GetComponent<Player_Health>().TakeDamage(damageR);
-            } /*else if(effectATK.GetComponent<Collider>())
+            } else if(effectATK.GetComponent<Collider>())
             {
                 //Debug.Log("HELP");
                 //timeSlow.DoSlowmotion();
-            }*/
+            }
         }
         if (other.tag == "Enemy")
         {
@@ -132,7 +141,6 @@ public class MB_health : MonoBehaviour
     {
         effectATK.GetComponent<ParticleSystem>().Play();
         effectATK.GetComponent<Collider>().enabled=true;
-        Debug.Log("HELP");
     }
     public void deactiveVFX()
     {   
