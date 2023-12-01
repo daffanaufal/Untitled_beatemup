@@ -19,6 +19,7 @@ public class MB_health : MonoBehaviour
     //------------Damage------------
     public float damageL;
     public float damageR;
+    public bool isInvulnerable = false;
 
     //------------Death------------
     protected bool dead=true;
@@ -50,19 +51,24 @@ public class MB_health : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        if (isInvulnerable)
+			return;
+            
         currentHP -= damageAmount;
         Debug.Log("HP Enemy ="+currentHP);
-        /*if (currentHP<=HPStageThree)
+
+        if (currentHP<=HPStageThree)
         {
-            Debug.Log("STATE3");
-            //Spawnn.NextWave();
+            //Debug.Log("STATE3");
+            animator.SetTrigger("stageThree");
+            Spawnn.NextWave();
         }
         if (currentHP<=HPStageTwo)
         {
-            Debug.Log("STATE2");
-            GetComponent<Animator>().SetBool("stageTwo", true);
-            //Spawn.NextWave();
-        }*/
+            //Debug.Log("STATE2");
+            animator.SetTrigger("stageTwo");
+            Spawn.NextWave();
+        }
 
         if (currentHP <= 0)                         //-----Enemy is Dead
         {
@@ -84,14 +90,14 @@ public class MB_health : MonoBehaviour
         effectATK.GetComponent<Collider>().enabled=false;
 	}
 
-    /*void Update()
+    void Update()
     {
         if (player.OnPlayerDeath == true)         //if player death, enemy is celebrating
         {
             animator.SetTrigger("celeb");
             deActiveATK();
         }
-    }*/
+    }
 
     //------------Detect Trigger------------
     public void OnTriggerEnter(Collider other)
@@ -100,15 +106,12 @@ public class MB_health : MonoBehaviour
         {
             if (TanganL.GetComponent<Collider>())
             {
-                Debug.Log("LEFT HAND");
                 other.GetComponent<Player_Health>().TakeDamage(damageL);
             } else if (TanganR.GetComponent<Collider>())
             {
-                Debug.Log("RIGHT HAND");
                 other.GetComponent<Player_Health>().TakeDamage(damageR);
             } else if(effectATK.GetComponent<Collider>())
             {
-                Debug.Log("HELP");
                 //timeSlow.DoSlowmotion();
             }
         }

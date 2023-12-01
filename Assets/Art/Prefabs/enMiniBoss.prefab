@@ -59,8 +59,9 @@ MonoBehaviour:
   effectATK: {fileID: 1780509822944503962}
   Spawnn: {fileID: 991651818655377753}
   Spawn: {fileID: 8620776494818200224}
-  damageL: 7
-  damageR: 8
+  damageL: 8
+  damageR: 10
+  isInvulnerable: 0
   animator: {fileID: 95259621755087314}
   maxHP: 750
   HPStageTwo: 500
@@ -633,11 +634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 356345018370426695, guid: 29740b31d0cfa7140ac3b338b34e36a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 356345018370426695, guid: 29740b31d0cfa7140ac3b338b34e36a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.53
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 356345018370426695, guid: 29740b31d0cfa7140ac3b338b34e36a5, type: 3}
       propertyPath: m_LocalRotation.w
