@@ -56219,29 +56219,29 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5416667
+  - time: 0.5833333
     functionName: activeVFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.625
     functionName: HeavyATK
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
-    functionName: deActiveATK
+  - time: 0.6666667
+    functionName: deactiveVFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.0833334
-    functionName: deactiveVFX
+  - time: 0.7083333
+    functionName: deActiveATK
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

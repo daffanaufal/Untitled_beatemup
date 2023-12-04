@@ -13,8 +13,8 @@ public class MB_health : MonoBehaviour
     public GameObject TanganR;
     public GameObject effectATK;
 
-    public callMinion Spawnn;
-    public callMinion Spawn;
+    public callMinion SpawnSt2;
+    public callMinion SpawnMedkit;
 
     //------------Damage------------
     public float damageL;
@@ -59,15 +59,14 @@ public class MB_health : MonoBehaviour
 
         if (currentHP<=HPStageThree)
         {
-            //Debug.Log("STATE3");
             animator.SetTrigger("stageThree");
-            Spawnn.NextWave();
+            SpawnMedkit.NextWave();
         }
         if (currentHP<=HPStageTwo)
         {
-            //Debug.Log("STATE2");
             animator.SetTrigger("stageTwo");
-            Spawn.NextWave();
+            SpawnSt2.NextWave();
+            SpawnMedkit.NextWave();
         }
 
         if (currentHP <= 0)                         //-----Enemy is Dead
