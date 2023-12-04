@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class callMinion : MonoBehaviour
 {
+    public Transform[] SpawnPoints;
     public Wave[] waves;
-	public enemy Enemy;
+	public GameObject[] Enemy;
 
 	Wave currentWave;
 	int currentWaveNumber;
@@ -15,7 +16,7 @@ public class callMinion : MonoBehaviour
 	float nextSpawnTime;
 
 	void Start() {
-		//NextWave ();
+		//NextWave();
 	}
 
 	void Update() {
@@ -23,9 +24,18 @@ public class callMinion : MonoBehaviour
 		if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime) {
 			enemiesRemainingToSpawn--;
 			nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
-
-			enemy spawnedEnemy = Instantiate(Enemy, Vector3.zero, Quaternion.identity) as enemy;
-			spawnedEnemy.OnDeath += OnEnemyDeath;
+			int spawnIndex=Random.Range(0, SpawnPoints.Length);
+			int objIndex=Random.Range(0, Enemy.Length);
+			GameObject enemyObject = Instantiate(Enemy[objIndex], SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation);
+			enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
+			// Check if the spawned enemy has the MiniBoss tag
+			if (enemyObject.CompareTag("Medkit"))
+			{
+				Medkit spawnedMedkit = enemyObject.GetComponent<Medkit>();
+			} else
+        	{
+				spawnedEnemy.OnDeath += OnEnemyDeath;
+			}
 		}
 	}
 
