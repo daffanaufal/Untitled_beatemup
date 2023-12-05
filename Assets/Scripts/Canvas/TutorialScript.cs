@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialScript : MonoBehaviour
 {
     [SerializeField]
-    private bool isFirst;
+    private bool isFirst = false;
 
     [SerializeField]
     private GameObject VideoPlayerMove;
@@ -30,6 +30,7 @@ public class TutorialScript : MonoBehaviour
     private GameObject[] PageDot;
 
     private int current, previous, subCurrMove, subPrevMove, subCurrCom, subPrevCom;
+
 
     private void Awake()
     {
