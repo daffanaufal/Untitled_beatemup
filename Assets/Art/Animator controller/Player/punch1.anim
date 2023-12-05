@@ -45082,6 +45082,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: ONTrail
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.2
     functionName: Attack_FX_Sound
     data: 
@@ -45098,6 +45105,13 @@ AnimationClip:
     messageOptions: 0
   - time: 0.36
     functionName: EnableMovement
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.36
+    functionName: OFFTrail
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
