@@ -216,6 +216,17 @@ public class PlayerAttack : MonoBehaviour
         }
         
     }
+    
+    void ultimate()
+    {
+        if (!UlrimateController.instance.isUltimateReady()) return;
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            //Ultimate Move or smt
+            UlrimateController.instance.ultimateUsed();
+        }
+    }
 
     internal void Counter()
     {
