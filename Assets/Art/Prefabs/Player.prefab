@@ -839,12 +839,12 @@ MonoBehaviour:
   m_Script: {fileID: 1577469696, guid: b772df04c61f3664aba7e879eefb8013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoosh_sound: {fileID: 0}
-  fall_sound: {fileID: 0}
-  ground_hit_sound: {fileID: 0}
-  dead_sound: {fileID: 0}
-  Kick_Sound: {fileID: 0}
-  get_hit: {fileID: 0}
+  whoosh_sound: {fileID: 8300000, guid: dbead25670f8d694ead7957c885d967f, type: 3}
+  fall_sound: {fileID: 8300000, guid: b2d5b4ff53995ca459c0d7b7cbc50c36, type: 3}
+  ground_hit_sound: {fileID: 8300000, guid: 5a9526df7eda1054d89aa8ae52404392, type: 3}
+  dead_sound: {fileID: 8300000, guid: 47303a2612a69c04c9f13da449b6b82f, type: 3}
+  Kick_Sound: {fileID: 8300000, guid: 93d0a18c02941f74a88f597780de0a41, type: 3}
+  get_hit: {fileID: 8300000, guid: b28958ed9dfccce4387ee1be780afcbd, type: 3}
 --- !u!114 &6998123767861408336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0b2296c789ace944294fd5a3d2c64093, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1050,14 +1050,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455936209862817057}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0b2296c789ace944294fd5a3d2c64093, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -8803,58 +8803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3380136677348075823, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3380136677348075823, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3380136677348075823, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: BypassEffects
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: skill_posisiton
       value: 
       objectReference: {fileID: 1506527229992045149}
-    - target: {fileID: 7523713655879580485, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523713655879580485, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: m_Volume
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523713655879580485, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: get_hit
-      value: 
-      objectReference: {fileID: 8300000, guid: b28958ed9dfccce4387ee1be780afcbd, type: 3}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: Kick_Sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 93d0a18c02941f74a88f597780de0a41, type: 3}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: dead_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 47303a2612a69c04c9f13da449b6b82f, type: 3}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: fall_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: b2d5b4ff53995ca459c0d7b7cbc50c36, type: 3}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: whoosh_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: dbead25670f8d694ead7957c885d967f, type: 3}
-    - target: {fileID: 7936539045708110211, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: ground_hit_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5a9526df7eda1054d89aa8ae52404392, type: 3}
     - target: {fileID: 8210378941319581849, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: healthUI
       value: 

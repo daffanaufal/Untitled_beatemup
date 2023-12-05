@@ -27,6 +27,7 @@ public class MB_health : MonoBehaviour
 
     //------------Animation------------
     public Animator animator;
+   
 
     //------------Health------------
     //public Slider healthBar;
@@ -34,12 +35,21 @@ public class MB_health : MonoBehaviour
     public int HPStageTwo;
     public int HPStageThree;
     int currentHP;
-    
+
+    //------------SFX----------------
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip scream, gethitboss, heavyatkmb, lightatkmb, walkingsound;
+
+
     //------------Start------------
     void Awake()
     {
         deActiveATK();
         deactiveVFX();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -155,4 +165,39 @@ public class MB_health : MonoBehaviour
         effectATK.GetComponent<ParticleSystem>().Stop();
         effectATK.GetComponent<Collider>().enabled=false;
     }
-}
+
+    //---------------SFX--------------
+    public void Scream_Sound()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = scream;
+        audioSource.Play();
+    }
+
+    void Get_Hit_Boss()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = gethitboss;
+        audioSource.Play();
+    }
+    void Heavy_Attack()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = heavyatkmb;
+        audioSource.Play();
+    }
+
+    void Light_Attack()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.clip = lightatkmb;
+        audioSource.Play();
+    }
+
+    void Walking_Sound()
+    {
+        audioSource.volume = 1f;
+        audioSource.clip = walkingsound;
+        audioSource.Play();
+    }
+    }
