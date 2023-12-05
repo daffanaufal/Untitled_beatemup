@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     private float default_Combo_Timer = 0.4f;
     private float current_Combo_Timer;
     private ComboState current_Combo_State;
+    private bool canMove = true;
 
     public LayerMask collisionLayer;
     public float radius = 0.1f;
@@ -50,7 +51,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform skill_posisiton_punch;
 
-    //public bool canMove = true;
 
     void Awake()
     {
@@ -70,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
         ResetComboState();
         specialattackpunch();
         specialattackkick();
+        Counter();
     }
 
     void ComboAttacks()
@@ -216,16 +217,27 @@ public class PlayerAttack : MonoBehaviour
         
     }
 
-    //public void DisableMovement()
-    //{
-    //    canMove = false;
-    // }
+    internal void Counter()
+    {
+        if (canMove)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                player_anim.Counter();
+            }
+        }
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+     }
 
     // Fungsi untuk mengaktifkan pergerakan karakter
-    //public void EnableMovement()
-    //{
-    //    canMove = true;
-    //}
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
 
     [System.Serializable]               //different damage value for each attack type 
     public class DValue

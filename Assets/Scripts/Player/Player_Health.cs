@@ -16,6 +16,8 @@ public class Player_Health : MonoBehaviour
     //protected bool OnPlayerDeath; //ADD BOOLEAN
     public bool OnPlayerDeath=true;
     [SerializeField] private LayerMask medkitLayer;
+    private Playermovement playerMovement;
+    private enemy enemy;
 
     private void Update()
     {
@@ -23,20 +25,33 @@ public class Player_Health : MonoBehaviour
        healthUI.fillAmount = health / maxHealth;
     }
 
+    void Start()
+    {
+        // Get the Player_Health component
+        playerMovement = GetComponent<Playermovement>();
+    }
+
     public void TakeDamage(float damage)
     {
         // Pengurangan health player apabila terkena serangan
-        health -= damage;
-        //Debug.Log(health);
-
-        GetComponentInChildren<Characteranimation>().Hit1(true);
-
-        // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
-        if (health <= 0 && life >= 0)
+        if (!playerMovement.isGuarding)
         {
-            healthUIImg[life].SetActive(false);
-            life--;
-            health += maxHealth;
+            health -= damage;
+            GetComponentInChildren<Characteranimation>().Hit1(true);
+
+            // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
+            if (health <= 0 && life >= 0)
+            {
+                healthUIImg[life].SetActive(false);
+                life--;
+                health += maxHealth;
+            }
+        }
+        else
+        {
+            damage = 0;
+            GetComponentInChildren<Characteranimation>().Hit1(false);
+            Debug.Log("Sedang guarding");
         }
 
         // Kalau Player mati sementara dia reload Scene
@@ -87,8 +102,7 @@ public class Player_Health : MonoBehaviour
                     healthUIImg[life].SetActive(true);
                 }
 
-                // Nonaktifkan objek Medkit setelah digunakan
-                other.gameObject.SetActive(false);
+
             }
         }
     }

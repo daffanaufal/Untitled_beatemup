@@ -14,9 +14,11 @@ public class Playermovement : MonoBehaviour
     private float rotation_y = -90f;
     public float lompatan;
 
-    private bool isGuarding = false;
+    internal bool isGuarding = false;
     private bool isRunning = false;
     private bool canMove = true; // kontrol pergerakan
+    private float guardDuration = 2f; // Durasi guard dalam detik
+    private float guardTimer = 0f; // Timer untuk menghitung waktu guard
 
     public LayerMask collisionLayer;
     public float radius = 1f;
@@ -38,45 +40,27 @@ public class Playermovement : MonoBehaviour
             }
         }
 
-        if (canMove) // Cek apakah karakter dapat bergerak
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButton("XboxRun"))
-            {
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
-
-                foreach (Collider col in hitColliders)
-                {
-                    if (col.CompareTag("ground"))
-                    {
-                        isRunning = true;
-                        player_Anim.Run(true);
-                    }
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetButton("XboxRun"))
-            {
-                isRunning = false;
-                player_Anim.Run(false);
-            }
-        }
-
+        
 
         if (Input.GetKey(KeyCode.G) || Input.GetButton("XboxGuard"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, collisionLayer);
 
             foreach (Collider col in hitColliders)
-                if (col.CompareTag("ground") && !isGuarding && canMove) // Hanya menjalankan Guard jika karakter dapat bergerak
             {
-                isGuarding = true;
-                player_Anim.Guard(true); // Aktifkan animasi Guard
+                if (col.CompareTag("ground") && !isGuarding && canMove)
+                {
+                    // Memulai guard
+                    StartGuard();
+                }
             }
         }
         else if (Input.GetKeyUp(KeyCode.G) || Input.GetButton("XboxGuard"))
         {
-            isGuarding = false;
-            player_Anim.Guard(false); // Nonaktifkan animasi Guard
+            // Menghentikan guard
+            StopGuard();
         }
+
     }
 
     void FixedUpdate()
@@ -86,17 +70,44 @@ public class Playermovement : MonoBehaviour
             DetectMovement();
             AnimatePlayerWalk();
             RotatePlayer();
+            AnimatePlayerRun();
+        }
+        if (isGuarding)
+        {
+            guardTimer += Time.fixedDeltaTime;
+
+            // Menghentikan guard setelah durasi tertentu
+            if (guardTimer >= guardDuration)
+            {
+                StopGuard();
+            }
         }
     }
+
+    void AnimatePlayerRun()
+    {
+        float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
+        float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
+
+        bool isRunningInput = Input.GetKey(KeyCode.LeftShift) || Input.GetButton("XboxRun");
+        bool isRunning = isRunningInput && (horizontalInput != 0 || verticalInput != 0);
+
+        player_Anim.Run(isRunning);
+    }
+
 
     void DetectMovement()
     {
         float horizontalInput = Input.GetAxisRaw(AnimationTags.Axis.HORIZONTAL_AXIS) + Input.GetAxis("XboxHorizontal");
         float verticalInput = Input.GetAxisRaw(AnimationTags.Axis.VERTICAL_AXIS) + Input.GetAxis("XboxVertical");
 
-        Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
-
         float speed = isRunning ? run_Speed : walk_Speed;
+
+        // Determine if the player is running based on input
+        bool isRunningInput = Input.GetKey(KeyCode.LeftShift) || Input.GetButton("XboxRun");
+        isRunning = isRunningInput && (horizontalInput != 0 || verticalInput != 0);
+
+        Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
         myBody.velocity = new Vector3(
             moveDirection.x * (-speed),
@@ -104,6 +115,7 @@ public class Playermovement : MonoBehaviour
             moveDirection.z * (-z_Speed)
         );
     }
+
 
     void RotatePlayer()
     {
@@ -142,11 +154,23 @@ public class Playermovement : MonoBehaviour
             }
         }
     }
+    void StartGuard()
+    {
+        isGuarding = true;
+        player_Anim.Guard(true);
+        guardTimer = 0f; // Mereset timer guard
+    }
 
+    void StopGuard()
+    {
+        isGuarding = false;
+        player_Anim.Guard(false);
+    }
     // Fungsi untuk menonaktifkan pergerakan karakter
     public void DisableMovement()
     {
         canMove = false;
+        isRunning = false;
     }
 
     // Fungsi untuk mengaktifkan pergerakan karakter
