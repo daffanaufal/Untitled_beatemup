@@ -746,6 +746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bdc399d16977854c90a65ab31353c5a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7523713655879580485}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bdc399d16977854c90a65ab31353c5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2341694218619540435}
   m_SourcePrefab: {fileID: 100100000, guid: 1bdc399d16977854c90a65ab31353c5a, type: 3}
 --- !u!4 &578124540174823067 stripped
 Transform:
@@ -1139,6 +1142,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2341694218619540435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455936209862817057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e55976550e821a45b0a96f090ce267f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FXdamage: {fileID: 0}
+  FXtrail: {fileID: 0}
+  FXGuard: {fileID: 0}
+  FXStrongpunch: {fileID: 0}
+  FXSpecialkick: {fileID: 0}
 --- !u!4 &4460279971181793325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6551621910237947811, guid: 1bdc399d16977854c90a65ab31353c5a, type: 3}
