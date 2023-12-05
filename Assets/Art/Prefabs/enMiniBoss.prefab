@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 95259621755087314}
   - component: {fileID: 2488790315563058734}
   - component: {fileID: 7658863872025209686}
-  - component: {fileID: 1593778533001706280}
+  - component: {fileID: 2224667956917200595}
   m_Layer: 7
   m_Name: enMiniBoss
   m_TagString: MiniBoss
@@ -66,6 +66,11 @@ MonoBehaviour:
   maxHP: 750
   HPStageTwo: 600
   HPStageThree: 300
+  scream: {fileID: 8300000, guid: aac3d6f8391f0e543aadd66f0f54fbfd, type: 3}
+  gethitboss: {fileID: 8300000, guid: 93d0a18c02941f74a88f597780de0a41, type: 3}
+  heavyatkmb: {fileID: 8300000, guid: b2d5b4ff53995ca459c0d7b7cbc50c36, type: 3}
+  lightatkmb: {fileID: 8300000, guid: 0d64170d093c53e418f235b60c752e8e, type: 3}
+  walkingsound: {fileID: 8300000, guid: e00408bdf0d96c040832fe1dbbc42914, type: 3}
 --- !u!195 &2287606155385160207
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -157,7 +162,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2281759, y: 2.8676028, z: 1.2607197}
   m_Center: {x: 0.037597567, y: 1.4338014, z: -0.03535986}
---- !u!82 &1593778533001706280
+--- !u!82 &2224667956917200595
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,16 +171,16 @@ AudioSource:
   m_GameObject: {fileID: 1765116360898588}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 99
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
