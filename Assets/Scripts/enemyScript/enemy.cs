@@ -9,11 +9,13 @@ public class enemy : MonoBehaviour
     //------------GameObject Call Script------------
     private Player_Health player;
     private AttackUniversal enemyBlock;
+    private PlayerAttack PlayerAttack;
     //------------GameObject------------
     public float damageTangan;
     public float damageKaki;
     public GameObject Tangan;
     public GameObject Kaki;
+    public GameObject counterUI;
 
     //------------Health------------
     public int maxHP = 10;
@@ -136,7 +138,7 @@ public class enemy : MonoBehaviour
     public void Kick()
     {
         Kaki.GetComponent<Collider>().enabled = true;
-        Tangan.GetComponent<Collider>().enabled = false;
+        Tangan.GetComponent<Collider>().enabled = false; 
     }
 
     public void enemy_sound_dead()
@@ -145,4 +147,31 @@ public class enemy : MonoBehaviour
         audioSource.clip = enemy_dead_sound;
         audioSource.Play();
     }
-}        
+
+    public void ONcounterattack()
+    {
+        Debug.Log("Counter attack");
+        counterUI.SetActive(true);
+
+        PlayerAttack = GameObject.Find("Player").GetComponent<PlayerAttack>();
+
+        if (PlayerAttack != null)
+        {
+            PlayerAttack.EnableMovement();
+        }
+    }
+
+    public void OFFcounterattack()
+    {
+        Debug.Log("OFFcounterattack called");
+        counterUI.SetActive(false);
+
+        PlayerAttack = GameObject.Find("Player").GetComponent<PlayerAttack>();
+
+        if (PlayerAttack != null)
+        {
+            PlayerAttack.DisableMovement();
+        }
+    }
+
+}
