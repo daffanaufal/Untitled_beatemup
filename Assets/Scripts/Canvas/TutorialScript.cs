@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class TutorialScript : MonoBehaviour
 {
+    [SerializeField]
     private bool isFirst;
 
     [SerializeField]
-    private GameObject VideoPlayer;
+    private GameObject VideoPlayerMove;
+
+    [SerializeField]
+    private GameObject VideoPlayerCom;
 
     [SerializeField]
     private GameObject TutorialCanvas;
@@ -37,7 +41,9 @@ public class TutorialScript : MonoBehaviour
         subCurrCom = 0;
         subPrevCom = 0;
 
-        VideoPlayer.SetActive(false);
+        VideoPlayerMove.SetActive(false);
+        VideoPlayerCom.SetActive(false);
+
 
         if (isFirst)
         {
@@ -69,13 +75,21 @@ public class TutorialScript : MonoBehaviour
 
         current = previous;
 
-        if (current == 1 || current == 2)
+        if (current == 1)
         {
-            VideoPlayer.SetActive(true);
+            VideoPlayerMove.SetActive(true);
+            VideoPlayerCom.SetActive(false);
+
         }
-        else if(current == 0)
+        else if(current == 2)
         {
-            VideoPlayer.SetActive(false);
+            VideoPlayerMove.SetActive(false);
+            VideoPlayerCom.SetActive(true);
+        }
+        else
+        {
+            VideoPlayerMove.SetActive(false);
+            VideoPlayerCom.SetActive(false);
         }
 
         TutorialPage[current].SetActive(true);
@@ -98,13 +112,21 @@ public class TutorialScript : MonoBehaviour
             }
         }
 
-        if (current == 1 || current == 2)
+        if (current == 1)
         {
-            VideoPlayer.SetActive(true);
+            VideoPlayerMove.SetActive(true);
+            VideoPlayerCom.SetActive(false);
+
         }
-        else if (current == 0)
+        else if (current == 2)
         {
-            VideoPlayer.SetActive(false);
+            VideoPlayerMove.SetActive(false);
+            VideoPlayerCom.SetActive(true);
+        }
+        else
+        {
+            VideoPlayerMove.SetActive(false);
+            VideoPlayerCom.SetActive(false);
         }
 
         TutorialPage[current].SetActive(true);
@@ -164,7 +186,7 @@ public class TutorialScript : MonoBehaviour
                 subCurrCom = 0;
             }
         }
-        VideoController.instance.PlayVideo(subCurrCom + 3);
+        VideoController.instance.PlayVideo(subCurrCom);
         SubCombat[subCurrCom].SetActive(true);
     }
 
@@ -184,7 +206,7 @@ public class TutorialScript : MonoBehaviour
         }
 
         subCurrCom = subPrevCom;
-        VideoController.instance.PlayVideo(subCurrCom + 3);
+        VideoController.instance.PlayVideo(subCurrCom);
         SubCombat[subCurrCom].SetActive(true);
     }
 
