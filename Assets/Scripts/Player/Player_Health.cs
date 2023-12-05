@@ -13,6 +13,7 @@ public class Player_Health : MonoBehaviour
     public Image healthUI; //Fill amount nyawa
     public GameObject[] healthUIImg; //life count apabila health sudah 0, life akan deactive
     public GameObject gameOverCanvas;
+
     //protected bool OnPlayerDeath; //ADD BOOLEAN
     public bool OnPlayerDeath=true;
     [SerializeField] private LayerMask medkitLayer;
@@ -22,7 +23,8 @@ public class Player_Health : MonoBehaviour
     private void Update()
     {
         //Health Bar fill agar terlihat terisi
-       healthUI.fillAmount = health / maxHealth;
+        healthUI.fillAmount = health / maxHealth;
+        Debug.Log("life : " + life);
     }
 
     void Start()
@@ -55,7 +57,7 @@ public class Player_Health : MonoBehaviour
         }
 
         // Kalau Player mati sementara dia reload Scene
-        if (life == 0)
+        if (life == -1)
         {
             Die();
 
