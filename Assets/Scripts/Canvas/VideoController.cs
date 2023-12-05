@@ -15,6 +15,7 @@ public class VideoController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        videoPlayer.clip = videoClips[0];
     }
 
     public void PlayVideo(int index)
