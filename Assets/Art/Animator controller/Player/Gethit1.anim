@@ -42779,7 +42779,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: OFFDamage
+    functionName: ONDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

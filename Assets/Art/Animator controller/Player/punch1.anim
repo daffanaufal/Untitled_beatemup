@@ -45083,7 +45083,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: ONTrail
+    functionName: ONpunch1
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -45111,7 +45111,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: OFFTrail
+    functionName: OFFpunch1
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
