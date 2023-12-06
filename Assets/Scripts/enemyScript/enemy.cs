@@ -157,7 +157,8 @@ public class enemy : MonoBehaviour
 
         if (PlayerAttack != null)
         {
-            PlayerAttack.EnableMovement();
+            Debug.Log("PlayerAttack found!");
+            PlayerAttack.lanjut();
         }
     }
 
@@ -170,7 +171,7 @@ public class enemy : MonoBehaviour
 
         if (PlayerAttack != null)
         {
-            PlayerAttack.DisableMovement();
+            PlayerAttack.berhenti();
         }
     }
 

@@ -46926,7 +46926,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.28
-    functionName: DetectCollision_2
+    functionName: DetectCollision_Kick3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -216,28 +216,30 @@ public class PlayerAttack : MonoBehaviour
         }
         
     }
+    public void lanjut()
+    {
+        canMove = true;
 
-    internal void Counter()
+    }
+
+    public void berhenti()
+    {
+        canMove = false;
+
+    }
+
+    public void Counter()
     {
         if (canMove)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 player_anim.Counter();
+                playerAttackUniversal.SetDamage(DamageValue.ParryValue); 
             }
         }
     }
 
-    public void DisableMovement()
-    {
-        canMove = false;
-     }
-
-    // Fungsi untuk mengaktifkan pergerakan karakter
-    public void EnableMovement()
-    {
-        canMove = true;
-    }
 
     [System.Serializable]               //different damage value for each attack type 
     public class DValue
@@ -251,5 +253,6 @@ public class PlayerAttack : MonoBehaviour
         public int kick3Value;
         public int SpPunchValue;        //Special Attack value
         public int SpKickValue;
+        public int ParryValue;
     }
 }
