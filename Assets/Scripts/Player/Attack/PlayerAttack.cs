@@ -33,9 +33,10 @@ public class PlayerAttack : MonoBehaviour
     public DValue DamageValue;                      //Call Class DValue Name
 
     //Cooldown Special Skill
-    [SerializeField] Cooldown cooldown;
+    [SerializeField] 
+    Cooldown cooldown;
 
-    //Countdown
+    //Countdown Kick
     [SerializeField]
     private GameObject cooldown_layer;
 
@@ -50,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private Transform skill_posisiton_punch;
+
 
 
     void Awake()

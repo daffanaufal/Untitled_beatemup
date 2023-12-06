@@ -24,6 +24,16 @@ public class Playermovement : MonoBehaviour
 
     public float dashDistance = 10f;
 
+    //dash cooldown
+    [SerializeField]
+    Cooldown dash_cooldown;
+
+    [SerializeField]
+    private Transform dash_skill_position;
+
+    [SerializeField]
+    private GameObject dash_cooldown_layer;
+
 
     public LayerMask collisionLayer;
     public float radius = 1f;
@@ -75,6 +85,7 @@ public class Playermovement : MonoBehaviour
     }
     void Dash()
     {
+        if (dash_cooldown.isCoolingDown) return;
         player_Anim.Dash();
 
         // Menentukan arah dash (misalnya, ke depan karakter)
@@ -95,6 +106,8 @@ public class Playermovement : MonoBehaviour
 
         // Melakukan teleportasi ke posisi dash
         transform.position += dashDirection * dashDistance;
+        Instantiate(dash_cooldown_layer, dash_skill_position);
+        dash_cooldown.StartCooldown();
     }
 
     void FixedUpdate()
