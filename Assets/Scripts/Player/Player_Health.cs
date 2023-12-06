@@ -25,6 +25,7 @@ public class Player_Health : MonoBehaviour
         //Health Bar fill agar terlihat terisi
         healthUI.fillAmount = health / maxHealth;
         Debug.Log("life : " + life);
+        DetectCollision();
     }
 
     void Start()
@@ -79,33 +80,35 @@ public class Player_Health : MonoBehaviour
         GetComponentInChildren<Characteranimation>().Die();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DetectCollision()
     {
-        // Cek apakah objek yang bersentuhan memiliki layer "Medkit"
-        if (other.gameObject.layer == LayerMask.NameToLayer("Medkit"))
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+
+        foreach (Collider collider in colliders)
         {
-            // Ambil komponen script dari objek yang bersentuhan
-            Medkit medkit = other.GetComponent<Medkit>();
-
-            // Cek apakah komponen Medkit ada
-            if (medkit != null)
+            if (collider.CompareTag("Medkit"))
             {
-                // Tambahkan health dan maxHealth dari Medkit
-                health += medkit.healthBonus;
-                maxHealth += medkit.maxHealthBonus;
+                Medkit medkit = collider.GetComponent<Medkit>();
 
-                // Batasi health dan maxHealth agar tidak lebih dari 100
-                health = Mathf.Min(health, 100f);
-                maxHealth = Mathf.Min(maxHealth, 100f);
-
-                // Aktifkan kembali life UI jika health lebih besar dari 0
-                if (health > 0 && life < healthUIImg.Length)
+                if (medkit != null)
                 {
-                    healthUIImg[life].SetActive(true);
+                    // Tambahkan health dan maxHealth dari Medkit
+                    health += medkit.healthBonus;
+
+                    // Batasi health dan maxHealth agar tidak lebih dari 100
+                    health = Mathf.Min(health, 100f);
+
+                    // Aktifkan kembali life UI jika health lebih besar dari 0
+                    if (health > 0 && life < healthUIImg.Length)
+                    {
+                        healthUIImg[life].SetActive(true);
+                    }
+
+                    collider.gameObject.SetActive(false);
                 }
-
-
             }
         }
     }
+
+
 }
