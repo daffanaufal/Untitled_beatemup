@@ -13,7 +13,7 @@ public class Medkit : MonoBehaviour
 
     void DetectCollision()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1.0f, playerLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, playerLayer);
 
         foreach (Collider collider in colliders)
         {
