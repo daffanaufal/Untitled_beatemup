@@ -66726,21 +66726,28 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: DetectCollision_1
+    functionName: DetectCollision_SP
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: activeVFX
+    functionName: OFFStrongpunch
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.96
-    functionName: OFFStrongpunch
+  - time: 0.4
+    functionName: ONStrongpunch2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.52
+    functionName: OFFStrongpunch2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

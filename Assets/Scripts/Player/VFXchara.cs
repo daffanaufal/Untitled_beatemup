@@ -7,6 +7,7 @@ public class VFXchara : MonoBehaviour
     public GameObject FXdamage;
     public GameObject FXtrail;
     public GameObject FXStrongpunch;
+    public GameObject FXstrongpunch2;
     public GameObject FXSpecialkick;
     public GameObject FXGuard;
     public GameObject FXPunch1;
@@ -50,11 +51,24 @@ public class VFXchara : MonoBehaviour
         FXStrongpunch.GetComponent<ParticleSystem>().Stop();
         FXStrongpunch.GetComponent<Collider>().enabled = false;
     }
+    //----strongpunch----
+     public void ONStrongpunch2()
+    {
+        FXstrongpunch2.GetComponent<ParticleSystem>().Play();
+        FXstrongpunch2.GetComponent<Collider>().enabled = true;
+    }
+    public void OFFStrongpunch2()
+    {
+        FXstrongpunch2.GetComponent<ParticleSystem>().Stop();
+        FXstrongpunch2.GetComponent<Collider>().enabled = false;
+    }
+
+
     //------Specialkick----
      public void ONSpecialkick()
     {
-        FXdamage.GetComponent<ParticleSystem>().Play();
-        FXdamage.GetComponent<Collider>().enabled = true;
+        FXSpecialkick.GetComponent<ParticleSystem>().Play();
+        FXSpecialkick.GetComponent<Collider>().enabled = true;
     }
     public void OFFSpecialkick()
     {

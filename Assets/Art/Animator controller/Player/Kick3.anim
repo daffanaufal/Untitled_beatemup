@@ -84394,6 +84394,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.4
+    functionName: ONkick3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.44
     functionName: Attack_FX_Sound
     data: 
@@ -84410,6 +84417,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.44
     functionName: EnableMovement
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.44
+    functionName: OFFkick3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
