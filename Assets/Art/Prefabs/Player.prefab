@@ -1674,6 +1674,9 @@ MonoBehaviour:
   run_Speed: 5
   z_Speed: 1.5
   lompatan: 3300
+  dashSpeed: 10
+  dashDistance: 1
+  dashCooldown: 2
   collisionLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -1722,6 +1725,7 @@ MonoBehaviour:
     kick3Value: 25
     SpPunchValue: 50
     SpKickValue: 25
+    ParryValue: 0
   cooldown:
     cooldownTime: 5
   cooldown_layer: {fileID: 5835881793022783388, guid: a47ed783d987a234bb0372ae77bb8122, type: 3}

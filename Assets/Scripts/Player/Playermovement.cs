@@ -13,12 +13,17 @@ public class Playermovement : MonoBehaviour
     private float rotation_speed = 15f;
     private float rotation_y = -90f;
     public float lompatan;
+    public float dashSpeed = 10f;
+
 
     internal bool isGuarding = false;
     private bool isRunning = false;
     private bool canMove = true; // kontrol pergerakan
     private float guardDuration = 2f; // Durasi guard dalam detik
     private float guardTimer = 0f; // Timer untuk menghitung waktu guard
+
+    public float dashDistance = 10f;
+
 
     public LayerMask collisionLayer;
     public float radius = 1f;
@@ -31,7 +36,7 @@ public class Playermovement : MonoBehaviour
 
     void Update()
     {
-        
+        //------jump-----
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("XboxJump"))
         {
             if (canMove)
@@ -40,7 +45,7 @@ public class Playermovement : MonoBehaviour
             }
         }
 
-        
+        //-----guard-----
 
         if (Input.GetKey(KeyCode.G) || Input.GetButton("XboxGuard"))
         {
@@ -61,6 +66,35 @@ public class Playermovement : MonoBehaviour
             StopGuard();
         }
 
+        //-------dash-----
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Dash();
+        }
+
+    }
+    void Dash()
+    {
+        player_Anim.Dash();
+
+        // Menentukan arah dash (misalnya, ke depan karakter)
+        Vector3 dashDirection = transform.forward;
+
+        // Menentukan panjang ray (jarak dash)
+        float dashRayLength = dashDistance;
+
+        // Membuat ray dari posisi karakter ke arah dash
+        Ray dashRay = new Ray(transform.position, dashDirection);
+
+        // Mengecek apakah ada objek dengan layer "Wall" di depan karakter
+        if (Physics.Raycast(dashRay, out RaycastHit hit, dashRayLength) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Tembok"))
+        {
+            // Ada tembok, dash tidak dapat dijalankan
+            return;
+        }
+
+        // Melakukan teleportasi ke posisi dash
+        transform.position += dashDirection * dashDistance;
     }
 
     void FixedUpdate()
@@ -166,6 +200,7 @@ public class Playermovement : MonoBehaviour
         isGuarding = false;
         player_Anim.Guard(false);
     }
+    
     // Fungsi untuk menonaktifkan pergerakan karakter
     public void DisableMovement()
     {

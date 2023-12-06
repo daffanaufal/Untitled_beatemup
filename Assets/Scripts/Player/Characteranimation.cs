@@ -97,6 +97,11 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.DIE_TRIGGER);
     }
 
+    public void Dash()
+    {
+        anim.SetTrigger(AnimationTags.Dash);
+    }
+
     //---------SFX-------------
     public void Attack_FX_Sound()
     {
