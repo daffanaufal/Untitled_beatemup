@@ -23313,15 +23313,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.29166666
-    functionName: Kick
+  - time: 0.16666667
+    functionName: ONcounterattack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.29166666
-    functionName: ONcounterattack
+    functionName: Kick
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

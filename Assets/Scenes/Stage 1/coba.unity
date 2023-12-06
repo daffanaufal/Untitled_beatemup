@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 234731077}
   - component: {fileID: 234731076}
   - component: {fileID: 234731075}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 3 kanan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4075,7 +4075,7 @@ GameObject:
   - component: {fileID: 547782443}
   - component: {fileID: 547782442}
   - component: {fileID: 547782441}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 3 kiri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4453,7 +4453,7 @@ GameObject:
   - component: {fileID: 608827507}
   - component: {fileID: 608827506}
   - component: {fileID: 608827505}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 2 kanan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9183,7 +9183,7 @@ GameObject:
   - component: {fileID: 1057895561}
   - component: {fileID: 1057895560}
   - component: {fileID: 1057895559}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 2 kiri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10850,6 +10850,10 @@ PrefabInstance:
     - target: {fileID: -4313474054685097897, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4050432314496597709, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -2641263661317927512, guid: 729ed42df3f18e141bec91c6541fc514, type: 3}
       propertyPath: m_IsActive
@@ -14633,7 +14637,7 @@ GameObject:
   - component: {fileID: 1699603173}
   - component: {fileID: 1699603172}
   - component: {fileID: 1699603176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16794,7 +16798,7 @@ GameObject:
   - component: {fileID: 1844206480}
   - component: {fileID: 1844206479}
   - component: {fileID: 1844206478}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pintu stage 1 Kiri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19362,6 +19366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage 1 Floor 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4724003798883638334, guid: 469207485705e264daa1a512ca08e562, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6147035655465279517, guid: 469207485705e264daa1a512ca08e562, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -20635,6 +20643,10 @@ PrefabInstance:
       propertyPath: nextFloor
       value: 
       objectReference: {fileID: 1095867393}
+    - target: {fileID: 8178084728947161363, guid: af565b33fd61d694a8699b6a5097f277, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

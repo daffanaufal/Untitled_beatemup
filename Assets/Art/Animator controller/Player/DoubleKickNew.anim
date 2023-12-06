@@ -116766,14 +116766,42 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: DetectCollision_3
+    functionName: activeVFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: activeVFX
+    functionName: DetectCollision_3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.48
+    functionName: DetectCollision_3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.48
+    functionName: Strong_Kick_Sound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76
+    functionName: DetectCollision_Kick3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76
+    functionName: Strong_Kick_Sound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -116787,7 +116815,21 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.88
-    functionName: DetectCollision_4
+    functionName: DetectCollision_Kick3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96
+    functionName: DetectCollision_Kick3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96
+    functionName: Strong_Kick_Sound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
