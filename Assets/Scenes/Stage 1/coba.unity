@@ -17064,6 +17064,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871539080}
   m_CullTransparentMesh: 1
+--- !u!224 &1879910835 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 515325834215120710, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+  m_PrefabInstance: {fileID: 1651679816980675886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885434480
 GameObject:
   m_ObjectHideFlags: 0
@@ -19051,6 +19056,18 @@ PrefabInstance:
     - target: {fileID: 5026506987652407882, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296043596882701772, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: dash_cooldown_layer
+      value: 
+      objectReference: {fileID: 6509390783223934059, guid: 3734a278af17bfd4e84d2b103e620b8a, type: 3}
+    - target: {fileID: 6296043596882701772, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: dash_skill_position
+      value: 
+      objectReference: {fileID: 1879910835}
+    - target: {fileID: 6296043596882701772, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: dash_cooldown.cooldownTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
