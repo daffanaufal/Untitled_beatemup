@@ -19,6 +19,7 @@ public class Player_Health : MonoBehaviour
     [SerializeField] private LayerMask medkitLayer;
     private Playermovement playerMovement;
     private enemy enemy;
+    private VFXchara VFXchara;
 
     private void Update()
     {
@@ -55,6 +56,8 @@ public class Player_Health : MonoBehaviour
             damage = 0;
             GetComponentInChildren<Characteranimation>().Hit1(false);
             Debug.Log("Sedang guarding");
+            VFXchara = GameObject.Find("Player").GetComponent<VFXchara>();
+            VFXchara.FXPunch3.GetComponent<ParticleSystem>().Play();
         }
 
         // Kalau Player mati sementara dia reload Scene

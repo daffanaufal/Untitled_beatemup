@@ -1376,6 +1376,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2342784, y: 0.08127702, z: 2.2342784}
   m_Center: {x: -0.00000011920929, y: 0.006272983, z: 0.08913422}
+--- !u!1 &183719609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026506987652407882, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+  m_PrefabInstance: {fileID: 1651679816980675886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &184447789
 GameObject:
   m_ObjectHideFlags: 0
@@ -17059,6 +17064,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871539080}
   m_CullTransparentMesh: 1
+--- !u!224 &1879910835 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 515325834215120710, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+  m_PrefabInstance: {fileID: 1651679816980675886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885434480
 GameObject:
   m_ObjectHideFlags: 0
@@ -20441,7 +20451,7 @@ PrefabInstance:
     - target: {fileID: 4341987634812824536, guid: af565b33fd61d694a8699b6a5097f277, type: 3}
       propertyPath: WinUI
       value: 
-      objectReference: {fileID: 1464625331}
+      objectReference: {fileID: 183719609}
     - target: {fileID: 4341987634812824536, guid: af565b33fd61d694a8699b6a5097f277, type: 3}
       propertyPath: nextFloor
       value: 
