@@ -29,6 +29,7 @@ public class ScriptSceneCharac : MonoBehaviour
     public void GoBack()
     {
         // Kembali ke scene sebelumnya
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        SceneManager.LoadScene("Mainmenu");
+
     }
 }

@@ -10,6 +10,7 @@ public class ScriptScene : MonoBehaviour
     public GameObject WinUI;
     public GameObject[] locks;
     public bool isFinished;
+    public GameObject gembok;
 
     private void Start()
     {
@@ -94,6 +95,15 @@ public class ScriptScene : MonoBehaviour
         CheckAndSetLocks();
     }
 
+    public void back1()
+    {
+        SceneManager.LoadScene("CharacterSelection");
+    }
+    public void back2()
+    {
+        SceneManager.LoadScene("Mainmenu");
+    }
+
     // Metode untuk memeriksa dan mengatur status gembok
     void CheckAndSetLocks()
     {
@@ -110,6 +120,7 @@ public class ScriptScene : MonoBehaviour
                     {
                         locks[i].SetActive(false); 
                     }
+                    gembok.SetActive(false);
                 }
             }
         }
