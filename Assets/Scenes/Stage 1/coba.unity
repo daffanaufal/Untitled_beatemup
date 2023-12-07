@@ -4186,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &558960912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13055,7 +13055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1464625332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13729,6 +13729,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6632211, y: 2.1015956, z: 1.5486318}
   m_Center: {x: -0.0000019162908, y: -0.30349934, z: -0.30004787}
+--- !u!1 &1616243641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026506987652407882, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+  m_PrefabInstance: {fileID: 1651679816980675886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621325880
 GameObject:
   m_ObjectHideFlags: 0
@@ -20433,7 +20438,7 @@ PrefabInstance:
     - target: {fileID: 4341987634812824536, guid: af565b33fd61d694a8699b6a5097f277, type: 3}
       propertyPath: WinUI
       value: 
-      objectReference: {fileID: 1464625331}
+      objectReference: {fileID: 1616243641}
     - target: {fileID: 4341987634812824536, guid: af565b33fd61d694a8699b6a5097f277, type: 3}
       propertyPath: nextFloor
       value: 
