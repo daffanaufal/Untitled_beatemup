@@ -286,7 +286,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1449484676}
         m_TargetAssemblyTypeName: ScriptScene, Assembly-CSharp
-        m_MethodName: GoBack
+        m_MethodName: back1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1126,7 +1126,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: CharacterSelection
+          m_StringArgument: Coba
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &644037642
@@ -3041,10 +3041,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb2e882556cfde4c8723a9001914646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButtonKey: 27
   FinalScore: {fileID: 0}
   FinalTime: {fileID: 0}
   WinUI: {fileID: 0}
+  locks: []
+  isFinished: 0
+  gembok: {fileID: 365888594}
 --- !u!4 &1449484677
 Transform:
   m_ObjectHideFlags: 0
@@ -3290,7 +3292,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: CharacterSelection
+          m_StringArgument: Stage 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1639009954
