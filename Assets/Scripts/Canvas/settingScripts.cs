@@ -14,6 +14,11 @@ public class settingScripts : MonoBehaviour
         
     }
 
+    public void closeSettingOnMenu()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void closeSetting()
     {
         settingUI.SetActive(false);
