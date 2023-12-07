@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VFXchara : MonoBehaviour
+public class Vfxenemy : MonoBehaviour
 {
     public GameObject FXdamage;
     public GameObject FXtrail;
@@ -17,7 +17,6 @@ public class VFXchara : MonoBehaviour
     public GameObject FXKick2;
     public GameObject FXKick3;
     public GameObject FXBlood;
-    public GameObject FXDash;
 
     //------Damage----
     public void ONDamage()
@@ -156,16 +155,6 @@ public class VFXchara : MonoBehaviour
     {
         FXBlood.GetComponent<ParticleSystem>().Stop();
         FXBlood.GetComponent<Collider>().enabled = false;
-    }//------dash----
-     public void ONdash()
-    {
-        FXDash.GetComponent<ParticleSystem>().Play();
-        FXDash.GetComponent<Collider>().enabled = true;
-    }
-    public void OFdash()
-    {
-        FXDash.GetComponent<ParticleSystem>().Stop();
-        FXDash.GetComponent<Collider>().enabled = false;
     }
 
 }
