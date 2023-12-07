@@ -7,19 +7,23 @@ using UnityEngine.XR;
 
 public class MB_health : MonoBehaviour
 {
-    //------------GameObject------------
+    //------------Call SCript------------
     private Player_Health player;
+    private CameraShake kamera;
+
+    //------------GameObject------------
     public GameObject TanganL;
     public GameObject TanganR;
-    public GameObject effectATK;
 
+    //------------Call Spawn------------
+    public GameObject effectATK;
+    public GameObject effectScream;
     public callMinion SpawnSt2;
     public callMinion SpawnMedkit;
 
     //------------Damage------------
     public float damageL;
     public float damageR;
-    public bool isInvulnerable = false;
 
     //------------Death------------
     protected bool dead=true;
@@ -28,7 +32,6 @@ public class MB_health : MonoBehaviour
     //------------Animation------------
     public Animator animator;
    
-
     //------------Health------------
     //public Slider healthBar;
     public int maxHP;
@@ -55,15 +58,14 @@ public class MB_health : MonoBehaviour
     public void Start()
     {
         player=GameObject.Find("Player").GetComponent<Player_Health>();
+        kamera=GameObject.Find("cameraShaking").GetComponent<CameraShake>();
         currentHP = maxHP;
+        
         //healthBar.value= currentHP;
     }
 
     public void TakeDamage(int damageAmount)
     {
-        if (isInvulnerable)
-			return;
-            
         currentHP -= damageAmount;
         Debug.Log("HP Enemy ="+currentHP);
 
@@ -77,6 +79,7 @@ public class MB_health : MonoBehaviour
             animator.SetTrigger("stageTwo");
             SpawnSt2.NextWave();
             SpawnMedkit.NextWave();
+            kamera.shakecamera();
         }
 
         if (currentHP <= 0)                         //-----Enemy is Dead
@@ -124,11 +127,11 @@ public class MB_health : MonoBehaviour
                 //timeSlow.DoSlowmotion();
             }
         }
-        if (other.tag == "Enemy")
+        /*if (other.tag == "Enemy")
         {
             deActiveATK();
             GetComponent<Collider>().enabled = false;
-        }
+        }*/
     }
 
     //------------Animation Detect Collide------------
@@ -164,6 +167,14 @@ public class MB_health : MonoBehaviour
     {   
         effectATK.GetComponent<ParticleSystem>().Stop();
         effectATK.GetComponent<Collider>().enabled=false;
+    }
+    public void activeVFXscream()
+    {
+        effectScream.GetComponent<ParticleSystem>().Play();
+    }
+    public void deactiveVFXscream()
+    {   
+        effectScream.GetComponent<ParticleSystem>().Stop();
     }
 
     //---------------SFX--------------
