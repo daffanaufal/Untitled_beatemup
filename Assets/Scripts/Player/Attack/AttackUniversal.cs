@@ -8,7 +8,7 @@ public class AttackUniversal : MonoBehaviour
 
     private int numHit = 0;
     public int hitCount;
-    public bool isEnemyBlock = true;
+    public bool isEnemyBlock = false;
 
     public GameObject TanganKanan;
     public GameObject TanganKiri;

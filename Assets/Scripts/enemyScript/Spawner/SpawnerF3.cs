@@ -48,7 +48,6 @@ public class SpawnerF3 : MonoBehaviour
 			
             GameObject enemyObject = Instantiate(Enemy[objIndex], SpawnPoints[spawnIndex].position, SpawnPoints[spawnIndex].rotation);
 			
-            enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 			// Check if the spawned enemy has the MiniBoss tag
 			if (enemyObject.CompareTag("MiniBoss"))
 			{
@@ -59,6 +58,7 @@ public class SpawnerF3 : MonoBehaviour
 				}
 			} else
         	{
+            	enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 				spawnedEnemy.OnDeath += OnEnemyDeath;
 			}
 		}

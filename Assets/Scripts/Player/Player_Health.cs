@@ -15,7 +15,7 @@ public class Player_Health : MonoBehaviour
     public GameObject gameOverCanvas;
 
     //protected bool OnPlayerDeath; //ADD BOOLEAN
-    public bool OnPlayerDeath=true;
+    public bool OnPlayerDeath=false;
     [SerializeField] private LayerMask medkitLayer;
     private Playermovement playerMovement;
     private enemy enemy;
@@ -65,7 +65,7 @@ public class Player_Health : MonoBehaviour
         {
             Die();
 
-            OnPlayerDeath = true;     //Player Die
+            OnPlayerDeath = true;               //Player Die
             // Dead animation, Menu -> Active
             gameOverCanvas.SetActive(true);
 
