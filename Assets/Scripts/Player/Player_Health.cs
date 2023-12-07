@@ -25,7 +25,6 @@ public class Player_Health : MonoBehaviour
     {
         //Health Bar fill agar terlihat terisi
         healthUI.fillAmount = health / maxHealth;
-        Debug.Log("life : " + life);
         DetectCollision();
     }
 
