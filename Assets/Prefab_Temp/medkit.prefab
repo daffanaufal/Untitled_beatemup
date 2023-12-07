@@ -127,3 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBonus: 50
   maxHealthBonus: 50
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64

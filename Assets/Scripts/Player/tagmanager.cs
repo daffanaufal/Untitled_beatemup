@@ -18,11 +18,14 @@ public class AnimationTags
 
     public const string STRONGPUNCH_TRIGGER = "Strong_punch";
     public const string SPECIALKICK_TRIGGER = "Special_kick";
+    public const string COUNTER = "Counter_parry";
 
     public const string IDLE_ANIMATION = "idle";
     public const string JUMP_TRIGGER = "Jump";
     public const string GUARD = "guard";
     public const string DIE_TRIGGER = "die";
+    public const string Wakeup = "wakeup";
+    public const string Dash = "Dash";
 
     public class Axis
     {

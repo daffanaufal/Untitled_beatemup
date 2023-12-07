@@ -73,6 +73,16 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.SPECIALKICK_TRIGGER);
     }
 
+    public void Counter()
+    {
+        anim.SetTrigger(AnimationTags.COUNTER);
+    }
+
+    public void wakeup()
+    {
+        anim.SetTrigger(AnimationTags.Wakeup);
+    }
+
     public void Jump()
     {
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);
@@ -85,6 +95,11 @@ public class Characteranimation : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger(AnimationTags.DIE_TRIGGER);
+    }
+
+    public void Dash()
+    {
+        anim.SetTrigger(AnimationTags.Dash);
     }
 
     //---------SFX-------------

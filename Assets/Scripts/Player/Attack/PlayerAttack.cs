@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     private float default_Combo_Timer = 0.4f;
     private float current_Combo_Timer;
     private ComboState current_Combo_State;
+    private bool canMove = true;
 
     public LayerMask collisionLayer;
     public float radius = 0.1f;
@@ -32,9 +33,10 @@ public class PlayerAttack : MonoBehaviour
     public DValue DamageValue;                      //Call Class DValue Name
 
     //Cooldown Special Skill
-    [SerializeField] Cooldown cooldown;
+    [SerializeField] 
+    Cooldown cooldown;
 
-    //Countdown
+    //Countdown Kick
     [SerializeField]
     private GameObject cooldown_layer;
 
@@ -50,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform skill_posisiton_punch;
 
-    //public bool canMove = true;
+
 
     void Awake()
     {
@@ -70,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
         ResetComboState();
         specialattackpunch();
         specialattackkick();
+        Counter();
     }
 
     void ComboAttacks()
@@ -215,17 +218,30 @@ public class PlayerAttack : MonoBehaviour
         }
         
     }
+    public void lanjut()
+    {
+        canMove = true;
 
-    //public void DisableMovement()
-    //{
-    //    canMove = false;
-    // }
+    }
 
-    // Fungsi untuk mengaktifkan pergerakan karakter
-    //public void EnableMovement()
-    //{
-    //    canMove = true;
-    //}
+    public void berhenti()
+    {
+        canMove = false;
+
+    }
+
+    public void Counter()
+    {
+        if (canMove)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                player_anim.Counter();
+                playerAttackUniversal.SetDamage(DamageValue.ParryValue); 
+            }
+        }
+    }
+
 
     [System.Serializable]               //different damage value for each attack type 
     public class DValue
@@ -239,5 +255,6 @@ public class PlayerAttack : MonoBehaviour
         public int kick3Value;
         public int SpPunchValue;        //Special Attack value
         public int SpKickValue;
+        public int ParryValue;
     }
 }
