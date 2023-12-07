@@ -8275,6 +8275,7 @@ MonoBehaviour:
   WinUI: {fileID: 5026506987652407882}
   locks: []
   isFinished: 0
+  gembok: {fileID: 0}
 --- !u!1 &8498954243028077968
 GameObject:
   m_ObjectHideFlags: 0
@@ -9064,6 +9065,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5992857858693759102, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
+      propertyPath: dash_skill_position
+      value: 
+      objectReference: {fileID: 515325834215120710}
     - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: skill_posisiton
       value: 
