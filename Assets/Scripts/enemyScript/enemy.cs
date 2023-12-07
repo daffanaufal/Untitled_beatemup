@@ -109,11 +109,11 @@ public class enemy : MonoBehaviour
                 other.GetComponent<Player_Health>().TakeDamage(damageTangan);
             }
         }
-        if (other.tag == "Enemy")
+        /*if (other.tag == "Enemy")
         {
             deActiveATK();
             GetComponent<Collider>().enabled = false;
-        }
+        }*/
     }
 
     //------------Animation Detect Collide------------

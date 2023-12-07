@@ -61,6 +61,7 @@ public class SpawnerF1 : MonoBehaviour
 				}
 			} else
         	{
+            	enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 				spawnedEnemy.OnDeath += OnEnemyDeath;
 			}
 		}
