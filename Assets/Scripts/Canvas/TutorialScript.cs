@@ -9,41 +9,33 @@ public class TutorialScript : MonoBehaviour
     private bool isFirst;
 
     [SerializeField]
-    private GameObject VideoPlayerMove;
-
-    [SerializeField]
-    private GameObject VideoPlayerCom;
-
-    [SerializeField]
     private GameObject TutorialCanvas;
 
     [SerializeField]
     private GameObject[] TutorialPage;
 
     [SerializeField]
-    private GameObject[] SubMovement;
+    private GameObject[] PageDot;
 
     [SerializeField]
     private GameObject[] SubCombat;
 
-    [SerializeField]
-    private GameObject[] PageDot;
+    private int current, previous, subCombatCurrent, subCombatPrevious, currentStep, prevStep;
 
-    private int current, previous, subCurrMove, subPrevMove, subCurrCom, subPrevCom;
+    public GameObject[] punch;
+    public GameObject[] kick;
+    public GameObject[] sp_punch;
+
 
     private void Awake()
     {
         Time.timeScale = 0;
         current = 0;
         previous = 0;
-        subCurrMove = 0;
-        subPrevMove = 0;
-        subCurrCom = 0;
-        subPrevCom = 0;
-
-        VideoPlayerMove.SetActive(false);
-        VideoPlayerCom.SetActive(false);
-
+        subCombatCurrent = 0;
+        subCombatPrevious = 0;
+        currentStep = 0;
+        prevStep = 0;
 
         if (isFirst)
         {
@@ -75,23 +67,6 @@ public class TutorialScript : MonoBehaviour
 
         current = previous;
 
-        if (current == 1)
-        {
-            VideoPlayerMove.SetActive(true);
-            VideoPlayerCom.SetActive(false);
-
-        }
-        else if(current == 2)
-        {
-            VideoPlayerMove.SetActive(false);
-            VideoPlayerCom.SetActive(true);
-        }
-        else
-        {
-            VideoPlayerMove.SetActive(false);
-            VideoPlayerCom.SetActive(false);
-        }
-
         TutorialPage[current].SetActive(true);
         PageDot[current].SetActive(true);
     }
@@ -112,102 +87,110 @@ public class TutorialScript : MonoBehaviour
             }
         }
 
-        if (current == 1)
-        {
-            VideoPlayerMove.SetActive(true);
-            VideoPlayerCom.SetActive(false);
-
-        }
-        else if (current == 2)
-        {
-            VideoPlayerMove.SetActive(false);
-            VideoPlayerCom.SetActive(true);
-        }
-        else
-        {
-            VideoPlayerMove.SetActive(false);
-            VideoPlayerCom.SetActive(false);
-        }
-
         TutorialPage[current].SetActive(true);
         PageDot[current].SetActive(true);
     }
 
-    public void NextSubMove()
+    public void NextCombat()
     {
+        SubCombat[subCombatCurrent].SetActive(false);
+        subCombatPrevious = subCombatCurrent;
 
-        SubMovement[subCurrMove].SetActive(false);
-        subPrevMove = subCurrMove;
-
-        if(subCurrMove <= SubMovement.Length)
+        if(subCombatCurrent <= SubCombat.Length)
         {
-            subCurrMove++;
+            subCombatCurrent++;
 
-            if(subCurrMove == SubMovement.Length)
+            if(subCombatCurrent == SubCombat.Length)
             {
-                subCurrMove = 0;
+                subCombatCurrent = 0;
             }
         }
-        VideoController.instance.PlayVideo(subCurrMove);
-        SubMovement[subCurrMove].SetActive(true);
+
+        SubCombat[subCombatCurrent].SetActive(true);
     }
 
-    public void PrevSubMove()
+    public void PreviousCombat()
     {
-        SubMovement[subCurrMove].SetActive(false);
+        SubCombat[subCombatCurrent].SetActive(false);
         
-
-        if (subCurrMove >= 0)
+        if(subCombatPrevious >= 0)
         {
-            subPrevMove--;
+            subCombatPrevious--;
 
-            if (subPrevMove == -1)
+            if(subCombatPrevious == -1)
             {
-                subPrevMove = SubMovement.Length - 1;
+                subCombatPrevious = SubCombat.Length - 1;
             }
         }
 
-        subCurrMove = subPrevMove;
-        VideoController.instance.PlayVideo(subCurrMove);
-        SubMovement[subCurrMove].SetActive(true);
+        subCombatCurrent = subCombatPrevious;
+
+        SubCombat[subCombatCurrent].SetActive(true);
     }
 
-    public void NextSubCombat()
+    public void NextStep()
     {
-        SubCombat[subCurrCom].SetActive(false);
-        subPrevCom = subCurrCom;
+        GameObject[] Combat;
 
-        if (subCurrCom <= SubCombat.Length)
+        if (subCombatCurrent == 0)
         {
-            subCurrCom++;
+            Combat = punch;
+        }
+        else if (subCombatCurrent == 1)
+        {
+            Combat = kick;
+        }
+        else
+        {
+            Combat = sp_punch;
+        }
 
-            if (subCurrCom == SubCombat.Length)
+        Combat[currentStep].SetActive(false);
+        prevStep = currentStep;
+
+        if (currentStep <= Combat.Length)
+        {
+            currentStep++;
+
+            if (currentStep == Combat.Length)
             {
-                subCurrCom = 0;
+                currentStep = 0;
             }
         }
-        VideoController.instance.PlayVideo(subCurrCom);
-        SubCombat[subCurrCom].SetActive(true);
+        Combat[currentStep].SetActive(true);
     }
 
-    public void PrevSubCombat()
+    public void PreviousStep()
     {
-        SubCombat[subCurrCom].SetActive(false);
+        GameObject[] Combat;
 
-
-        if (subCurrCom >= 0)
+        if (subCombatCurrent == 0)
         {
-            subPrevCom--;
+            Combat = punch;
+        }
+        else if (subCombatCurrent == 1)
+        {
+            Combat = kick;
+        }
+        else
+        {
+            Combat = sp_punch;
+        }
 
-            if (subPrevCom == -1)
+        Combat[currentStep].SetActive(false);
+
+        if (prevStep >= 0)
+        {
+            prevStep--;
+
+            if (prevStep == -1)
             {
-                subPrevCom = SubCombat.Length - 1;
+                prevStep = Combat.Length - 1;
             }
         }
 
-        subCurrCom = subPrevCom;
-        VideoController.instance.PlayVideo(subCurrCom);
-        SubCombat[subCurrCom].SetActive(true);
+        currentStep = prevStep;
+        Combat[currentStep].SetActive(true);
     }
 
     public void closeTutorial()

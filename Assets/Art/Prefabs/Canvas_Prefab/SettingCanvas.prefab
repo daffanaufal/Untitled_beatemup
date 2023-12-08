@@ -156,7 +156,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6493278532518214666}
         m_TargetAssemblyTypeName: settingScripts, Assembly-CSharp
         m_MethodName: openVolumeSetting
         m_Mode: 1
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6493278532518214666}
         m_TargetAssemblyTypeName: settingScripts, Assembly-CSharp
         m_MethodName: openGraphicSetting
         m_Mode: 1
@@ -3440,7 +3440,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6493278532518214666}
         m_TargetAssemblyTypeName: settingScripts, Assembly-CSharp
         m_MethodName: openControllLanguange
         m_Mode: 1
@@ -3803,6 +3803,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4768442873096786829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7106387286956564323}
+  m_Layer: 5
+  m_Name: Addition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7106387286956564323
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768442873096786829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2377186738330420186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5098091398548474863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4672,9 +4707,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6493278532518214666}
         m_TargetAssemblyTypeName: settingScripts, Assembly-CSharp
-        m_MethodName: closeSetting
+        m_MethodName: closeSettingOnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4804,7 +4839,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6493278532518214666}
         m_TargetAssemblyTypeName: settingScripts, Assembly-CSharp
         m_MethodName: openControllSetting
         m_Mode: 1
@@ -5104,13 +5139,14 @@ GameObject:
   - component: {fileID: 2885638156809343751}
   - component: {fileID: 3273221799151320326}
   - component: {fileID: 2865213520678096976}
+  - component: {fileID: 6493278532518214666}
   m_Layer: 5
   m_Name: SettingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2377186738330420186
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5128,6 +5164,7 @@ RectTransform:
   - {fileID: 3721843512691732005}
   - {fileID: 5380063867379065312}
   - {fileID: 3332528849340990316}
+  - {fileID: 7106387286956564323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5198,6 +5235,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6493278532518214666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792863651080281343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4bc2a2508479d4398ae83e1d983929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingUI: {fileID: 4768442873096786829}
+  graphicMenu: {fileID: 5961327054708518721}
+  volumeMenu: {fileID: 1547451081772773461}
+  controlMenu: {fileID: 4223706216333907311}
+  langMenu: {fileID: 7077323417877759008}
 --- !u!1 &6794795789309040571
 GameObject:
   m_ObjectHideFlags: 0

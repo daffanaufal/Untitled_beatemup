@@ -13,16 +13,19 @@ public class Player_Health : MonoBehaviour
     public Image healthUI; //Fill amount nyawa
     public GameObject[] healthUIImg; //life count apabila health sudah 0, life akan deactive
     public GameObject gameOverCanvas;
+
     //protected bool OnPlayerDeath; //ADD BOOLEAN
-    public bool OnPlayerDeath=true;
+    public bool OnPlayerDeath=false;
     [SerializeField] private LayerMask medkitLayer;
     private Playermovement playerMovement;
     private enemy enemy;
+    private VFXchara VFXchara;
 
     private void Update()
     {
         //Health Bar fill agar terlihat terisi
-       healthUI.fillAmount = health / maxHealth;
+        healthUI.fillAmount = health / maxHealth;
+        DetectCollision();
     }
 
     void Start()
@@ -38,6 +41,7 @@ public class Player_Health : MonoBehaviour
         {
             health -= damage;
             GetComponentInChildren<Characteranimation>().Hit1(true);
+            //Debug.Log($"<color=green>Player=</color>" + health);
 
             // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
             if (health <= 0 && life >= 0)
@@ -52,14 +56,16 @@ public class Player_Health : MonoBehaviour
             damage = 0;
             GetComponentInChildren<Characteranimation>().Hit1(false);
             Debug.Log("Sedang guarding");
+            VFXchara = GameObject.Find("Player").GetComponent<VFXchara>();
+            VFXchara.FXPunch3.GetComponent<ParticleSystem>().Play();
         }
 
         // Kalau Player mati sementara dia reload Scene
-        if (life == 0)
+        if (life == -1)
         {
             Die();
 
-            OnPlayerDeath = true;     //Player Die
+            OnPlayerDeath = true;               //Player Die
             // Dead animation, Menu -> Active
             gameOverCanvas.SetActive(true);
 
@@ -77,33 +83,35 @@ public class Player_Health : MonoBehaviour
         GetComponentInChildren<Characteranimation>().Die();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DetectCollision()
     {
-        // Cek apakah objek yang bersentuhan memiliki layer "Medkit"
-        if (other.gameObject.layer == LayerMask.NameToLayer("Medkit"))
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+
+        foreach (Collider collider in colliders)
         {
-            // Ambil komponen script dari objek yang bersentuhan
-            Medkit medkit = other.GetComponent<Medkit>();
-
-            // Cek apakah komponen Medkit ada
-            if (medkit != null)
+            if (collider.CompareTag("Medkit"))
             {
-                // Tambahkan health dan maxHealth dari Medkit
-                health += medkit.healthBonus;
-                maxHealth += medkit.maxHealthBonus;
+                Medkit medkit = collider.GetComponent<Medkit>();
 
-                // Batasi health dan maxHealth agar tidak lebih dari 100
-                health = Mathf.Min(health, 100f);
-                maxHealth = Mathf.Min(maxHealth, 100f);
-
-                // Aktifkan kembali life UI jika health lebih besar dari 0
-                if (health > 0 && life < healthUIImg.Length)
+                if (medkit != null)
                 {
-                    healthUIImg[life].SetActive(true);
+                    // Tambahkan health dan maxHealth dari Medkit
+                    health += medkit.healthBonus;
+
+                    // Batasi health dan maxHealth agar tidak lebih dari 100
+                    health = Mathf.Min(health, 100f);
+
+                    // Aktifkan kembali life UI jika health lebih besar dari 0
+                    if (health > 0 && life < healthUIImg.Length)
+                    {
+                        healthUIImg[life].SetActive(true);
+                    }
+
+                    collider.gameObject.SetActive(false);
                 }
-
-
             }
         }
     }
+
+
 }

@@ -66711,6 +66711,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: ONStrongpunch
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.32
     functionName: Strong_Punch_Sound
     data: 
@@ -66719,14 +66726,28 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: DetectCollision_1
+    functionName: DetectCollision_SP
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36
-    functionName: activeVFX
+    functionName: OFFStrongpunch
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.36
+    functionName: ONfxbomb
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: 
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

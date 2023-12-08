@@ -10,6 +10,7 @@ public class ScriptScene : MonoBehaviour
     public GameObject WinUI;
     public GameObject[] locks;
     public bool isFinished;
+    public GameObject gembok;
 
     private GameData gameData;
 
@@ -40,7 +41,6 @@ public class ScriptScene : MonoBehaviour
             ShowTime();
         }
 
-        Finish();
     }
 
     public void PindahScene(string namaScene)
@@ -75,15 +75,14 @@ public class ScriptScene : MonoBehaviour
 
     public void Finish()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+       
             Time.timeScale = 0;
             if (WinUI != null)
             {
                 WinUI.SetActive(true);
             }
             isFinished = true;
-        }
+        
     }
 
     public void Continue(string key)
@@ -94,6 +93,17 @@ public class ScriptScene : MonoBehaviour
         CheckAndSetLocks();
     }
 
+
+    public void back1()
+    {
+        SceneManager.LoadScene("CharacterSelection");
+    }
+    public void back2()
+    {
+        SceneManager.LoadScene("Mainmenu");
+    }
+
+    // Metode untuk memeriksa dan mengatur status gembok
     void CheckAndSetLocks()
     {
         if (locks != null)
@@ -108,6 +118,7 @@ public class ScriptScene : MonoBehaviour
                     {
                         locks[i].SetActive(false);
                     }
+                    gembok.SetActive(false);
                 }
             }
         }
