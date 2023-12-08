@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-[System.Serializable]
-
-public class GameData 
+[Serializable]
+public class GameData
 {
-    public int enemyCount;
-
-    //the values defined in this contructor will be the default values
-    //the game starts with when there's no data to load
+    public float finalScore;
+    public float finalTime;
 
     public GameData()
     {
-        this.enemyCount = 0;
+        finalScore = 0;
+        finalTime = 0;
     }
 }

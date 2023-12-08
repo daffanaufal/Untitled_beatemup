@@ -11,9 +11,11 @@ public class ScriptScene : MonoBehaviour
     public GameObject[] locks;
     public bool isFinished;
 
+    private GameData gameData;
+
     private void Start()
     {
-        if (WinUI != null) // Pastikan WinUI sudah diinisialisasi sebelum digunakan
+        if (WinUI != null)
         {
             WinUI.SetActive(false);
         }
@@ -32,7 +34,6 @@ public class ScriptScene : MonoBehaviour
             Continue("Stage5");
         }
 
-        // Periksa apakah FinalScore dan FinalTime sudah diinisialisasi sebelum dipakai
         if (FinalScore != null && FinalTime != null)
         {
             ShowScore();
@@ -49,7 +50,7 @@ public class ScriptScene : MonoBehaviour
 
     public void ShowScore()
     {
-        if (ScoreController.singleton != null) // Periksa jika singleton sudah terinisialisasi
+        if (ScoreController.singleton != null)
         {
             FinalScore.text = ScoreController.singleton.GetTotalPoint().ToString();
         }
@@ -57,7 +58,7 @@ public class ScriptScene : MonoBehaviour
 
     public void ShowTime()
     {
-        if (TimeController.instance != null) // Periksa jika instance sudah terinisialisasi
+        if (TimeController.instance != null)
         {
             float TimeNow = TimeController.instance.TimeStage;
             float minute = Mathf.FloorToInt(TimeNow / 60);
@@ -77,7 +78,7 @@ public class ScriptScene : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Time.timeScale = 0;
-            if (WinUI != null) // Periksa jika WinUI sudah diinisialisasi sebelum digunakan
+            if (WinUI != null)
             {
                 WinUI.SetActive(true);
             }
@@ -87,31 +88,53 @@ public class ScriptScene : MonoBehaviour
 
     public void Continue(string key)
     {
-        // Next Stage Unlocked
         PlayerPrefs.SetInt(key, 1);
         SceneManager.LoadScene("StageSelection");
 
         CheckAndSetLocks();
     }
 
-    // Metode untuk memeriksa dan mengatur status gembok
     void CheckAndSetLocks()
     {
-        if (locks != null) // Periksa jika locks sudah diinisialisasi sebelum digunakan
+        if (locks != null)
         {
             for (int i = 0; i < locks.Length; i++)
             {
-                string stageKey = "Stage" + (i + 2); 
+                string stageKey = "Stage" + (i + 2);
 
-                // Jika PlayerPrefs menyatakan bahwa stage telah terbuka, gembok dihilangkan
                 if (PlayerPrefs.GetInt(stageKey, 0) == 1)
                 {
-                    if (locks[i] != null) // Periksa jika locks[i] sudah diinisialisasi sebelum digunakan
+                    if (locks[i] != null)
                     {
-                        locks[i].SetActive(false); 
+                        locks[i].SetActive(false);
                     }
                 }
             }
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data != null)
+        {
+            FinalScore.text = data.finalScore.ToString();
+            FinalTime.text = data.finalTime.ToString(); // Load waktu dari GameData
+        }
+    }
+
+    private void SaveData(ref GameData data)
+    {
+        if (data != null)
+        {
+            float score = 0;
+            float.TryParse(FinalScore.text, out score);
+
+            data.finalScore = score;
+
+            float time = 0;
+            float.TryParse(FinalTime.text.Replace(" Detik", ""), out time);
+
+            data.finalTime = time; // Simpan waktu ke dalam GameData
         }
     }
 }
