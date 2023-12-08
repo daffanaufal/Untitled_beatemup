@@ -67,7 +67,7 @@ public class MB_health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
-        Debug.Log("HP Enemy ="+currentHP);
+        Debug.Log($"<color=red>Player=</color>" + currentHP);
 
         if (currentHP<=HPStageThree)
         {
@@ -78,8 +78,6 @@ public class MB_health : MonoBehaviour
         {
             animator.SetTrigger("stageTwo");
             SpawnSt2.NextWave();
-            SpawnMedkit.NextWave();
-            kamera.shakecamera();
         }
 
         if (currentHP <= 0)                         //-----Enemy is Dead
@@ -145,6 +143,10 @@ public class MB_health : MonoBehaviour
         TanganL.GetComponent<Collider>().enabled = false;
         TanganR.GetComponent<Collider>().enabled = false;
     }
+    public void deActiveCollide()
+    {
+        GetComponent<Collider>().enabled=false;
+    }
     //------------Animation Attack Detect Collide------------
     public void LightATK()
     {
@@ -162,6 +164,9 @@ public class MB_health : MonoBehaviour
     {
         effectATK.GetComponent<ParticleSystem>().Play();
         effectATK.GetComponent<Collider>().enabled=true;
+
+            SpawnMedkit.NextWave();
+            kamera.shakecamera();
     }
     public void deactiveVFX()
     {   
