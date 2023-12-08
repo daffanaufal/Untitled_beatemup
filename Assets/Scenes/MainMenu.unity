@@ -1457,7 +1457,7 @@ AudioSource:
   m_GameObject: {fileID: 1594541224}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
+  OutputAudioMixerGroup: {fileID: -7070034113296886946, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
   m_audioClip: {fileID: 8300000, guid: e4272c9e8a71e4a41a359294ca3e4e18, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
@@ -1658,26 +1658,6 @@ PrefabInstance:
     - target: {fileID: 2377186738330420186, guid: a691584229e65924bb6a56efa22961d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047085604353294446, guid: a691584229e65924bb6a56efa22961d3, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047085604353294446, guid: a691584229e65924bb6a56efa22961d3, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047085604353294446, guid: a691584229e65924bb6a56efa22961d3, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 994854046}
-    - target: {fileID: 3047085604353294446, guid: a691584229e65924bb6a56efa22961d3, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047085604353294446, guid: a691584229e65924bb6a56efa22961d3, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6792863651080281343, guid: a691584229e65924bb6a56efa22961d3, type: 3}
       propertyPath: m_Name
