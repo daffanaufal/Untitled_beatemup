@@ -40,7 +40,6 @@ public class ScriptScene : MonoBehaviour
             ShowTime();
         }
 
-        Finish();
     }
 
     public void PindahScene(string namaScene)
@@ -75,15 +74,14 @@ public class ScriptScene : MonoBehaviour
 
     public void Finish()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+       
             Time.timeScale = 0;
             if (WinUI != null) // Periksa jika WinUI sudah diinisialisasi sebelum digunakan
             {
                 WinUI.SetActive(true);
             }
             isFinished = true;
-        }
+        
     }
 
     public void Continue(string key)
