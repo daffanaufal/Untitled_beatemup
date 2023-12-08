@@ -15,6 +15,8 @@ public class Playermovement : MonoBehaviour
     public float lompatan;
     public float dashSpeed = 10f;
 
+    public GameObject FXDash;
+
 
     internal bool isGuarding = false;
     private bool isRunning = false;
@@ -87,6 +89,7 @@ public class Playermovement : MonoBehaviour
     {
         if (dash_cooldown.isCoolingDown) return;
         player_Anim.Dash();
+        FXDash.GetComponent<ParticleSystem>().Play();
 
         // Menentukan arah dash (misalnya, ke depan karakter)
         Vector3 dashDirection = transform.forward;
