@@ -9392,7 +9392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1383347181
 Transform:
   m_ObjectHideFlags: 0
@@ -13710,6 +13710,18 @@ PrefabInstance:
     - target: {fileID: 2367286642965991185, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: DamageValue.ultimate
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: DamageValue.ParryValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: DamageValue.StrongPunch1Value
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
