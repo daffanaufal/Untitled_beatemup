@@ -20,8 +20,9 @@ public class TutorialScript : MonoBehaviour
     [SerializeField]
     private GameObject[] SubCombat;
 
-    private int current, previous, subCombatCurrent, subCombatPrevious, currentStep, prevStep;
+    private int current, previous, subCombatCurrent, subCombatPrevious, currentStep, prevStep, currentUtil, prevUtil;
 
+    public GameObject[] utility;
     public GameObject[] punch;
     public GameObject[] kick;
     public GameObject[] sp_punch;
@@ -41,6 +42,13 @@ public class TutorialScript : MonoBehaviour
         {
             TutorialCanvas.SetActive(true);
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log("current : " + currentUtil);
+
+        Debug.Log("previous : " + prevUtil);
     }
     // Start is called before the first frame update
     void Start()
@@ -89,6 +97,42 @@ public class TutorialScript : MonoBehaviour
 
         TutorialPage[current].SetActive(true);
         PageDot[current].SetActive(true);
+    }
+
+    public void NextUtil()
+    {
+        utility[currentUtil].SetActive(false);
+
+        if (currentUtil <= utility.Length)
+        {
+            currentUtil++;
+
+            if (currentUtil == utility.Length)
+            {
+                currentUtil = 0;
+            }
+        }
+
+        prevUtil = currentUtil;
+        utility[currentUtil].SetActive(true);
+    }
+
+    public void PrevUtil()
+    {
+        utility[currentUtil].SetActive(false);
+
+        if (prevUtil >= 0)
+        {
+            prevUtil--;
+
+            if (prevUtil == -1)
+            {
+                prevUtil = utility.Length - 1;
+            }
+        }
+
+        currentUtil = prevUtil;
+        utility[currentUtil].SetActive(true);
     }
 
     public void NextCombat()
