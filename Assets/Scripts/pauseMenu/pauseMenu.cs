@@ -19,7 +19,7 @@ public class pauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !ScriptScene.instance.isFinish())
         {
             if (isPaused)
             {
