@@ -1938,9 +1938,9 @@ MonoBehaviour:
     kick2Value: 25
     kick3Value: 25
     SpPunchValue: 50
-    SpKickValue: 25
-    ParryValue: 50
-    ultimate: 0
+    SpKickValue: 50
+    ParryValue: 70
+    ultimate: 100
   cooldown:
     cooldownTime: 5
   cooldown_layer: {fileID: 5835881793022783388, guid: a47ed783d987a234bb0372ae77bb8122, type: 3}
