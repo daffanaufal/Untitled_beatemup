@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using TMPro;
 
 public class Audio : MonoBehaviour
@@ -10,73 +11,69 @@ public class Audio : MonoBehaviour
 
     [SerializeField]
     private AudioMixer Mixer;
-    [SerializeField]
-    private AudioSource AudioSource;
+
     [SerializeField]
     private TextMeshProUGUI ValueTextMusic;
-    /*
+
     [SerializeField]
     private TextMeshProUGUI ValueTextSFX;
+
     [SerializeField]
-    private AudioMixMode MixMode;
+    private Slider volumeMusicSlider;
+
     [SerializeField]
-    public AudioMixerGroup musicMixerGroup;
-    [SerializeField]
-    public AudioMixerGroup sfxMixerGroup;
-    */
+    private Slider volumeSFXSlider;
 
     private void Awake()
     {
         source = this;
     }
 
-    public void onChangeSliderMusic(float value)
+    private void Start()
     {
-        ValueTextMusic.SetText($"{value.ToString("N1")}");
-        PlayerPrefs.SetFloat("MusicVolume", value);
-        Mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
-
-        /*
-        switch (MixMode)
+        if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            case AudioMixMode.LinearAudioSourceVolume:
-                AudioSource.volume = value;
-                break;
-            case AudioMixMode.LinearMixerVolume:
-                Mixer.SetFloat("MusicVolume", (-80 + value * 100));
-                break;
-            case AudioMixMode.LogrithmicMixerVolume:
-            Mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
-                break;
+            LoadMusicVolume();
         }
-        */
+
+        SetMusicVolume();
+
+        if (PlayerPrefs.HasKey("SfxVolume"))
+        {
+            LoadSFXVolume();
+        }
+
+        SetSFXVolume();
     }
 
-    /*
-    public void onChangeSliderSFX(float value)
+    public void SetMusicVolume()
     {
+        float value = volumeMusicSlider.value;
+        ValueTextMusic.SetText($"{value.ToString("N1")}");
+        Mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    public void SetSFXVolume()
+    {
+        float value = volumeSFXSlider.value;
         ValueTextSFX.SetText($"{value.ToString("N1")}");
-        PlayerPrefs.SetFloat("SFXVolume", value);
+        Mixer.SetFloat("SfxVolume", Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("SfxVolume", value);
     }
-    */
 
-    public enum AudioMixMode
+    public void LoadMusicVolume()
     {
-        LinearAudioSourceVolume,
-        LinearMixerVolume,
-        LogrithmicMixerVolume
+        volumeMusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+
+        SetMusicVolume();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void LoadSFXVolume()
     {
-        //Mixer.SetFloat("MusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 1) * 20));
-        //Mixer.SetFloat("SFXVolume", Mathf.Log10(PlayerPrefs.GetFloat("SFXVolume", 1) * 20));
+        volumeSFXSlider.value = PlayerPrefs.GetFloat("SfxVolume");
 
+        SetMusicVolume();
     }
 
-    public void Save()
-    {
-        PlayerPrefs.Save();
-    }
 }
