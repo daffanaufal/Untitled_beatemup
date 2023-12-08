@@ -1221,26 +1221,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &131415444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7052749508244773960, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
-  m_PrefabInstance: {fileID: 1651679816980675886}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &131415448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131415444}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea03cc789c99964bb15a1e0e328cb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mixer: {fileID: 0}
-  AudioSource: {fileID: 0}
-  ValueTextMusic: {fileID: 0}
 --- !u!65 &166275883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3383,7 +3363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &613787501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9412,7 +9392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1383347181
 Transform:
   m_ObjectHideFlags: 0
@@ -13731,21 +13711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5026506987652407882, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658251966062005816, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7052749508244773960, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 131415448}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
 --- !u!1001 &1954642067054351992
 PrefabInstance:
