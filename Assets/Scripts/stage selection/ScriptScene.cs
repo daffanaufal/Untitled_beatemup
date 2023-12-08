@@ -6,8 +6,6 @@ using TMPro;
 
 public class ScriptScene : MonoBehaviour
 {
-    public static ScriptScene instance;
-
     public TextMeshProUGUI FinalScore, FinalTime;
     public GameObject WinUI;
     public GameObject[] locks;
@@ -18,8 +16,6 @@ public class ScriptScene : MonoBehaviour
 
     private void Start()
     {
-        instance = this;
-
         if (WinUI != null)
         {
             WinUI.SetActive(false);
@@ -95,11 +91,6 @@ public class ScriptScene : MonoBehaviour
         SceneManager.LoadScene("StageSelection");
 
         CheckAndSetLocks();
-    }
-
-    public bool isFinish()
-    {
-        return isFinished;
     }
 
 

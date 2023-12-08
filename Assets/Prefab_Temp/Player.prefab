@@ -9000,10 +9000,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3380136677348075823, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 226515823270444340, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
     - target: {fileID: 5992857858693759102, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: dash_skill_position
       value: 
@@ -9013,25 +9009,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1506527229992045149}
     - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: DamageValue.ultimate
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: skill_posisiton_punch
       value: 
       objectReference: {fileID: 3036711297671953387}
-    - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: DamageValue.ParryValue
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 6998123767861408336, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: DamageValue.StrongPunch1Value
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523713655879580485, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -7070034113296886946, guid: 348e31f1d3b6ff74d93423602c768603, type: 2}
     - target: {fileID: 8210378941319581849, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: healthUI
       value: 

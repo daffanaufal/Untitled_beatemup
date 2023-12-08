@@ -88,6 +88,11 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.JUMP_TRIGGER);
     }
 
+    public void throwe()
+    {
+        anim.SetTrigger(AnimationTags.throwe);
+    }
+
 
     public void Hit1(bool hit1)
     { anim.SetBool("gethit1", hit1);}
