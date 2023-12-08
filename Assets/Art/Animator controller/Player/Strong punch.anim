@@ -66739,15 +66739,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
-    functionName: ONStrongpunch2
+  - time: 0.36
+    functionName: ONfxbomb
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.52
-    functionName: OFFStrongpunch2
+  - time: 0.6
+    functionName: 
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

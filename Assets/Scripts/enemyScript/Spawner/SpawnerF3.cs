@@ -70,8 +70,11 @@ public class SpawnerF3 : MonoBehaviour
 
 		if (enemiesRemainingAlive == 0 && currentWaveNumber == waves.Length)
 		{
+
 			// Semua musuh telah dikalahkan dan wave telah habis, tampilkan UI WinCanvas
-			WinUI.SetActive(true);
+			ScriptScene scriptScene = GameObject.Find("Win").GetComponent<ScriptScene>();
+
+			scriptScene.Finish();
 		}
 		else if (enemiesRemainingAlive == 0)
 		{
