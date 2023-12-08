@@ -26,6 +26,7 @@ public class AnimationTags
     public const string DIE_TRIGGER = "die";
     public const string Wakeup = "wakeup";
     public const string Dash = "Dash";
+    public const string Ulti = "Ultimate";
 
     public class Axis
     {

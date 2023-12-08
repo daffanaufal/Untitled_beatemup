@@ -102,6 +102,11 @@ public class Characteranimation : MonoBehaviour
         anim.SetTrigger(AnimationTags.Dash);
     }
 
+    public void Ulti()
+    {
+        anim.SetTrigger(AnimationTags.Ulti);
+    }
+
     //---------SFX-------------
     public void Attack_FX_Sound()
     {

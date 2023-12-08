@@ -226,9 +226,10 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            player_anim.Specialkick();
-            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^ 
+            player_anim.Ulti();
+            playerAttackUniversal.SetDamage(DamageValue.ultimate); //EDIT AJA YAKK ^^ 
             UlrimateController.instance.UltimateReset();
+            GetComponentInChildren<Characteranimation>().Hit1(false);
         }
     }
 
@@ -270,5 +271,6 @@ public class PlayerAttack : MonoBehaviour
         public int SpPunchValue;        //Special Attack value
         public int SpKickValue;
         public int ParryValue;
+        public int ultimate;
     }
 }
