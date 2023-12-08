@@ -72,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
         ResetComboState();
         specialattackpunch();
         specialattackkick();
+        UltimateMove();
         Counter();
     }
 
@@ -218,6 +219,19 @@ public class PlayerAttack : MonoBehaviour
         }
         
     }
+
+    void UltimateMove()
+    {
+        if (!UlrimateController.instance.isUltimateReady()) return;
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            player_anim.Specialkick();
+            playerAttackUniversal.SetDamage(DamageValue.SpKickValue); //EDIT AJA YAKK ^^ 
+            UlrimateController.instance.UltimateReset();
+        }
+    }
+
     public void lanjut()
     {
         canMove = true;

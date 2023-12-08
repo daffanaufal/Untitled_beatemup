@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UlrimateController : MonoBehaviour
 {
+    public static UlrimateController instance;
+
     [SerializeField]
     private Image[] fillUltimateBar;
 
@@ -19,6 +21,8 @@ public class UlrimateController : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         for(int i = 0; i < 5; i++)
         {
             fillUltimateBar[i].fillAmount = 0;
@@ -45,5 +49,11 @@ public class UlrimateController : MonoBehaviour
     public bool isUltimateReady()
     {
         return ultimateReady;
+    }
+
+    public void UltimateReset()
+    {
+        charge = 0;
+        ultimateReady = false;
     }
 }
