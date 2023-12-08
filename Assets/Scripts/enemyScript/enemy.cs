@@ -60,6 +60,7 @@ public class enemy : MonoBehaviour
         }
         
         currentHP -= damageAmount;                  //Hp dikurang value damage
+        //Debug.Log($"<color=red>Player=</color>" + currentHP);
         
         if (currentHP <= 0)
         {
@@ -87,6 +88,7 @@ public class enemy : MonoBehaviour
         GameObject.Destroy(gameObject, 2f);
         animator.SetTrigger("die");
         GetComponent<Collider>().enabled = false;
+        deActiveATK();
     }
     
     void Update()
@@ -150,21 +152,21 @@ public class enemy : MonoBehaviour
 
     public void ONcounterattack()
     {
-        Debug.Log("Counter attack");
+        //Debug.Log("Counter attack");
         counterUI.SetActive(true);
 
         PlayerAttack = GameObject.Find("Player").GetComponent<PlayerAttack>();
 
         if (PlayerAttack != null)
         {
-            Debug.Log("PlayerAttack found!");
+            //Debug.Log("PlayerAttack found!");
             PlayerAttack.lanjut();
         }
     }
 
     public void OFFcounterattack()
     {
-        Debug.Log("OFFcounterattack called");
+        //Debug.Log("OFFcounterattack called");
         counterUI.SetActive(false);
 
         PlayerAttack = GameObject.Find("Player").GetComponent<PlayerAttack>();
