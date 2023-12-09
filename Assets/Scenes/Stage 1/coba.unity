@@ -1072,6 +1072,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: DamageValue.punch1Value
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301661344411000802, guid: 4f94fa3d8d7ba6643bb676233598f557, type: 3}
+      propertyPath: DamageValue.punch2Value
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
