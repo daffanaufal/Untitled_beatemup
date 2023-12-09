@@ -35,8 +35,8 @@ public class MB_health : MonoBehaviour
     //------------Health------------
     //public Slider healthBar;
     public int maxHP;
-    public int HPStageTwo;
-    public int HPStageThree;
+    //public int HPStageTwo;
+    //public int HPStageThree;
     int currentHP;
 
     //------------SFX----------------
@@ -67,19 +67,18 @@ public class MB_health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
-        Debug.Log("HP Enemy ="+currentHP);
 
-        if (currentHP<=HPStageThree)
+        if (currentHP<=600)
+        {
+            animator.SetTrigger("stageTwo");
+            SpawnMedkit.NextWave();
+            Debug.Log($"<color=blue>MiniBoss=</color>" + currentHP);
+        }
+        if (currentHP<=300)
         {
             animator.SetTrigger("stageThree");
             SpawnMedkit.NextWave();
-        }
-        if (currentHP<=HPStageTwo)
-        {
-            animator.SetTrigger("stageTwo");
-            SpawnSt2.NextWave();
-            SpawnMedkit.NextWave();
-            kamera.shakecamera();
+            //Debug.Log($"<color=red>MiniBoss=</color>" + currentHP);
         }
 
         if (currentHP <= 0)                         //-----Enemy is Dead
@@ -145,6 +144,15 @@ public class MB_health : MonoBehaviour
         TanganL.GetComponent<Collider>().enabled = false;
         TanganR.GetComponent<Collider>().enabled = false;
     }
+    public void ActiveCollide()
+    {
+        GetComponent<Collider>().enabled = true;
+    }
+    public void deActiveCollide()
+    {
+        GetComponent<Collider>().enabled = false;
+    }
+
     //------------Animation Attack Detect Collide------------
     public void LightATK()
     {
@@ -171,6 +179,9 @@ public class MB_health : MonoBehaviour
     public void activeVFXscream()
     {
         effectScream.GetComponent<ParticleSystem>().Play();
+        kamera.shakecamera();
+        SpawnSt2.NextWave();
+        Debug.Log($"<color=red>VFX + Minion Spawn</color>");
     }
     public void deactiveVFXscream()
     {   

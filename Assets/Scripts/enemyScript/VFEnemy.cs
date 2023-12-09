@@ -22,12 +22,12 @@ public class Vfxenemy : MonoBehaviour
     public void ONDamage()
     {
         FXdamage.GetComponent<ParticleSystem>().Play();
-        FXdamage.GetComponent<Collider>().enabled = true;
+        //FXdamage.GetComponent<Collider>().enabled = true;
     }
     public void OFFDamage()
     {
         FXdamage.GetComponent<ParticleSystem>().Stop();
-        FXdamage.GetComponent<Collider>().enabled = false;
+        //FXdamage.GetComponent<Collider>().enabled = false;
     }
     //------Trail----
     public void ONTrail()
@@ -149,12 +149,10 @@ public class Vfxenemy : MonoBehaviour
      public void ONBlood()
     {
         FXBlood.GetComponent<ParticleSystem>().Play();
-        FXBlood.GetComponent<Collider>().enabled = true;
     }
     public void OFBlood()
     {
         FXBlood.GetComponent<ParticleSystem>().Stop();
-        FXBlood.GetComponent<Collider>().enabled = false;
     }
 
 }
