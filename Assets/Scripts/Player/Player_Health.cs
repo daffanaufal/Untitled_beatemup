@@ -66,12 +66,53 @@ public class Player_Health : MonoBehaviour
             Die();
 
             OnPlayerDeath = true;               //Player Die
-            // Dead animation, Menu -> Active
-            gameOverCanvas.SetActive(true);
-
-            // Stop any movement
-            //Time.timeScale = 0
+            Invoke("ActivateGameOver", 2f);
         }
+    } public void TakeDamageboss(float damage)
+    {
+        // Pengurangan health player apabila terkena serangan
+        if (!playerMovement.isGuarding)
+        {
+            health -= damage;
+            GetComponentInChildren<Characteranimation>().throwe();
+            //Debug.Log($"<color=green>Player=</color>" + health);
+
+            // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
+            if (health <= 0 && life >= 0)
+            {
+                healthUIImg[life].SetActive(false);
+                life--;
+                health += maxHealth;
+            }
+        }
+        else
+        {
+            damage = 0;
+            GetComponentInChildren<Characteranimation>().Hit1(false);
+            Debug.Log("Sedang guarding");
+            VFXchara = GameObject.Find("Player").GetComponent<VFXchara>();
+            VFXchara.FXPunch3.GetComponent<ParticleSystem>().Play();
+        }
+
+        // Kalau Player mati sementara dia reload Scene
+        if (life == -1)
+        {
+            Die();
+
+            OnPlayerDeath = true;               //Player Die
+            Invoke("ActivateGameOver", 2f);
+        }
+    }
+
+    void ActivateGameOver()
+    {
+        Debug.Log("Activating Game Over after 2 seconds");
+
+        // Dead animation, Menu -> Active
+        gameOverCanvas.SetActive(true);
+
+        Debug.Log("Time.timeScale set to 0");
+        Time.timeScale = 0;
     }
 
     void Die()

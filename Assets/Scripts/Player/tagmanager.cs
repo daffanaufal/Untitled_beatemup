@@ -27,6 +27,7 @@ public class AnimationTags
     public const string Wakeup = "wakeup";
     public const string Dash = "Dash";
     public const string Ulti = "Ultimate";
+    public const string throwe = "Throwed";
 
     public class Axis
     {

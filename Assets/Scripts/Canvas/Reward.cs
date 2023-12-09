@@ -58,10 +58,10 @@ public class Reward : MonoBehaviour
     }
     public void increasestime()
     {
-        if (timeController != null)
+        if (playerAttack != null)
         {
-            // Menambahkan 30 detik waktu
-            timeController.TimeStage += 30f;
+            // Menambahkan 10% ke damage ultimate
+            playerAttack.DamageValue.ultimate += (int)(playerAttack.DamageValue.ultimate * 0.1f);
         }
 
         RewardCanvas.SetActive(false);

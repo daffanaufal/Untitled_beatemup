@@ -152,6 +152,7 @@ public class MB_health : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
     }
+
     //------------Animation Attack Detect Collide------------
     public void LightATK()
     {
@@ -169,9 +170,6 @@ public class MB_health : MonoBehaviour
     {
         effectATK.GetComponent<ParticleSystem>().Play();
         effectATK.GetComponent<Collider>().enabled=true;
-
-            SpawnMedkit.NextWave();
-            kamera.shakecamera();
     }
     public void deactiveVFX()
     {   

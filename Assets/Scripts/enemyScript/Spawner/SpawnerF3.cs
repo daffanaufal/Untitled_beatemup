@@ -61,27 +61,33 @@ public class SpawnerF3 : MonoBehaviour
             	enemy spawnedEnemy = enemyObject.GetComponent<enemy>();
 				spawnedEnemy.OnDeath += OnEnemyDeath;
 			}
-		}
-	}
+        }
+    }
 
-	void OnEnemyDeath()
-	{
-		enemiesRemainingAlive--;
+    void OnEnemyDeath()
+    {
+        enemiesRemainingAlive--;
 
-		if (enemiesRemainingAlive == 0 && currentWaveNumber == waves.Length)
-		{
+        if (enemiesRemainingAlive == 0 && currentWaveNumber == waves.Length)
+        {
 
 			// Semua musuh telah dikalahkan dan wave telah habis, tampilkan UI WinCanvas
-			ScriptScene scriptScene = GameObject.Find("Win").GetComponent<ScriptScene>();
+			Invoke("ActivateWinUI", 5f);
+		}
+        else if (enemiesRemainingAlive == 0)
+        {
+            // Jika semua musuh telah dikalahkan dalam wave saat ini, lanjutkan ke wave berikutnya
+            NextWave();
+            NextFloor();
+        }
+    }
 
-			scriptScene.Finish();
-		}
-		else if (enemiesRemainingAlive == 0)
-		{
-			// Jika semua musuh telah dikalahkan dalam wave saat ini, lanjutkan ke wave berikutnya
-			NextWave();
-			NextFloor();
-		}
+	void ActivateWinUI()
+	{
+		ScriptScene scriptScene = GameObject.Find("Win").GetComponent<ScriptScene>();
+
+		scriptScene.Finish();
+		Time.timeScale = 0;
 	}
 
 	void NextFloor()
