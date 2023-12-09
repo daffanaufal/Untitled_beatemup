@@ -104,6 +104,11 @@ public class ScriptScene : MonoBehaviour
     }
 
     // Metode untuk memeriksa dan mengatur status gembok
+
+    bool IsStage2Unlocked()
+    {
+        return PlayerPrefs.GetInt("Stage2", 0) == 1;
+    }
     void CheckAndSetLocks()
     {
         if (locks != null)
@@ -118,11 +123,32 @@ public class ScriptScene : MonoBehaviour
                     {
                         locks[i].SetActive(false);
                     }
-                    gembok.SetActive(false);
+
+                    if (IsStage2Unlocked())
+                    {
+                        DisableGembok();
+                    }
                 }
             }
         }
     }
+
+    void DisableGembok()
+    {
+        if (gembok != null)
+        {
+            gembok.SetActive(false);
+        }
+    }
+
+    void SetGembokActive(bool active)
+    {
+        if (gembok != null)
+        {
+            gembok.SetActive(active);
+        }
+    }
+
 
     public void LoadData(GameData data)
     {
