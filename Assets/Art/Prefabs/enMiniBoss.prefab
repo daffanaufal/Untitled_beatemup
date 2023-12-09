@@ -65,8 +65,6 @@ MonoBehaviour:
   damageR: 10
   animator: {fileID: 95259621755087314}
   maxHP: 750
-  HPStageTwo: 600
-  HPStageThree: 300
   scream: {fileID: 8300000, guid: aac3d6f8391f0e543aadd66f0f54fbfd, type: 3}
   gethitboss: {fileID: 8300000, guid: 93d0a18c02941f74a88f597780de0a41, type: 3}
   heavyatkmb: {fileID: 8300000, guid: b2d5b4ff53995ca459c0d7b7cbc50c36, type: 3}
@@ -161,8 +159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2281759, y: 2.8676028, z: 1.2607197}
-  m_Center: {x: 0.037597567, y: 1.4338014, z: -0.03535986}
+  m_Size: {x: 1.2281759, y: 2.8676028, z: 1.6781945}
+  m_Center: {x: 0.037597537, y: 1.4338014, z: 0.17337757}
 --- !u!82 &2224667956917200595
 AudioSource:
   m_ObjectHideFlags: 0
