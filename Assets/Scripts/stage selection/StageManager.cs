@@ -9,14 +9,11 @@ public class StageManager : MonoBehaviour
 {
     public Button buttonStage2;
     public Button buttonStage3;
-    public GameObject quit;
-    public GameObject gembok;
 
     void Start()
     {
        CheckStage();
-       CheckAndDisableGembok();
-
+       ResetStage();
     }
 
     public void SelectStage(int stageIndex)
@@ -54,27 +51,7 @@ public class StageManager : MonoBehaviour
             PlayerPrefs.SetInt("StageBoss", 0);
         }
     }
-
-    public void keluar()
-    {
-        quit.SetActive(true);
-    }
-
-    public void kembali()
-    {
-        SceneManager.LoadScene("CharacterSelection");
-    }
-    void CheckAndDisableGembok()
-    {
-        if (buttonStage2.interactable && gembok != null)
-        {
-            gembok.SetActive(false);
-        }
-        else
-        {
-            gembok.SetActive(true);
-        }
-    }
+   
 
     //Stage2
     //StageBoss
