@@ -23,9 +23,13 @@ public class TutorialScript : MonoBehaviour
     private int current, previous, subCombatCurrent, subCombatPrevious, currentStep, prevStep, currentUtil, prevUtil;
 
     public GameObject[] utility;
+
     public GameObject[] punch;
     public GameObject[] kick;
     public GameObject[] sp_punch;
+    public GameObject[] sp_kick;
+    public GameObject[] ultimate;
+    public GameObject[] dash;
 
 
     private void Awake()
@@ -184,10 +188,23 @@ public class TutorialScript : MonoBehaviour
         {
             Combat = kick;
         }
-        else
+        else if (subCombatCurrent == 2)
         {
             Combat = sp_punch;
         }
+        else if (subCombatCurrent == 3)
+        {
+            Combat = sp_kick;
+        }
+        else if (subCombatCurrent == 4)
+        {
+            Combat = ultimate;
+        }
+        else
+        {
+            Combat = dash;
+        }
+
 
         Combat[currentStep].SetActive(false);
         prevStep = currentStep;
