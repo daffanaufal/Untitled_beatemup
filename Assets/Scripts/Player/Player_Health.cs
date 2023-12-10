@@ -75,6 +75,8 @@ public class Player_Health : MonoBehaviour
         {
             health -= damage;
             GetComponentInChildren<Characteranimation>().throwe();
+            GetComponentInChildren<Characteranimation>().wakeup();
+
 
             // Apabila nyawa 0, life berkurang dan nyawa akan kembali penuh
             if (health <= 0 && life >= 0)
