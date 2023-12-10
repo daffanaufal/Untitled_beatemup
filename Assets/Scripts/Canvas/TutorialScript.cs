@@ -50,9 +50,9 @@ public class TutorialScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("current : " + currentUtil);
+        Debug.Log("current : " + current);
 
-        Debug.Log("previous : " + prevUtil);
+        Debug.Log("previous : " + previous);
     }
     // Start is called before the first frame update
     void Start()
@@ -87,7 +87,6 @@ public class TutorialScript : MonoBehaviour
     {
         TutorialPage[current].SetActive(false);
         PageDot[current].SetActive(false);
-        previous = current;
 
         if(current <= TutorialPage.Length)
         {
@@ -99,6 +98,7 @@ public class TutorialScript : MonoBehaviour
             }
         }
 
+        previous = current;
         TutorialPage[current].SetActive(true);
         PageDot[current].SetActive(true);
     }
