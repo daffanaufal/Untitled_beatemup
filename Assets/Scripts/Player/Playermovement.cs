@@ -88,6 +88,8 @@ public class Playermovement : MonoBehaviour
     void Dash()
     {
         if (dash_cooldown.isCoolingDown) return;
+        Instantiate(dash_cooldown_layer, dash_skill_position);
+        dash_cooldown.StartCooldown();
         player_Anim.Dash();
         FXDash.GetComponent<ParticleSystem>().Play();
 
@@ -100,18 +102,23 @@ public class Playermovement : MonoBehaviour
         // Membuat ray dari posisi karakter ke arah dash
         Ray dashRay = new Ray(transform.position, dashDirection);
 
-        // Mengecek apakah ada objek dengan layer "Wall" di depan karakter
-        if (Physics.Raycast(dashRay, out RaycastHit hit, dashRayLength) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Tembok"))
+        // Mengecek apakah ada objek dengan layer "Tembok" di depan karakter
+        RaycastHit[] hits = Physics.RaycastAll(dashRay, dashRayLength);
+
+        // Mengecek setiap objek yang terkena ray
+        foreach (RaycastHit hit in hits)
         {
-            // Ada tembok, dash tidak dapat dijalankan
-            return;
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tembok"))
+            {
+                // Ada tembok, dash tidak dapat dijalankan
+                return;
+            }
         }
 
         // Melakukan teleportasi ke posisi dash
         transform.position += dashDirection * dashDistance;
-        Instantiate(dash_cooldown_layer, dash_skill_position);
-        dash_cooldown.StartCooldown();
     }
+
 
     void FixedUpdate()
     {
