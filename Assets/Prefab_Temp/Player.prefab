@@ -2802,7 +2802,7 @@ Canvas:
   m_GameObject: {fileID: 3053164149480018681}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -6816,7 +6816,7 @@ Canvas:
   m_GameObject: {fileID: 7396574642581514318}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -9037,7 +9037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269628292827983771, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -952.32
+      value: -952.9
       objectReference: {fileID: 0}
     - target: {fileID: 2269628292827983771, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9045,7 +9045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269628292827983771, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.23
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 2269628292827983771, guid: 20ec3c70b0cba3d4ebe5ed02ed4cf0d9, type: 3}
       propertyPath: m_LocalRotation.w
